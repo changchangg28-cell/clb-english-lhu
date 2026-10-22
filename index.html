@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLB Tiếng Anh & Cuộc Thi Video ASU Master Class | Đại Học Lạc Hồng (LHU)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          },
+          colors: {
+            lhu: {
+              blue: '#1E4E9D',
+              darkBlue: '#0F2C59',
+              lightBlue: '#EAF2FF',
+              gold: '#DCA326',
+              lightGold: '#FEF7E6',
+            },
+            asu: {
+              maroon: '#8C1D40',
+              gold: '#FFC627',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      color: #0f172a;
+      background-color: #f8fafc;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #0F2C59 0%, #1E4E9D 55%, #8C1D40 100%);
+    }
+    .gold-gradient {
+      background: linear-gradient(135deg, #DCA326 0%, #F59E0B 100%);
+    }
+    .card-hover {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(15, 44, 89, 0.12), 0 8px 10px -6px rgba(15, 44, 89, 0.08);
+    }
+    .vocab-pill {
+      display: inline-block;
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+      border-radius: 9999px;
+      padding: 2px 10px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin: 2px;
+    }
+    /* Presentation Mode enlargement */
+    body.presentation-mode {
+      font-size: 112%;
+    }
+    body.presentation-mode .max-w-7xl {
+      max-width: 94vw;
+    }
+    @media print {
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-lhu-gold selection:text-white">
+
+  <!-- TOP STICKY NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <!-- Logo & Brand -->
+      <a href="#top" class="flex items-center gap-3 group">
+        <img src="assets/lhu-logo.png" alt="Lac Hong University Logo" class="h-14 w-auto object-contain transition-transform group-hover:scale-105" />
+        <div class="hidden sm:block border-l-2 border-slate-200 pl-3">
+          <span class="block text-xs font-bold tracking-wider uppercase text-asu-maroon">Khoa Công Nghệ Thông Tin</span>
+          <span class="block text-base font-extrabold text-lhu-darkBlue">CLB Tiếng Anh & ASU Master Class</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 text-sm font-semibold text-slate-700">
+        <a href="#muc-tieu" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-lhu-blue transition">1. Mục tiêu & Lộ trình</a>
+        <a href="#ke-hoach-9-tuan" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-lhu-blue transition">2. Chi tiết 9 Tuần CLB</a>
+        <a href="#bang-tong-hop" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-lhu-blue transition">Bảng Kế Hoạch Đầy Đủ</a>
+        <a href="#cuoc-thi-asu" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-asu-maroon transition">3. Cuộc thi Video ASU</a>
+        <a href="#hinh-anh" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-lhu-blue transition">Hình ảnh Hoạt động</a>
+      </nav>
+
+      <!-- Action Controls for Presenter -->
+      <div class="flex items-center gap-2">
+        <button id="btnPresentationMode" onclick="togglePresentationMode()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold transition border border-slate-300" title="Phóng to chữ & tối ưu khung hình để trình chiếu máy chiếu">
+          <svg class="w-4 h-4 text-lhu-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span id="presentationBtnText">Chế độ Trình chiếu</span>
+        </button>
+        <a href="#cuoc-thi-asu" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-asu-maroon hover:bg-rose-900 text-white text-sm font-bold shadow-md transition">
+          <span>Thể lệ Thi Video</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION (KICKOFF BANNER) -->
+  <section id="top" class="hero-gradient text-white relative overflow-hidden">
+    <!-- Decorative Background Elements -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-asu-gold blur-3xl"></div>
+      <div class="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-sky-400 blur-3xl"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        
+        <!-- Left Column: Kickoff Info -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex flex-wrap items-center gap-2 bg-white/15 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/25 text-xs sm:text-sm font-semibold">
+            <span class="px-2 py-0.5 rounded-full bg-asu-gold text-slate-900 font-extrabold uppercase">KICKOFF 2026</span>
+            <span>Chương trình Song Ngữ • Tân Sinh Viên & Toàn Khoa CNTT (5 Ngành)</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+            LỘ TRÌNH SINH HOẠT <span class="text-asu-gold">CLB TIẾNG ANH</span> & CUỘC THI VIDEO <span class="underline decoration-asu-gold decoration-4 underline-offset-8">ASU MASTER CLASS</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-100 leading-relaxed max-w-2xl">
+            Hành trình <strong>9 tuần bứt phá giao tiếp tiếng Anh</strong> thông qua nguồn học liệu quốc tế từ <strong>Arizona State University (ASU)</strong>. Học qua video thực tiễn, thảo luận phản biện, thuyết trình nhóm và rinh <strong>Chứng nhận số quốc tế (ASU Digital Badge)</strong> cùng giải thưởng hấp dẫn từ Khoa!
+          </p>
+
+          <!-- Key Quick Stats Pills -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-3.5">
+              <div class="text-xs text-sky-200 uppercase font-semibold">Thời gian</div>
+              <div class="text-lg sm:text-xl font-extrabold text-white mt-0.5">26/10 – 12/2026</div>
+              <div class="text-xs text-slate-300 mt-0.5">Nghỉ 1 tuần lễ 20/11</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-3.5">
+              <div class="text-xs text-sky-200 uppercase font-semibold">Thời lượng</div>
+              <div class="text-lg sm:text-xl font-extrabold text-asu-gold mt-0.5">9 Tuần</div>
+              <div class="text-xs text-slate-300 mt-0.5">4 Chủ đề lớn + Tổng kết</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-3.5">
+              <div class="text-xs text-sky-200 uppercase font-semibold">Sinh hoạt CLB</div>
+              <div class="text-lg sm:text-xl font-extrabold text-white mt-0.5">SV Năm 1</div>
+              <div class="text-xs text-slate-300 mt-0.5">Định hướng Song ngữ</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-3.5">
+              <div class="text-xs text-sky-200 uppercase font-semibold">Cuộc thi Video</div>
+              <div class="text-lg sm:text-xl font-extrabold text-asu-gold mt-0.5">Toàn Khoa CNTT</div>
+              <div class="text-xs text-slate-300 mt-0.5">Mở rộng cả 5 ngành</div>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#ke-hoach-9-tuan" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-asu-gold hover:bg-amber-400 text-slate-900 font-extrabold text-sm sm:text-base shadow-lg transition transform hover:-translate-y-0.5">
+              <span>Xem Chi Tiết 9 Tuần Học</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </a>
+            <a href="#cuoc-thi-asu" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/15 hover:bg-white/25 text-white border border-white/30 font-bold text-sm sm:text-base backdrop-blur-sm transition">
+              <span>Thể Lệ & Tiêu Chí Chấm Thi Video</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Logo Card + Activity Photo Collage -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="bg-white rounded-2xl p-4 shadow-2xl border-4 border-asu-gold/80">
+            <div class="flex items-center justify-between bg-slate-50 rounded-xl px-4 py-3 mb-3 border border-slate-100">
+              <img src="assets/lhu-logo.png" alt="LHU Powered by ASU" class="h-12 sm:h-14 object-contain mx-auto" />
+            </div>
+            <div class="grid grid-cols-2 gap-2.5">
+              <div class="col-span-2 relative rounded-xl overflow-hidden aspect-video group cursor-pointer" onclick="openLightbox('assets/activity-1.jpg', 'Sinh viên LHU tự tin giao lưu và nhận chứng nhận tại ASU Master Class')">
+                <img src="assets/activity-1.jpg" alt="ASU Master Class LHU" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span class="text-white text-xs font-semibold">✨ Không khí sôi nổi tại chương trình ASU Master Class LHU</span>
+                </div>
+              </div>
+              <div class="relative rounded-xl overflow-hidden aspect-video group cursor-pointer" onclick="openLightbox('assets/activity-3.jpg', 'Hướng dẫn ứng dụng công cụ AI vào học tập tiếng Anh')">
+                <img src="assets/activity-3.jpg" alt="Học với AI" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-2">
+                  <span class="text-white text-[11px] font-medium">🤖 Ứng dụng AI thực tiễn</span>
+                </div>
+              </div>
+              <div class="relative rounded-xl overflow-hidden aspect-video group cursor-pointer" onclick="openLightbox('assets/activity-5.jpg', 'Thảo luận nhóm & làm việc cùng nhau trong buổi sinh hoạt')">
+                <img src="assets/activity-5.jpg" alt="Thảo luận nhóm" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-2">
+                  <span class="text-white text-[11px] font-medium">🗣️ Thảo luận & Thuyết trình nhóm</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1: MỤC TIÊU, ĐỐI TƯỢNG & MÔ HÌNH HỌC TẬP -->
+  <section id="muc-tieu" class="py-14 lg:py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-lhu-lightBlue text-lhu-blue font-extrabold text-xs uppercase tracking-wider">Phần 1 • Tổng quan chương trình</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-lhu-darkBlue">MỤC TIÊU, ĐỐI TƯỢNG & PHƯƠNG PHÁP HỌC</h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Sự kết hợp đồng bộ giữa <strong>9 tuần sinh hoạt CLB Tiếng Anh</strong> dành cho Tân sinh viên và <strong>Cuộc thi Video ASU Master Class</strong> mở rộng cho toàn Khoa (5 ngành).
+        </p>
+      </div>
+
+      <!-- 3 Core Objectives + Target Audience Split -->
+      <div class="grid lg:grid-cols-3 gap-6">
+        <!-- Card 1: Mục tiêu -->
+        <div class="bg-slate-50 rounded-2xl p-6 sm:p-7 border border-slate-200 card-hover relative overflow-hidden">
+          <div class="w-12 h-12 rounded-2xl bg-lhu-blue text-white flex items-center justify-center font-black text-xl mb-5 shadow-md">
+            🎯
+          </div>
+          <h3 class="text-xl font-extrabold text-lhu-darkBlue mb-3">Mục Tiêu Cốt Lõi</h3>
+          <ul class="space-y-3 text-slate-700 text-sm sm:text-base">
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-600 font-bold mt-0.5">✔</span>
+              <span><strong>Tự tin nói tiếng Anh:</strong> Giao tiếp và phản xạ tự nhiên về các chủ đề gần gũi với đời sống sinh viên (AI, Học ĐH & Du học, Mục đích sống & Hạnh phúc, Kiểm soát Stress).</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-600 font-bold mt-0.5">✔</span>
+              <span><strong>Tiếp cận học liệu quốc tế:</strong> Làm quen và khai thác hiệu quả kho video bài giảng <strong>ASU Master Class & Cintana</strong>.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-600 font-bold mt-0.5">✔</span>
+              <span><strong>Sản phẩm & Chứng nhận số:</strong> Mỗi sinh viên có <strong>sản phẩm cá nhân (Video tiếng Anh)</strong> và nhận <strong>Chứng nhận số (Digital Badge) của ASU</strong> cùng khen thưởng cuối khóa.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Đối tượng & Thời gian -->
+        <div class="bg-slate-50 rounded-2xl p-6 sm:p-7 border border-slate-200 card-hover relative overflow-hidden">
+          <div class="w-12 h-12 rounded-2xl bg-asu-maroon text-white flex items-center justify-center font-black text-xl mb-5 shadow-md">
+            👥
+          </div>
+          <h3 class="text-xl font-extrabold text-lhu-darkBlue mb-3">Đối Tượng & Thời Gian</h3>
+          <div class="space-y-3.5 text-sm sm:text-base text-slate-700">
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200">
+              <div class="text-xs font-bold uppercase text-lhu-blue">Thời gian triển khai</div>
+              <div class="font-extrabold text-slate-900 mt-0.5">26/10/2026 – Tháng 12/2026</div>
+              <div class="text-xs text-slate-500 mt-0.5">Tổng cộng <strong>9 tuần sinh hoạt</strong> (có <strong>1 tuần nghỉ lễ 20/11</strong>).</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200">
+              <div class="text-xs font-bold uppercase text-lhu-blue">Sinh hoạt CLB Tiếng Anh (9 Tuần)</div>
+              <div class="font-extrabold text-slate-900 mt-0.5">Tân Sinh Viên (SV Năm 1 - Song Ngữ)</div>
+              <div class="text-xs text-slate-500 mt-0.5">Chia nhóm cố định 4 SV/nhóm để đồng hành xuyên suốt.</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-amber-50/80 border border-amber-200">
+              <div class="text-xs font-bold uppercase text-asu-maroon">Cuộc thi Video ASU Master Class</div>
+              <div class="font-extrabold text-slate-900 mt-0.5">Toàn bộ Sinh viên Khoa CNTT (5 Ngành)</div>
+              <div class="text-xs text-slate-600 mt-0.5">Thi cá nhân hoặc nhóm 2 người • Trao thưởng lớn ở <strong>Tuần 9</strong>.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Hình thức & Chu kỳ học 2 tuần -->
+        <div class="bg-gradient-to-br from-lhu-darkBlue to-lhu-blue text-white rounded-2xl p-6 sm:p-7 shadow-xl card-hover">
+          <div class="w-12 h-12 rounded-2xl bg-asu-gold text-slate-900 flex items-center justify-center font-black text-xl mb-5 shadow-md">
+            🔄
+          </div>
+          <h3 class="text-xl font-extrabold text-white mb-2">Hình Thức Học: Chu Kỳ 2 Tuần / Chủ Đề</h3>
+          <p class="text-sky-100 text-xs sm:text-sm mb-4">
+            Học qua video kết hợp thực hành giao tiếp liên tục. Mỗi chủ đề kéo dài <strong>2 tuần</strong> theo lộ trình 3 bước khép kín:
+          </p>
+          <div class="space-y-3 text-sm">
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/15">
+              <span class="inline-block px-2 py-0.5 rounded bg-asu-gold text-slate-900 font-extrabold text-xs mb-1">TUẦN ĐẦU (Tuần 1, 3, 5, 7)</span>
+              <p class="font-semibold text-white">Học từ vựng & Nội dung qua Video ASU</p>
+              <p class="text-xs text-sky-100 mt-0.5">Chơi Quizlet/Kahoot, xem trích đoạn ASU Master Class (5–10 phút), nắm từ vựng cốt lõi và thực hành theo cặp.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/15">
+              <span class="inline-block px-2 py-0.5 rounded bg-sky-300 text-slate-900 font-extrabold text-xs mb-1">GIỮA 2 TUẦN (Nhiệm vụ nhỏ)</span>
+              <p class="font-semibold text-white">Làm Mini-Task / Nhật ký ứng dụng</p>
+              <p class="text-xs text-sky-100 mt-0.5">Ghi chép AI Diary, thử 1 phương pháp học ĐH, điền sơ đồ Ikigai, hoặc theo dõi Stress Diary cá nhân.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/15">
+              <span class="inline-block px-2 py-0.5 rounded bg-rose-400 text-slate-900 font-extrabold text-xs mb-1">TUẦN SAU (Tuần 2, 4, 6, 8)</span>
+              <p class="font-semibold text-white">Thảo luận phản biện & Thuyết trình nhóm</p>
+              <p class="text-xs text-sky-100 mt-0.5">Chia sẻ kết quả nhiệm vụ, tranh biện (Agree/Disagree, Role-play, Advice Circle) & thuyết trình nhóm 3 phút.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual Journey Flowchart Bar -->
+      <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-lg">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
+          <div>
+            <span class="text-asu-gold text-xs font-extrabold uppercase tracking-wider">Tổng quan lộ trình 9 tuần (26/10 – 12/2026)</span>
+            <h3 class="text-xl sm:text-2xl font-black mt-1">Bản Đồ Hành Trình Từ Tuần 1 Đến Lễ Trao Thưởng Tuần 9</h3>
+          </div>
+          <span class="px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-semibold text-sky-200 border border-white/15">
+            💡 Bấm vào từng chặng để nhảy tới nội dung chi tiết
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
+          <a href="#tuan-1-2" class="bg-white/10 hover:bg-white/20 border border-white/15 rounded-2xl p-4 transition group">
+            <div class="text-xs font-bold text-asu-gold">CHỦ ĐỀ 1 • TUẦN 1 & 2</div>
+            <div class="text-base font-extrabold mt-1 group-hover:text-asu-gold transition">🤖 Trí Tuệ Nhân Tạo (AI)</div>
+            <p class="text-xs text-slate-300 mt-1.5">Từ vựng & Prompt cơ bản → Tranh biện AI tốt/xấu & AI Diary</p>
+          </a>
+          <a href="#tuan-3-4" class="bg-white/10 hover:bg-white/20 border border-white/15 rounded-2xl p-4 transition group">
+            <div class="text-xs font-bold text-sky-300">CHỦ ĐỀ 2 • TUẦN 3 & 4</div>
+            <div class="text-base font-extrabold mt-1 group-hover:text-sky-300 transition">✈️ Học ĐH & Du Học</div>
+            <p class="text-xs text-slate-300 mt-1.5">4 Phương pháp học ĐH + AI → Chuẩn bị du học & Role-play sân bay</p>
+          </a>
+          <div class="bg-amber-500/20 border border-amber-400/40 rounded-2xl p-4 flex flex-col justify-center">
+            <div class="text-xs font-extrabold text-amber-300 uppercase">🎉 Nghỉ 1 Tuần</div>
+            <div class="text-base font-black text-white mt-1">Lễ 20/11</div>
+            <p class="text-xs text-amber-100 mt-1.5">Tri ân Ngày Nhà giáo VN & Quay video dự thi ASU Master Class</p>
+          </div>
+          <a href="#tuan-5-6" class="bg-white/10 hover:bg-white/20 border border-white/15 rounded-2xl p-4 transition group">
+            <div class="text-xs font-bold text-emerald-300">CHỦ ĐỀ 3 • TUẦN 5 & 6</div>
+            <div class="text-base font-extrabold mt-1 group-hover:text-emerald-300 transition">🌱 Mục Đích & Hạnh Phúc</div>
+            <p class="text-xs text-slate-300 mt-1.5">Blue Zones & Sơ đồ Ikigai → Gratitude Wall & Định nghĩa Happiness</p>
+          </a>
+          <a href="#tuan-7-8" class="bg-white/10 hover:bg-white/20 border border-white/15 rounded-2xl p-4 transition group">
+            <div class="text-xs font-bold text-purple-300">CHỦ ĐỀ 4 • TUẦN 7 & 8</div>
+            <div class="text-base font-extrabold mt-1 group-hover:text-purple-300 transition">🧘 Quản Lý Stress</div>
+            <p class="text-xs text-slate-300 mt-1.5">The Dual Nature of Stress → Stress Diary & Vòng tròn lời khuyên</p>
+          </a>
+          <a href="#tuan-9" class="bg-gradient-to-br from-asu-maroon to-rose-700 hover:brightness-110 border border-rose-400/40 rounded-2xl p-4 transition group">
+            <div class="text-xs font-bold text-asu-gold">TUẦN 9 • GALA CUỐI KHÓA</div>
+            <div class="text-base font-extrabold mt-1">🏆 Tổng Kết & Trao Giải</div>
+            <p class="text-xs text-rose-100 mt-1.5">Chiếu video đoạt giải, trao ASU Digital Badge & Khen thưởng CLB/Khoa</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: KẾ HOẠCH SINH HOẠT CLB CHI TIẾT 9 TUẦN (CARD VIEW) -->
+  <section id="ke-hoach-9-tuan" class="py-14 lg:py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+      <!-- Header + Role Highlight Filter -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+        <div class="space-y-2">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-lhu-blue text-white font-extrabold text-xs uppercase tracking-wider">Phần 2 • Kế hoạch sinh hoạt CLB</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-lhu-darkBlue">LỘ TRÌNH CHI TIẾT 9 TUẦN SINH HOẠT</h2>
+          <p class="text-slate-600 text-base">
+            Hiển thị <strong>đầy đủ 100% nội dung</strong> từng tuần gồm: Chủ đề, Buổi học, Công tác chuẩn bị của Giảng viên và Hoạt động của Sinh viên.
+          </p>
+        </div>
+
+        <!-- Role View Filter Buttons -->
+        <div class="bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm inline-flex flex-wrap gap-1 no-print self-start">
+          <button onclick="setRoleView('all')" id="role-all" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-lhu-blue text-white transition">
+            Hiển thị Đầy đủ (GV + SV)
+          </button>
+          <button onclick="setRoleView('student')" id="role-student" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-100 transition">
+            🎓 Tập trung việc Sinh viên cần làm
+          </button>
+          <button onclick="setRoleView('teacher')" id="role-teacher" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-100 transition">
+            👩‍🏫 Tập trung việc GV chuẩn bị
+          </button>
+        </div>
+      </div>
+
+      <!-- TOPIC 1: WEEKS 1 & 2 (AI) -->
+      <div id="tuan-1-2" class="space-y-6 scroll-mt-24">
+        <div class="flex flex-wrap items-center justify-between gap-2 bg-gradient-to-r from-lhu-darkBlue to-lhu-blue text-white px-6 py-4 rounded-2xl shadow-md">
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 rounded-lg bg-asu-gold text-slate-900 font-black text-sm">CHỦ ĐỀ 1</span>
+            <h3 class="text-xl sm:text-2xl font-extrabold">TRÍ TUỆ NHÂN TẠO (AI) — TUẦN 1 & TUẦN 2</h3>
+          </div>
+          <span class="text-xs sm:text-sm text-sky-200 font-semibold">Học liệu: ASU Master Class #10 • Sản phẩm nhỏ: Phiếu AI Diary</span>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+          <!-- TUẦN 1 -->
+          <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-sm overflow-hidden card-hover flex flex-col">
+            <div class="bg-sky-50 border-b border-sky-100 px-6 py-4 flex items-center justify-between">
+              <div>
+                <span class="inline-block px-2.5 py-0.5 rounded-md bg-lhu-blue text-white text-xs font-extrabold uppercase">TUẦN 1 • BUỔI HỌC NỘI DUNG & TỪ VỰNG</span>
+                <h4 class="text-lg sm:text-xl font-black text-lhu-darkBlue mt-1">Từ vựng về AI + Cách dùng AI cơ bản</h4>
+              </div>
+              <span class="text-3xl">🤖</span>
+            </div>
+            <div class="p-6 space-y-5 flex-1">
+              <div>
+                <div class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-1">Chủ đề & Từ vựng trọng tâm</div>
+                <p class="text-sm font-semibold text-slate-800 mb-2">Làm quen từ vựng AI & cách viết câu lệnh (prompt) hiệu quả cùng ASU Master Class #10:</p>
+                <div>
+                  <span class="vocab-pill">chatbot</span>
+                  <span class="vocab-pill">prompt</span>
+                  <span class="vocab-pill">generate</span>
+                  <span class="vocab-pill">translate</span>
+                  <span class="vocab-pill">summarize</span>
+                  <span class="vocab-pill">accurate</span>
+                  <span class="vocab-pill">mistake</span>
+                  <span class="vocab-pill">fake</span>
+                  <span class="vocab-pill">privacy</span>
+                </div>
+              </div>
+
+              <!-- GV Chuẩn bị -->
+              <div class="role-teacher-box bg-amber-50/70 border border-amber-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-amber-900 font-extrabold text-sm mb-2">
+                  <span>👩‍🏫 Giảng viên cần chuẩn bị:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li><strong>Slide 10 từ vựng</strong> (chatbot, prompt, generate, translate, summarize, accurate, mistake, fake, privacy…).</li>
+                  <li><strong>Đoạn 5–7 phút video Master Class #10</strong> kèm <strong>3 câu hỏi</strong> kiểm tra mức độ hiểu.</li>
+                  <li><strong>3 prompt mẫu</strong> thực tế để sinh viên thực hành.</li>
+                  <li><strong>Phiếu AI Diary</strong> (Nhật ký sử dụng AI trong tuần).</li>
+                  <li><strong>Mã QR phát động cuộc thi</strong> Video ASU Master Class.</li>
+                  <li><strong>Danh sách chia nhóm</strong> cố định (4 SV / nhóm).</li>
+                </ul>
+              </div>
+
+              <!-- SV Cần làm -->
+              <div class="role-student-box bg-emerald-50/70 border border-emerald-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-emerald-900 font-extrabold text-sm mb-2">
+                  <span>🎓 Sinh viên cần làm:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li>Học và ôn tập từ vựng sôi nổi qua <strong>Quizlet / Kahoot</strong>.</li>
+                  <li>Xem clip <strong>Master Class #10</strong> và trả lời 3 câu hỏi.</li>
+                  <li>Làm việc <strong>theo cặp</strong>: chạy thử <strong>3 prompt mẫu</strong> rồi <strong>tự viết 1 prompt mới</strong>.</li>
+                  <li>Nhận nhóm (4 SV) và nhận <strong>phiếu AI Diary</strong> để ghi chép trải nghiệm dùng AI giữa 2 tuần.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- TUẦN 2 -->
+          <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-sm overflow-hidden card-hover flex flex-col">
+            <div class="bg-indigo-50 border-b border-indigo-100 px-6 py-4 flex items-center justify-between">
+              <div>
+                <span class="inline-block px-2.5 py-0.5 rounded-md bg-indigo-700 text-white text-xs font-extrabold uppercase">TUẦN 2 • BUỔI THẢO LUẬN & THUYẾT TRÌNH</span>
+                <h4 class="text-lg sm:text-xl font-black text-lhu-darkBlue mt-1">Giao tiếp: AI tốt và xấu, trải nghiệm của bạn</h4>
+              </div>
+              <span class="text-3xl">🎙️</span>
+            </div>
+            <div class="p-6 space-y-5 flex-1">
+              <div>
+                <div class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-1">Chủ đề trọng tâm</div>
+                <p class="text-sm font-semibold text-slate-800">
+                  <strong>AI: Tốt và xấu (Giao tiếp & Tranh biện)</strong> — Đánh giá tính chính xác của AI và thảo luận góc nhìn cá nhân.
+                </p>
+              </div>
+
+              <!-- GV Chuẩn bị -->
+              <div class="role-teacher-box bg-amber-50/70 border border-amber-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-amber-900 font-extrabold text-sm mb-2">
+                  <span>👩‍🏫 Giảng viên cần chuẩn bị:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li><strong>1 ví dụ AI trả lời sai</strong> (hallucination/mistake) để khởi động buổi học.</li>
+                  <li>Bộ <strong>thẻ câu hỏi thảo luận</strong> theo chủ đề AI.</li>
+                  <li><strong>Mẫu câu đồng ý / không đồng ý</strong> (Agree / Disagree expressions).</li>
+                  <li><strong>Rubric chấm thuyết trình nhóm</strong> & <strong>đồng hồ bấm giờ</strong>.</li>
+                </ul>
+              </div>
+
+              <!-- SV Cần làm -->
+              <div class="role-student-box bg-emerald-50/70 border border-emerald-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-emerald-900 font-extrabold text-sm mb-2">
+                  <span>🎓 Sinh viên cần làm:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li>Khởi động: <strong>Đoán câu trả lời của AI là đúng hay sai</strong>.</li>
+                  <li><strong>Chia sẻ phiếu AI Diary theo cặp</strong> (những gì đã thử ở nhà).</li>
+                  <li>Hoạt động vận động: <strong>Đứng theo hàng Agree / Disagree</strong> với nhận định: <em class="font-bold text-indigo-800">“Students should use AI for homework”</em> và bảo vệ quan điểm.</li>
+                  <li><strong>Thuyết trình nhóm 3 phút</strong> trước lớp.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOPIC 2: WEEKS 3 & 4 (HỌC Ở ĐH & DU HỌC) -->
+      <div id="tuan-3-4" class="space-y-6 scroll-mt-24">
+        <div class="flex flex-wrap items-center justify-between gap-2 bg-gradient-to-r from-sky-800 to-cyan-700 text-white px-6 py-4 rounded-2xl shadow-md">
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 rounded-lg bg-asu-gold text-slate-900 font-black text-sm">CHỦ ĐỀ 2</span>
+            <h3 class="text-xl sm:text-2xl font-extrabold">HỌC Ở ĐẠI HỌC & DU HỌC — TUẦN 3 & TUẦN 4</h3>
+          </div>
+          <span class="text-xs sm:text-sm text-cyan-100 font-semibold">Phương pháp học ĐH hiện đại + Đóng vai (Role-play) tại sân bay quốc tế</span>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+          <!-- TUẦN 3 -->
+          <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-sm overflow-hidden card-hover flex flex-col">
+            <div class="bg-cyan-50 border-b border-cyan-100 px-6 py-4 flex items-center justify-between">
+              <div>
+                <span class="inline-block px-2.5 py-0.5 rounded-md bg-cyan-700 text-white text-xs font-extrabold uppercase">TUẦN 3 • BUỔI HỌC NỘI DUNG & PHƯƠNG PHÁP</span>
+                <h4 class="text-lg sm:text-xl font-black text-lhu-darkBlue mt-1">Cách học tiếng Anh, phương pháp học ở ĐH (có dùng AI để học)</h4>
+              </div>
+              <span class="text-3xl">📚</span>
+            </div>
+            <div class="p-6 space-y-5 flex-1">
+              <div>
+                <div class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-1">Chủ đề & Từ vựng trọng tâm</div>
+                <p class="text-sm font-semibold text-slate-800 mb-2">Cách học tiếng Anh và 4 phương pháp học tập thông minh ở bậc Đại học:</p>
+                <div>
+                  <span class="vocab-pill">syllabus</span>
+                  <span class="vocab-pill">deadline</span>
+                  <span class="vocab-pill">assignment</span>
+                  <span class="vocab-pill">note-taking</span>
+                  <span class="vocab-pill">self-study</span>
+                  <span class="vocab-pill">flashcard</span>
+                  <span class="vocab-pill">Pomodoro</span>
+                  <span class="vocab-pill">Spaced repetition</span>
+                  <span class="vocab-pill">Shadowing</span>
+                  <span class="vocab-pill">Feynman</span>
+                </div>
+              </div>
+
+              <!-- GV Chuẩn bị -->
+              <div class="role-teacher-box bg-amber-50/70 border border-amber-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-amber-900 font-extrabold text-sm mb-2">
+                  <span>👩‍🏫 Giảng viên cần chuẩn bị:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li><strong>Bộ từ vựng Đại học:</strong> syllabus, deadline, assignment, note-taking, self-study, flashcard…</li>
+                  <li><strong>Tài liệu ngắn về 4 phương pháp học:</strong> <em>Pomodoro, Spaced repetition, Shadowing, Feynman</em>.</li>
+                  <li><strong>Demo trực tiếp</strong> cách dùng AI để luyện nói tiếng Anh và tự sửa lỗi câu.</li>
+                </ul>
+              </div>
+
+              <!-- SV Cần làm -->
+              <div class="role-student-box bg-emerald-50/70 border border-emerald-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-emerald-900 font-extrabold text-sm mb-2">
+                  <span>🎓 Sinh viên cần làm:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li>Chơi trò chơi tương tác <strong>“Find someone who…”</strong> về thói quen học tập.</li>
+                  <li>Hoạt động nhóm: <strong>Mỗi nhóm đọc sâu 1 phương pháp học rồi dạy lại cho nhóm khác</strong>.</li>
+                  <li>Thực hành <strong>thử dùng AI để sửa câu</strong> tiếng Anh của mình.</li>
+                  <li><strong>Nhiệm vụ tuần:</strong> Chọn 1 trong 4 phương pháp học để áp dụng thực tế trong tuần và ghi nhận kết quả.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- TUẦN 4 -->
+          <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-sm overflow-hidden card-hover flex flex-col">
+            <div class="bg-sky-50 border-b border-sky-100 px-6 py-4 flex items-center justify-between">
+              <div>
+                <span class="inline-block px-2.5 py-0.5 rounded-md bg-sky-700 text-white text-xs font-extrabold uppercase">TUẦN 4 • BUỔI THẢO LUẬN & ĐÓNG VAI</span>
+                <h4 class="text-lg sm:text-xl font-black text-lhu-darkBlue mt-1">Du học cần chuẩn bị gì + Đóng vai hội thoại ở sân bay</h4>
+              </div>
+              <span class="text-3xl">🛫</span>
+            </div>
+            <div class="p-6 space-y-5 flex-1">
+              <div>
+                <div class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-1">Chủ đề & Từ vựng trọng tâm</div>
+                <p class="text-sm font-semibold text-slate-800 mb-2">Hành trang du học và phản xạ giao tiếp thực tế tại sân bay quốc tế:</p>
+                <div>
+                  <span class="vocab-pill">passport</span>
+                  <span class="vocab-pill">visa</span>
+                  <span class="vocab-pill">boarding pass</span>
+                  <span class="vocab-pill">check-in</span>
+                  <span class="vocab-pill">luggage</span>
+                  <span class="vocab-pill">customs</span>
+                  <span class="vocab-pill">gate</span>
+                  <span class="vocab-pill">delay</span>
+                  <span class="vocab-pill">scholarship</span>
+                </div>
+              </div>
+
+              <!-- GV Chuẩn bị -->
+              <div class="role-teacher-box bg-amber-50/70 border border-amber-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-amber-900 font-extrabold text-sm mb-2">
+                  <span>👩‍🏫 Giảng viên cần chuẩn bị:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li><strong>Từ vựng sân bay & du học:</strong> passport, visa, boarding pass, check-in, luggage, customs, gate, delay, scholarship…</li>
+                  <li><strong>Checklist chuẩn bị du học</strong> dành cho sinh viên.</li>
+                  <li><strong>Hội thoại mẫu cho 3 tình huống sân bay:</strong> <em>Quầy Check-in, Kiểm tra An ninh (Security), và Nhập cảnh (Immigration/Customs)</em>.</li>
+                  <li>Bộ <strong>thẻ phân vai (Role cards)</strong> cho các nhóm.</li>
+                </ul>
+              </div>
+
+              <!-- SV Cần làm -->
+              <div class="role-student-box bg-emerald-50/70 border border-emerald-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-emerald-900 font-extrabold text-sm mb-2">
+                  <span>🎓 Sinh viên cần làm:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li><strong>Báo cáo kết quả</strong> thử nghiệm phương pháp học ở Tuần 3.</li>
+                  <li>Trả lời câu hỏi giao lưu: <em class="font-bold text-sky-800">“Where would you like to study abroad?”</em>.</li>
+                  <li>Luyện tập hội thoại sân bay theo nhóm.</li>
+                  <li><strong>Diễn Role-play tình huống sân bay</strong> trước lớp (thuyết trình nhóm).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPECIAL BANNER: 1 TUẦN NGHỈ LỄ 20/11 -->
+      <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 rounded-2xl p-6 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-3xl shrink-0">
+            💐
+          </div>
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded bg-white text-rose-700 font-black text-xs uppercase">Lịch nghỉ giữa khóa • 1 Tuần</span>
+            <h3 class="text-xl sm:text-2xl font-black mt-1">NGHỈ LỄ CHÀO MỪNG NGÀY NHÀ GIÁO VIỆT NAM 20/11</h3>
+            <p class="text-sm text-amber-50 mt-0.5">
+              Sinh viên nghỉ sinh hoạt CLB 1 tuần dịp 20/11 — Thời điểm vàng để các cá nhân/nhóm chọn chủ đề và quay <strong>Video dự thi ASU Master Class</strong>!
+            </p>
+          </div>
+        </div>
+        <a href="#cuoc-thi-asu" class="shrink-0 px-5 py-2.5 rounded-xl bg-white text-slate-900 font-extrabold text-sm hover:bg-amber-50 transition shadow">
+          Xem hướng dẫn quay Video →
+        </a>
+      </div>
+
+      <!-- TOPIC 3: WEEKS 5 & 6 (MỤC ĐÍCH & HẠNH PHÚC) -->
+      <div id="tuan-5-6" class="space-y-6 scroll-mt-24">
+        <div class="flex flex-wrap items-center justify-between gap-2 bg-gradient-to-r from-emerald-800 to-teal-700 text-white px-6 py-4 rounded-2xl shadow-md">
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 rounded-lg bg-asu-gold text-slate-900 font-black text-sm">CHỦ ĐỀ 3</span>
+            <h3 class="text-xl sm:text-2xl font-extrabold">MỤC ĐÍCH SỐNG & HẠNH PHÚC — TUẦN 5 & TUẦN 6</h3>
+          </div>
+          <span class="text-xs sm:text-sm text-emerald-100 font-semibold">Học liệu: ASU Master Class #24 / #13 & #6 • Sơ đồ Ikigai & Gratitude Wall</span>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+          <!-- TUẦN 5 -->
+          <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-sm overflow-hidden card-hover flex flex-col">
+            <div class="bg-emerald-50 border-b border-emerald-100 px-6 py-4 flex items-center justify-between">
+              <div>
+                <span class="inline-block px-2.5 py-0.5 rounded-md bg-emerald-700 text-white text-xs font-extrabold uppercase">TUẦN 5 • BUỔI HỌC NỘI DUNG & KHÁM PHÁ BẢN THÂN</span>
+                <h4 class="text-lg sm:text-xl font-black text-lhu-darkBlue mt-1">Power of Purpose / Blue Zones: Motivation</h4>
+              </div>
+              <span class="text-3xl">🧭</span>
+            </div>
+            <div class="p-6 space-y-5 flex-1">
+              <div>
+                <div class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-1">Chủ đề & Từ vựng trọng tâm</div>
+                <p class="text-sm font-semibold text-slate-800 mb-2">Khám phá động lực sống qua bài học từ 5 vùng đất trường thọ (Blue Zones) & mô hình Ikigai:</p>
+                <div>
+                  <span class="vocab-pill">purpose</span>
+                  <span class="vocab-pill">motivation</span>
+                  <span class="vocab-pill">goal</span>
+                  <span class="vocab-pill">habit</span>
+                  <span class="vocab-pill">longevity</span>
+                  <span class="vocab-pill">community</span>
+                  <span class="vocab-pill">Ikigai</span>
+                  <span class="vocab-pill">Blue Zones</span>
+                </div>
+              </div>
+
+              <!-- GV Chuẩn bị -->
+              <div class="role-teacher-box bg-amber-50/70 border border-amber-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-amber-900 font-extrabold text-sm mb-2">
+                  <span>👩‍🏫 Giảng viên cần chuẩn bị:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li><strong>Clip Master Class #24 hoặc #13</strong> (kèm phiếu bài tập điền từ).</li>
+                  <li><strong>Bản đồ 5 vùng Blue Zones</strong> trên thế giới.</li>
+                  <li><strong>Từ vựng:</strong> purpose, motivation, goal, habit, longevity, community…</li>
+                  <li><strong>Sơ đồ Ikigai in khổ A4</strong> cho từng sinh viên & bài đọc thêm.</li>
+                </ul>
+              </div>
+
+              <!-- SV Cần làm -->
+              <div class="role-student-box bg-emerald-50/70 border border-emerald-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-emerald-900 font-extrabold text-sm mb-2">
+                  <span>🎓 Sinh viên cần làm:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li>Xem clip Master Class và <strong>điền từ còn thiếu</strong>.</li>
+                  <li>Tự hoàn thành <strong>sơ đồ Ikigai</strong> của bản thân trên giấy A4 và chia sẻ theo cặp.</li>
+                  <li>Thảo luận nhóm với chủ đề: <em class="font-bold text-emerald-800">“What motivates students?”</em>.</li>
+                  <li><strong>Nhiệm vụ cá nhân:</strong> Viết <strong>Purpose (Mục đích sống/học tập)</strong> của bản thân trong <strong>3 câu tiếng Anh</strong>.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- TUẦN 6 -->
+          <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-sm overflow-hidden card-hover flex flex-col">
+            <div class="bg-teal-50 border-b border-teal-100 px-6 py-4 flex items-center justify-between">
+              <div>
+                <span class="inline-block px-2.5 py-0.5 rounded-md bg-teal-700 text-white text-xs font-extrabold uppercase">TUẦN 6 • BUỔI THẢO LUẬN & THUYẾT TRÌNH</span>
+                <h4 class="text-lg sm:text-xl font-black text-lhu-darkBlue mt-1">Happiness: Định nghĩa hạnh phúc của bạn</h4>
+              </div>
+              <span class="text-3xl">😊</span>
+            </div>
+            <div class="p-6 space-y-5 flex-1">
+              <div>
+                <div class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-1">Chủ đề & Từ vựng trọng tâm</div>
+                <p class="text-sm font-semibold text-slate-800 mb-2">Nuôi dưỡng lòng biết ơn và xây dựng tư duy tích cực cùng ASU Master Class #6:</p>
+                <div>
+                  <span class="vocab-pill">gratitude</span>
+                  <span class="vocab-pill">joy</span>
+                  <span class="vocab-pill">satisfaction</span>
+                  <span class="vocab-pill">well-being</span>
+                  <span class="vocab-pill">mindset</span>
+                </div>
+              </div>
+
+              <!-- GV Chuẩn bị -->
+              <div class="role-teacher-box bg-amber-50/70 border border-amber-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-amber-900 font-extrabold text-sm mb-2">
+                  <span>👩‍🏫 Giảng viên cần chuẩn bị:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li><strong>Clip Master Class #6</strong> về chủ đề Happiness.</li>
+                  <li><strong>Từ vựng:</strong> gratitude, joy, satisfaction, well-being, mindset…</li>
+                  <li><strong>Giấy note nhiều màu</strong> cho bức tường biết ơn (<strong>“Gratitude Wall”</strong>).</li>
+                  <li><strong>Rubric</strong> đánh giá bài thuyết trình nhóm.</li>
+                </ul>
+              </div>
+
+              <!-- SV Cần làm -->
+              <div class="role-student-box bg-emerald-50/70 border border-emerald-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-emerald-900 font-extrabold text-sm mb-2">
+                  <span>🎓 Sinh viên cần làm:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li>Khởi động: <strong>Tự chấm mức độ hạnh phúc hôm nay</strong> theo thang điểm 1–10.</li>
+                  <li>Xem clip <strong>Master Class #6</strong>.</li>
+                  <li>Viết <strong>1 điều biết ơn (Gratitude note)</strong> bằng tiếng Anh và dán lên <strong>Gratitude Wall</strong> của lớp.</li>
+                  <li><strong>Thuyết trình nhóm:</strong> <em class="font-bold text-teal-800">“Our definition of happiness”</em>.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOPIC 4: WEEKS 7 & 8 (STRESS) -->
+      <div id="tuan-7-8" class="space-y-6 scroll-mt-24">
+        <div class="flex flex-wrap items-center justify-between gap-2 bg-gradient-to-r from-purple-900 to-indigo-800 text-white px-6 py-4 rounded-2xl shadow-md">
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 rounded-lg bg-asu-gold text-slate-900 font-black text-sm">CHỦ ĐỀ 4</span>
+            <h3 class="text-xl sm:text-2xl font-extrabold">QUẢN LÝ CĂNG THẲNG (STRESS) — TUẦN 7 & TUẦN 8</h3>
+          </div>
+          <span class="text-xs sm:text-sm text-purple-200 font-semibold">Học liệu: Webinar Cintana & Master Class #28 • Sản phẩm nhỏ: Stress Diary</span>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+          <!-- TUẦN 7 -->
+          <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-sm overflow-hidden card-hover flex flex-col">
+            <div class="bg-purple-50 border-b border-purple-100 px-6 py-4 flex items-center justify-between">
+              <div>
+                <span class="inline-block px-2.5 py-0.5 rounded-md bg-purple-700 text-white text-xs font-extrabold uppercase">TUẦN 7 • BUỔI HỌC NỘI DUNG & NHẬN DIỆN STRESS</span>
+                <h4 class="text-lg sm:text-xl font-black text-lhu-darkBlue mt-1">The Dual Nature of Stress</h4>
+              </div>
+              <span class="text-3xl">🌡️</span>
+            </div>
+            <div class="p-6 space-y-5 flex-1">
+              <div>
+                <div class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-1">Chủ đề & Từ vựng trọng tâm</div>
+                <p class="text-sm font-semibold text-slate-800 mb-2">Hiểu về hai mặt của Stress (Good Stress vs. Bad Stress) qua Webinar Cintana & Clip #28:</p>
+                <div>
+                  <span class="vocab-pill">pressure</span>
+                  <span class="vocab-pill">cope</span>
+                  <span class="vocab-pill">deadline</span>
+                  <span class="vocab-pill">overwhelmed</span>
+                  <span class="vocab-pill">relax</span>
+                  <span class="vocab-pill">good stress</span>
+                  <span class="vocab-pill">bad stress</span>
+                </div>
+              </div>
+
+              <!-- GV Chuẩn bị -->
+              <div class="role-teacher-box bg-amber-50/70 border border-amber-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-amber-900 font-extrabold text-sm mb-2">
+                  <span>👩‍🏫 Giảng viên cần chuẩn bị:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li><strong>Đoạn 5–10 phút Webinar Cintana</strong> và <strong>Clip Master Class #28</strong>.</li>
+                  <li><strong>Từ vựng:</strong> pressure, cope, deadline, overwhelmed, relax, good/bad stress…</li>
+                  <li>Bộ <strong>thẻ tình huống phân loại Good Stress / Bad Stress</strong>.</li>
+                  <li><strong>Mẫu phiếu Stress Diary</strong> phát cho sinh viên.</li>
+                </ul>
+              </div>
+
+              <!-- SV Cần làm -->
+              <div class="role-student-box bg-emerald-50/70 border border-emerald-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-emerald-900 font-extrabold text-sm mb-2">
+                  <span>🎓 Sinh viên cần làm:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li>Đánh dấu mức căng thẳng hiện tại của mình trên <strong>“Nhiệt kế Stress”</strong>.</li>
+                  <li>Xem clip học liệu Cintana & ASU Master Class #28.</li>
+                  <li>Làm việc nhóm: <strong>Phân loại thẻ tình huống Good Stress / Bad Stress</strong>.</li>
+                  <li>Thực hành <strong>bài tập hít thở thư giãn 1 phút</strong> tại lớp & nhận mẫu <strong>Stress Diary</strong> về ghi chép trong tuần.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- TUẦN 8 -->
+          <div class="bg-white rounded-2xl border-2 border-slate-200 shadow-sm overflow-hidden card-hover flex flex-col">
+            <div class="bg-fuchsia-50 border-b border-fuchsia-100 px-6 py-4 flex items-center justify-between">
+              <div>
+                <span class="inline-block px-2.5 py-0.5 rounded-md bg-fuchsia-700 text-white text-xs font-extrabold uppercase">TUẦN 8 • BUỔI THẢO LUẬN & CHIA SẺ GIẢI PHÁP</span>
+                <h4 class="text-lg sm:text-xl font-black text-lhu-darkBlue mt-1">Thảo luận: Bạn đã kiểm soát stress thế nào</h4>
+              </div>
+              <span class="text-3xl">🤝</span>
+            </div>
+            <div class="p-6 space-y-5 flex-1">
+              <div>
+                <div class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-1">Chủ đề & Mẫu câu giao tiếp</div>
+                <p class="text-sm font-semibold text-slate-800 mb-2">Thực hành lắng nghe, thấu cảm và đưa ra lời khuyên bằng tiếng Anh:</p>
+                <div>
+                  <span class="vocab-pill">You should…</span>
+                  <span class="vocab-pill">Why don’t you…</span>
+                  <span class="vocab-pill">It helps me to…</span>
+                  <span class="vocab-pill">Advice Circle</span>
+                </div>
+              </div>
+
+              <!-- GV Chuẩn bị -->
+              <div class="role-teacher-box bg-amber-50/70 border border-amber-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-amber-900 font-extrabold text-sm mb-2">
+                  <span>👩‍🏫 Giảng viên cần chuẩn bị:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li><strong>Mẫu câu khuyên nhủ:</strong> <em>You should… / Why don’t you… / It helps me to…</em></li>
+                  <li><strong>Giấy nhỏ để sinh viên ghi vấn đề ẩn danh</strong> (Anonymous problems).</li>
+                  <li><strong>Rubric</strong> chấm thuyết trình nhóm.</li>
+                  <li><strong>Phiếu khảo sát cuối khóa</strong> (End-of-course survey).</li>
+                </ul>
+              </div>
+
+              <!-- SV Cần làm -->
+              <div class="role-student-box bg-emerald-50/70 border border-emerald-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-emerald-900 font-extrabold text-sm mb-2">
+                  <span>🎓 Sinh viên cần làm:</span>
+                </div>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc list-inside">
+                  <li><strong>Chia sẻ Stress Diary theo cặp</strong> về cách mình đã vượt qua áp lực trong tuần.</li>
+                  <li>Hoạt động <strong>“Advice Circle” (Vòng tròn lời khuyên)</strong>: Rút ngẫu nhiên 1 tờ giấy vấn đề ẩn danh và đưa ra lời khuyên bằng tiếng Anh.</li>
+                  <li><strong>Thuyết trình nhóm:</strong> <em class="font-bold text-fuchsia-800">“How we handle stress”</em>.</li>
+                  <li>Thực hiện <strong>khảo sát cuối khóa</strong>.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 9: TỔNG KẾT & TRAO THƯỞNG -->
+      <div id="tuan-9" class="scroll-mt-24">
+        <div class="bg-gradient-to-br from-asu-maroon via-rose-800 to-lhu-darkBlue rounded-3xl p-6 sm:p-8 text-white shadow-xl border-2 border-asu-gold/60">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-white/20">
+            <div class="flex items-center gap-4">
+              <div class="w-16 h-16 rounded-2xl bg-asu-gold text-slate-900 flex items-center justify-center text-4xl font-black shadow-lg shrink-0">
+                🏆
+              </div>
+              <div>
+                <span class="inline-block px-3 py-0.5 rounded-full bg-asu-gold text-slate-900 font-black text-xs uppercase tracking-wider">TUẦN 9 • BUỔI GALA TỔNG KẾT & TRAO THƯỞNG</span>
+                <h3 class="text-2xl sm:text-3xl font-black mt-1">Tổng Kết Cuộc Thi Video ASU Master Class & Khen Thưởng CLB</h3>
+              </div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm px-4 py-2.5 rounded-xl border border-white/20 text-xs sm:text-sm font-semibold text-asu-gold">
+              🎖️ Trao ASU Digital Badge + Giải thưởng Khoa & CLB
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-6 pt-6">
+            <div class="role-teacher-box bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20">
+              <h4 class="text-base sm:text-lg font-extrabold text-asu-gold mb-3 flex items-center gap-2">
+                <span>👩‍🏫 Ban Tổ Chức & Giảng Viên Chuẩn Bị:</span>
+              </h4>
+              <ul class="space-y-2 text-sm sm:text-base text-slate-100 list-disc list-inside">
+                <li><strong>Danh sách sinh viên/nhóm đoạt giải</strong> Cuộc thi Video ASU Master Class toàn Khoa.</li>
+                <li>Tổng hợp và trình chiếu <strong>các Video đoạt giải xuất sắc nhất</strong>.</li>
+                <li>Chuẩn bị <strong>Giấy khen, Quà thưởng của Khoa</strong>.</li>
+                <li>Chuẩn bị <strong>Giải thưởng riêng của CLB Tiếng Anh</strong>: Giải <em>Thành viên Tích cực nhất (Most Active)</em> & Giải <em>Thành viên Tiến bộ nhất (Most Improved)</em>.</li>
+              </ul>
+            </div>
+
+            <div class="role-student-box bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20">
+              <h4 class="text-base sm:text-lg font-extrabold text-emerald-300 mb-3 flex items-center gap-2">
+                <span>🎓 Hoạt Động Của Sinh Viên Tại Buổi Tổng Kết:</span>
+              </h4>
+              <ul class="space-y-2 text-sm sm:text-base text-slate-100 list-disc list-inside">
+                <li>Cùng <strong>xem và cổ vũ các video đoạt giải</strong> của sinh viên trong Khoa.</li>
+                <li><strong>Nhận Chứng nhận số quốc tế (ASU Digital Badge)</strong>, giấy khen và phần thưởng từ Khoa & CLB.</li>
+                <li>Hoạt động truyền cảm hứng khép lại hành trình: Mỗi sinh viên chia sẻ 1 câu tổng kết bằng tiếng Anh: <strong class="text-asu-gold italic">“In this club, I learned…”</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FULL MASTER TABLE VIEW (ĐỂ TRÌNH CHIẾU TỔNG THỂ BẢNG KẾ HOẠCH) -->
+  <section id="bang-tong-hop" class="py-14 lg:py-16 bg-white border-b border-slate-200 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <span class="inline-block px-3.5 py-1 rounded-full bg-slate-100 text-lhu-darkBlue font-extrabold text-xs uppercase tracking-wider">Bảng tra cứu nhanh • 100% nguyên bản khung kế hoạch</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-lhu-darkBlue mt-1">BẢNG TỔNG HỢP KẾ HOẠCH 9 TUẦN SINH HOẠT CLB</h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-500">
+          Dành cho trình chiếu tổng quan toàn bộ khung chương trình trên 1 bảng duy nhất.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+        <table class="w-full text-left border-collapse text-sm">
+          <thead>
+            <tr class="bg-lhu-darkBlue text-white">
+              <th class="py-3.5 px-4 font-extrabold w-16 text-center border-r border-white/15">Tuần</th>
+              <th class="py-3.5 px-4 font-extrabold w-36 border-r border-white/15">Chủ đề lớn</th>
+              <th class="py-3.5 px-4 font-extrabold w-56 border-r border-white/15">Buổi học (Học / Thảo luận)</th>
+              <th class="py-3.5 px-4 font-extrabold w-44 border-r border-white/15">Trọng tâm</th>
+              <th class="py-3.5 px-4 font-extrabold border-r border-white/15">GV cần chuẩn bị</th>
+              <th class="py-3.5 px-4 font-extrabold">Sinh viên cần làm</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <!-- Tuần 1 -->
+            <tr class="hover:bg-sky-50/50 transition">
+              <td class="py-4 px-4 font-black text-center text-lhu-blue bg-slate-50">1</td>
+              <td class="py-4 px-4 font-bold text-slate-900 bg-sky-50/40" rowspan="2">🤖 AI<br><span class="text-xs font-normal text-slate-500">(Trí tuệ nhân tạo)</span></td>
+              <td class="py-4 px-4 font-semibold text-slate-800">Từ vựng về AI + cách dùng AI cơ bản</td>
+              <td class="py-4 px-4 text-slate-700">Từ vựng AI & Prompt cơ bản (Master Class #10)</td>
+              <td class="py-4 px-4 text-slate-700">Slide 10 từ vựng (<em>chatbot, prompt, generate, translate, summarize, accurate, mistake, fake, privacy…</em>); đoạn 5–7 phút Master Class #10 kèm 3 câu hỏi; 3 prompt mẫu; phiếu AI Diary; QR phát động cuộc thi; danh sách chia nhóm 4 SV</td>
+              <td class="py-4 px-4 text-slate-700">Học từ vựng qua Quizlet/Kahoot; xem clip và trả lời câu hỏi; theo cặp chạy 3 prompt mẫu rồi tự viết 1 prompt; nhận nhóm và phiếu AI Diary</td>
+            </tr>
+            <!-- Tuần 2 -->
+            <tr class="hover:bg-sky-50/50 transition">
+              <td class="py-4 px-4 font-black text-center text-indigo-700 bg-slate-50">2</td>
+              <td class="py-4 px-4 font-semibold text-slate-800">Giao tiếp: AI tốt và xấu, trải nghiệm của bạn</td>
+              <td class="py-4 px-4 text-slate-700">AI: tốt và xấu (giao tiếp)</td>
+              <td class="py-4 px-4 text-slate-700">1 ví dụ AI trả lời sai để khởi động; thẻ câu hỏi thảo luận; mẫu câu đồng ý / không đồng ý; rubric thuyết trình nhóm; đồng hồ bấm giờ</td>
+              <td class="py-4 px-4 text-slate-700">Đoán câu trả lời AI đúng hay sai; chia sẻ AI Diary theo cặp; đứng theo hàng Agree / Disagree với câu <em>“Students should use AI for homework”</em>; thuyết trình nhóm 3 phút</td>
+            </tr>
+            <!-- Tuần 3 -->
+            <tr class="hover:bg-cyan-50/50 transition">
+              <td class="py-4 px-4 font-black text-center text-lhu-blue bg-slate-50">3</td>
+              <td class="py-4 px-4 font-bold text-slate-900 bg-cyan-50/40" rowspan="2">✈️ Học ở ĐH & Du học</td>
+              <td class="py-4 px-4 font-semibold text-slate-800">Cách học tiếng Anh, phương pháp học ở ĐH (có dùng AI để học)</td>
+              <td class="py-4 px-4 text-slate-700">Cách học tiếng Anh và học ở ĐH</td>
+              <td class="py-4 px-4 text-slate-700">Từ vựng (<em>syllabus, deadline, assignment, note-taking, self-study, flashcard…</em>); tài liệu ngắn về 4 phương pháp (<em>Pomodoro, Spaced repetition, Shadowing, Feynman</em>); demo dùng AI để luyện nói và sửa lỗi</td>
+              <td class="py-4 px-4 text-slate-700">Chơi <em>“Find someone who…”</em> về thói quen học; mỗi nhóm đọc 1 phương pháp rồi dạy lại cho nhóm khác; thử dùng AI sửa câu; chọn 1 phương pháp để áp dụng trong tuần</td>
+            </tr>
+            <!-- Tuần 4 -->
+            <tr class="hover:bg-cyan-50/50 transition">
+              <td class="py-4 px-4 font-black text-center text-indigo-700 bg-slate-50">4</td>
+              <td class="py-4 px-4 font-semibold text-slate-800">Du học cần chuẩn bị gì + đóng vai hội thoại ở sân bay</td>
+              <td class="py-4 px-4 text-slate-700">Du học và hội thoại ở sân bay</td>
+              <td class="py-4 px-4 text-slate-700">Từ vựng (<em>passport, visa, boarding pass, check-in, luggage, customs, gate, delay, scholarship…</em>); checklist chuẩn bị du học; hội thoại mẫu cho 3 tình huống (check-in, an ninh, nhập cảnh); thẻ vai</td>
+              <td class="py-4 px-4 text-slate-700">Kể kết quả thử phương pháp học; trả lời <em>“Where would you like to study abroad?”</em>; luyện hội thoại theo nhóm; diễn role-play sân bay (thuyết trình nhóm)</td>
+            </tr>
+            <!-- Nghỉ 20/11 -->
+            <tr class="bg-amber-50/90">
+              <td class="py-3 px-4 font-extrabold text-center text-amber-800" colspan="2">💐 Nghỉ 1 tuần (20/11)</td>
+              <td class="py-3 px-4 font-semibold text-amber-900" colspan="4">Nghỉ lễ Ngày Nhà giáo Việt Nam 20/11 — Sinh viên thực hiện nhiệm vụ cá nhân và chuẩn bị Video dự thi ASU Master Class.</td>
+            </tr>
+            <!-- Tuần 5 -->
+            <tr class="hover:bg-emerald-50/50 transition">
+              <td class="py-4 px-4 font-black text-center text-lhu-blue bg-slate-50">5</td>
+              <td class="py-4 px-4 font-bold text-slate-900 bg-emerald-50/40" rowspan="2">🌱 Mục đích & Hạnh phúc</td>
+              <td class="py-4 px-4 font-semibold text-slate-800">Power of Purpose / Blue Zones: motivation</td>
+              <td class="py-4 px-4 text-slate-700">Power of Purpose / Blue Zones: motivation</td>
+              <td class="py-4 px-4 text-slate-700">Clip Master Class #24 hoặc #13; bản đồ 5 Blue Zones; từ vựng (<em>purpose, motivation, goal, habit, longevity, community…</em>); sơ đồ Ikigai in khổ A4; bài đọc thêm</td>
+              <td class="py-4 px-4 text-slate-700">Xem clip và điền từ còn thiếu; tự điền sơ đồ Ikigai; chia sẻ theo cặp; thảo luận nhóm <em>“What motivates students?”</em>; viết purpose của bản thân trong 3 câu</td>
+            </tr>
+            <!-- Tuần 6 -->
+            <tr class="hover:bg-emerald-50/50 transition">
+              <td class="py-4 px-4 font-black text-center text-indigo-700 bg-slate-50">6</td>
+              <td class="py-4 px-4 font-semibold text-slate-800">Happiness: định nghĩa hạnh phúc của bạn</td>
+              <td class="py-4 px-4 text-slate-700">Happiness</td>
+              <td class="py-4 px-4 text-slate-700">Clip Master Class #6; từ vựng (<em>gratitude, joy, satisfaction, well-being, mindset…</em>); giấy note cho “gratitude wall”; rubric</td>
+              <td class="py-4 px-4 text-slate-700">Tự chấm mức hạnh phúc hôm nay theo thang 1–10; xem clip; viết 1 điều biết ơn dán lên tường; thuyết trình nhóm <em>“Our definition of happiness”</em></td>
+            </tr>
+            <!-- Tuần 7 -->
+            <tr class="hover:bg-purple-50/50 transition">
+              <td class="py-4 px-4 font-black text-center text-lhu-blue bg-slate-50">7</td>
+              <td class="py-4 px-4 font-bold text-slate-900 bg-purple-50/40" rowspan="2">🧘 Stress</td>
+              <td class="py-4 px-4 font-semibold text-slate-800">The Dual Nature of Stress</td>
+              <td class="py-4 px-4 text-slate-700">Stress: The Dual Nature of Stress</td>
+              <td class="py-4 px-4 text-slate-700">Đoạn 5–10 phút webinar Cintana và clip #28; từ vựng (<em>pressure, cope, deadline, overwhelmed, relax, good/bad stress…</em>); thẻ phân loại good / bad stress; mẫu Stress Diary</td>
+              <td class="py-4 px-4 text-slate-700">Đánh dấu mức stress của mình trên “nhiệt kế stress”; xem clip; phân loại thẻ good / bad stress theo nhóm; tập thở 1 phút; nhận mẫu Stress Diary</td>
+            </tr>
+            <!-- Tuần 8 -->
+            <tr class="hover:bg-purple-50/50 transition">
+              <td class="py-4 px-4 font-black text-center text-indigo-700 bg-slate-50">8</td>
+              <td class="py-4 px-4 font-semibold text-slate-800">Thảo luận: bạn đã kiểm soát stress thế nào</td>
+              <td class="py-4 px-4 text-slate-700">Thảo luận về stress</td>
+              <td class="py-4 px-4 text-slate-700">Mẫu câu khuyên (<em>You should… / Why don’t you… / It helps me to…</em>); giấy ghi vấn đề ẩn danh; rubric; phiếu khảo sát cuối khóa</td>
+              <td class="py-4 px-4 text-slate-700">Chia sẻ Stress Diary theo cặp; “Advice circle”: rút 1 vấn đề ẩn danh và đưa lời khuyên; thuyết trình nhóm <em>“How we handle stress”</em>; làm khảo sát cuối khóa</td>
+            </tr>
+            <!-- Tuần 9 -->
+            <tr class="bg-rose-50/70 hover:bg-rose-100/60 transition">
+              <td class="py-4 px-4 font-black text-center text-asu-maroon bg-rose-100">9</td>
+              <td class="py-4 px-4 font-extrabold text-asu-maroon">🏆 Tổng kết</td>
+              <td class="py-4 px-4 font-bold text-slate-900">Tổng kết cuộc thi + trao thưởng</td>
+              <td class="py-4 px-4 font-semibold text-slate-800">Tổng kết và trao thưởng</td>
+              <td class="py-4 px-4 text-slate-800">Danh sách đoạt giải; video đoạt giải; giấy khen, quà; giải CLB (<em>Tích cực nhất, Tiến bộ nhất</em>)</td>
+              <td class="py-4 px-4 text-slate-800">Xem video đoạt giải; nhận badge, giải thưởng; chia sẻ 1 câu: <em>“In this club, I learned…”</em></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: CUỘC THI VIDEO ASU MASTER CLASS -->
+  <section id="cuoc-thi-asu" class="py-16 lg:py-24 bg-slate-900 text-white relative overflow-hidden scroll-mt-16">
+    <!-- Glow effects -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-asu-maroon/30 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-lhu-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-asu-maroon text-asu-gold font-extrabold text-xs uppercase tracking-wider border border-asu-gold/40">
+          <span>Phần 3 • Sân chơi học thuật toàn Khoa CNTT (5 Ngành)</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight">
+          CUỘC THI VIDEO <span class="text-asu-gold">ASU MASTER CLASS</span>
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+          Sinh viên chọn <strong>1 video bất kỳ trong playlist ASU Master Class</strong>, quay video bằng tiếng Anh trình bày <strong>tóm tắt nội dung</strong> và <strong>cách bản thân áp dụng</strong> vào học tập hoặc cuộc sống.
+        </p>
+      </div>
+
+      <!-- Key Rules Grid -->
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Rule 1: Đối tượng & Thời lượng -->
+        <div class="bg-white/5 backdrop-blur-md border border-white/15 rounded-2xl p-6 space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-asu-gold text-slate-900 flex items-center justify-center font-black text-2xl">
+            🎬
+          </div>
+          <h3 class="text-xl font-extrabold text-white">Đối Tượng & Nội Dung</h3>
+          <ul class="space-y-3 text-sm sm:text-base text-slate-200">
+            <li class="flex items-start gap-2">
+              <span class="text-asu-gold font-bold">•</span>
+              <span><strong>Đối tượng:</strong> Sinh viên toàn <strong>Khoa CNTT (5 ngành)</strong>, dự thi <strong>cá nhân</strong> hoặc <strong>nhóm 2 người</strong>.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-asu-gold font-bold">•</span>
+              <span><strong>Thời lượng đề xuất:</strong> Từ <strong>3 – 5 phút</strong>.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-asu-gold font-bold">•</span>
+              <span><strong>Bố cục 2 phần bắt buộc:</strong><br>
+                (1) Tóm tắt nội dung video Master Class đã chọn.<br>
+                (2) Cách bản thân áp dụng vào học tập hoặc cuộc sống thực tế.
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Rule 2: Cách nộp bài -->
+        <div class="bg-white/5 backdrop-blur-md border border-white/15 rounded-2xl p-6 space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-sky-400 text-slate-900 flex items-center justify-center font-black text-2xl">
+            📤
+          </div>
+          <h3 class="text-xl font-extrabold text-white">Cách Thức Nộp Bài</h3>
+          <p class="text-sm text-slate-300">
+            Nộp qua <strong>Form đăng ký chính thức của Khoa</strong> với đầy đủ các thông tin:
+          </p>
+          <ul class="space-y-2 text-sm text-slate-200 bg-white/5 p-4 rounded-xl border border-white/10">
+            <li>✔ Họ và tên, MSSV, Lớp, Ngành</li>
+            <li>✔ Email cá nhân (để nhận ASU Digital Badge)</li>
+            <li>✔ Số thứ tự & Tên video Master Class đã chọn</li>
+            <li>✔ Link video dự thi đăng trên <strong>Google Drive</strong> hoặc <strong>YouTube (để ở chế độ Không công khai / Unlisted)</strong></li>
+          </ul>
+        </div>
+
+        <!-- Rule 3: Quyền lợi & Giải thưởng -->
+        <div class="bg-gradient-to-br from-asu-maroon to-rose-900 border border-asu-gold/50 rounded-2xl p-6 space-y-4 shadow-xl">
+          <div class="w-12 h-12 rounded-xl bg-white text-asu-maroon flex items-center justify-center font-black text-2xl">
+            🎖️
+          </div>
+          <h3 class="text-xl font-extrabold text-asu-gold">Quyền Lợi & Giải Thưởng</h3>
+          <div class="space-y-3 text-sm sm:text-base text-white">
+            <div class="p-3.5 rounded-xl bg-black/25 border border-white/15">
+              <div class="font-extrabold text-asu-gold">100% Bài Dự Thi Hợp Lệ</div>
+              <p class="text-xs sm:text-sm text-rose-100 mt-1">
+                Được cấp <strong>Chứng nhận số quốc tế (Digital Badge) của Arizona State University (ASU)</strong> gửi trực tiếp qua email đã đăng ký vào cuối cuộc thi.
+              </p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/25 border border-white/15">
+              <div class="font-extrabold text-white">Giải Thưởng Xuất Sắc Từ Khoa</div>
+              <p class="text-xs sm:text-sm text-rose-100 mt-1">
+                Các video hay nhất được vinh danh, trình chiếu và nhận <strong>Phần thưởng + Giấy khen của Khoa</strong> vào Tuần 9.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DOs & DON'Ts + SCORING RUBRIC -->
+      <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left 7 Cols: Được dùng vs Không được dùng -->
+        <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+          <!-- ĐƯỢC DÙNG -->
+          <div class="bg-emerald-950/60 border-2 border-emerald-500/60 rounded-2xl p-6 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500 text-slate-950 font-black text-xs uppercase">
+                ✅ ĐƯỢC PHÉP SỬ DỤNG
+              </div>
+              <h4 class="text-xl font-extrabold text-emerald-300">Khuyến khích sáng tạo thủ công & trực quan</h4>
+              <ul class="space-y-3 text-sm sm:text-base text-slate-200">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-black">✔</span>
+                  <span><strong>Tranh vẽ tay, sơ đồ tư duy (Mindmap)</strong> trên giấy hoặc bảng.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-black">✔</span>
+                  <span><strong>Bảng viết, đạo cụ, dụng cụ minh họa</strong> trực quan cầm tay.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-black">✔</span>
+                  <span><strong>Cắt nối cơ bản</strong> giữa các đoạn quay để video mạch lạc.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-black">✔</span>
+                  <span><strong>Người dự thi trực tiếp xuất hiện</strong> trước ống kính và tự trình bày bằng giọng thật.</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 pt-4 border-t border-emerald-500/30 text-xs text-emerald-200 font-semibold">
+              💡 Mẹo: Sử dụng tranh vẽ hoặc đạo cụ giúp bạn đạt tối đa 15 điểm sáng tạo!
+            </div>
+          </div>
+
+          <!-- KHÔNG ĐƯỢC DÙNG -->
+          <div class="bg-rose-950/70 border-2 border-rose-500/70 rounded-2xl p-6 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-rose-500 text-white font-black text-xs uppercase">
+                🚫 TUYỆT ĐỐI KHÔNG ĐƯỢC DÙNG
+              </div>
+              <h4 class="text-xl font-extrabold text-rose-300">Quy định chống lạm dụng kỹ xảo & AI</h4>
+              <ul class="space-y-3 text-sm sm:text-base text-slate-200">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-rose-400 font-black">✖</span>
+                  <span><strong>KHÔNG dùng hiệu ứng kỹ xảo:</strong> Chuyển cảnh (transitions), filter màu/mặt, sticker, chữ chạy (auto-captions/subtitles).</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-rose-400 font-black">✖</span>
+                  <span><strong>KHÔNG dùng giọng đọc AI (AI Voice / Text-to-Speech)</strong> dưới mọi hình thức.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-rose-400 font-black">✖</span>
+                  <span><strong>KHÔNG dùng nhân vật ảo tạo bằng AI (AI Avatar)</strong> nói thay người dự thi.</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 p-3 rounded-xl bg-rose-500/20 border border-rose-400/50 text-xs text-rose-200 font-bold">
+              ⚠️ LƯU Ý QUAN TRỌNG: Video vi phạm quy định về hiệu ứng hoặc sử dụng AI sẽ KHÔNG được xét giải và không được cấp Badge.
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 5 Cols: Thang điểm 100 -->
+        <div class="lg:col-span-5 bg-white text-slate-900 rounded-2xl p-6 sm:p-7 shadow-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-5">
+              <div>
+                <span class="text-xs font-extrabold uppercase text-asu-maroon">Thang điểm chuẩn</span>
+                <h4 class="text-xl sm:text-2xl font-black text-lhu-darkBlue">TIÊU CHÍ CHẤM ĐIỂM</h4>
+              </div>
+              <div class="text-right">
+                <span class="text-3xl font-black text-asu-maroon">100</span>
+                <span class="block text-[11px] font-bold text-slate-500 uppercase">Tổng điểm</span>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <!-- Criterion 1 -->
+              <div>
+                <div class="flex justify-between text-sm font-bold mb-1">
+                  <span class="text-slate-800">1. Tóm tắt đúng và đủ ý chính của Master Class</span>
+                  <span class="text-lhu-blue font-black">30 điểm</span>
+                </div>
+                <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-lhu-blue rounded-full" style="width: 30%"></div>
+                </div>
+              </div>
+
+              <!-- Criterion 2 -->
+              <div>
+                <div class="flex justify-between text-sm font-bold mb-1">
+                  <span class="text-slate-800">2. Cách áp dụng cụ thể, gắn với bản thân</span>
+                  <span class="text-asu-maroon font-black">30 điểm</span>
+                </div>
+                <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-asu-maroon rounded-full" style="width: 30%"></div>
+                </div>
+              </div>
+
+              <!-- Criterion 3 -->
+              <div>
+                <div class="flex justify-between text-sm font-bold mb-1">
+                  <span class="text-slate-800">3. Ngôn ngữ: phát âm, lưu loát, dùng từ</span>
+                  <span class="text-emerald-600 font-black">25 điểm</span>
+                </div>
+                <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-600 rounded-full" style="width: 25%"></div>
+                </div>
+              </div>
+
+              <!-- Criterion 4 -->
+              <div>
+                <div class="flex justify-between text-sm font-bold mb-1">
+                  <span class="text-slate-800">4. Sáng tạo trong trình bày (tranh vẽ, dụng cụ)</span>
+                  <span class="text-amber-600 font-black">15 điểm</span>
+                </div>
+                <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-amber-500 rounded-full" style="width: 15%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 bg-slate-50 rounded-xl p-4 border border-slate-200 text-xs sm:text-sm text-slate-600">
+            <strong class="text-slate-900">💡 Bí quyết đạt điểm cao:</strong> Đừng chỉ dịch lại video! Hãy dành 50% thời lượng kể câu chuyện thực tế của chính bạn khi áp dụng bài học từ ASU Master Class vào việc học ở LHU.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: HÌNH ẢNH HOẠT ĐỘNG THỰC TẾ TẠI LHU -->
+  <section id="hinh-anh" class="py-14 lg:py-20 bg-white scroll-mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <span class="inline-block px-3.5 py-1 rounded-full bg-lhu-lightGold text-amber-800 font-extrabold text-xs uppercase tracking-wider">Hình ảnh thực tế tại Đại học Lạc Hồng</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-lhu-darkBlue mt-1">KHÔNG KHÍ HỌC TẬP & GIAO LƯU ASU MASTER CLASS</h2>
+        </div>
+        <p class="text-sm text-slate-500">Bấm vào từng ảnh để phóng to toàn màn hình khi trình chiếu.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+        <!-- Main large photo -->
+        <div class="md:col-span-7 relative rounded-2xl overflow-hidden group cursor-pointer shadow-md aspect-video" onclick="openLightbox('assets/activity-4.jpg', 'Đông đảo sinh viên LHU tham gia chuỗi chương trình ASU Master Class')">
+          <img src="assets/activity-4.jpg" alt="Tập thể sinh viên LHU tại ASU Master Class" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent flex items-end p-5">
+            <div>
+              <span class="px-2.5 py-0.5 rounded bg-asu-gold text-slate-900 font-extrabold text-xs">Cộng đồng Sinh viên LHU</span>
+              <h3 class="text-white font-bold text-base sm:text-lg mt-1">Đông đảo sinh viên hào hứng tham gia chuỗi hoạt động học thuật quốc tế ASU Master Class</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side photo -->
+        <div class="md:col-span-5 relative rounded-2xl overflow-hidden group cursor-pointer shadow-md aspect-video md:aspect-auto" onclick="openLightbox('assets/activity-2.jpg', 'Vinh danh và trao phần thưởng cho các cá nhân/nhóm xuất sắc')">
+          <img src="assets/activity-2.jpg" alt="Trao thưởng sinh viên xuất sắc" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent flex items-end p-5">
+            <div>
+              <span class="px-2.5 py-0.5 rounded bg-emerald-400 text-slate-900 font-extrabold text-xs">Khen thưởng & Vinh danh</span>
+              <h3 class="text-white font-bold text-base sm:text-lg mt-1">Trao quà và chứng nhận cho các sinh viên có phần thể hiện ấn tượng</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom 3 photos -->
+        <div class="md:col-span-4 relative rounded-2xl overflow-hidden group cursor-pointer shadow-md aspect-video" onclick="openLightbox('assets/activity-1.jpg', 'Giảng viên và sinh viên cùng lưu giữ khoảnh khắc tại sự kiện ASU Master Class')">
+          <img src="assets/activity-1.jpg" alt="Giảng viên và sinh viên LHU" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+            <p class="text-white text-sm font-semibold">Đồng hành sát sao giữa Giảng viên và Sinh viên</p>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 relative rounded-2xl overflow-hidden group cursor-pointer shadow-md aspect-video" onclick="openLightbox('assets/activity-3.jpg', 'Hướng dẫn trực tiếp cách sử dụng AI (ChatGPT & Claude) để tóm tắt và học tiếng Anh qua YouTube')">
+          <img src="assets/activity-3.jpg" alt="Hướng dẫn công cụ AI" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+            <p class="text-white text-sm font-semibold">Thực hành ứng dụng AI hỗ trợ học tiếng Anh ngay tại lớp</p>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 relative rounded-2xl overflow-hidden group cursor-pointer shadow-md aspect-video" onclick="openLightbox('assets/activity-5.jpg', 'Sinh viên làm việc nhóm sôi nổi, vẽ sơ đồ và chuẩn bị bài thuyết trình tiếng Anh')">
+          <img src="assets/activity-5.jpg" alt="Làm việc nhóm CLB Tiếng Anh" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+            <p class="text-white text-sm font-semibold">Làm việc nhóm 4 SV, thảo luận & chuẩn bị thuyết trình</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER / KICKOFF CALL TO ACTION -->
+  <footer class="bg-lhu-darkBlue text-white py-12 border-t-4 border-asu-gold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="bg-white p-2.5 rounded-xl">
+          <img src="assets/lhu-logo.png" alt="Lac Hong University" class="h-12 w-auto object-contain" />
+        </div>
+        <div>
+          <h4 class="font-black text-lg text-white">TRƯỜNG ĐẠI HỌC LẠC HỒNG (LHU) — KHOA CNTT</h4>
+          <p class="text-xs sm:text-sm text-sky-200">CLB Tiếng Anh Tân Sinh Viên & Cuộc Thi Video ASU Master Class (26/10 – 12/2026)</p>
+        </div>
+      </div>
+      <div class="text-center md:text-right">
+        <span class="inline-block px-4 py-2 rounded-xl bg-asu-gold text-slate-900 font-extrabold text-sm">
+          🌟 Sẵn sàng bứt phá tiếng Anh & Chinh phục ASU Digital Badge!
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX MODAL FOR PHOTOS -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeLightbox()">
+    <div class="max-w-5xl w-full relative" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" class="absolute -top-12 right-0 text-white hover:text-asu-gold font-bold text-sm flex items-center gap-1 bg-white/10 px-3 py-1.5 rounded-lg">
+        <span>Đóng (ESC)</span> ✕
+      </button>
+      <img id="lightboxImg" src="" alt="Preview" class="w-full max-h-[82vh] object-contain rounded-2xl shadow-2xl border border-white/20" />
+      <p id="lightboxCaption" class="text-center text-white font-semibold text-base mt-3"></p>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE SCRIPTS -->
+  <script>
+    function setRoleView(role) {
+      const teacherBoxes = document.querySelectorAll('.role-teacher-box');
+      const studentBoxes = document.querySelectorAll('.role-student-box');
+      const btnAll = document.getElementById('role-all');
+      const btnStudent = document.getElementById('role-student');
+      const btnTeacher = document.getElementById('role-teacher');
+
+      const activeClass = 'px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-lhu-blue text-white transition';
+      const inactiveClass = 'px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-100 transition';
+
+      btnAll.className = role === 'all' ? activeClass : inactiveClass;
+      btnStudent.className = role === 'student' ? activeClass : inactiveClass;
+      btnTeacher.className = role === 'teacher' ? activeClass : inactiveClass;
+
+      teacherBoxes.forEach(el => {
+        el.style.display = (role === 'all' || role === 'teacher') ? 'block' : 'none';
+      });
+      studentBoxes.forEach(el => {
+        el.style.display = (role === 'all' || role === 'student') ? 'block' : 'none';
+      });
+    }
+
+    function togglePresentationMode() {
+      document.body.classList.toggle('presentation-mode');
+      const isPres = document.body.classList.contains('presentation-mode');
+      const btnText = document.getElementById('presentationBtnText');
+      btnText.textContent = isPres ? 'Thoát Trình chiếu' : 'Chế độ Trình chiếu';
+      if (isPres && document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else if (!isPres && document.fullscreenElement) {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('lightboxModal');
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxCaption').textContent = caption || '';
+      modal.classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.add('hidden');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
