@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KICKOFF 2026: CLB Tiếng Anh & ASU Master Class | Đại Học Lạc Hồng (LHU)</title>
+  <title>Từ Đồng Nai Ra Thế Giới – 9 Tuần Cất Cánh | CLB Tiếng Anh & ASU Master Class - LHU</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,15 +19,19 @@
           },
           colors: {
             lhu: {
+              navy: '#0F2942',
               blue: '#1B4F9C',
-              royal: '#2563EB',
-              sky: '#0EA5E9',
+              sky: '#0284C7',
               gold: '#F59E0B',
-              yellow: '#FFC627',
+            },
+            cintana: {
+              orange: '#F97316',
+              mapGray: '#CBD5E1',
+              bg: '#F8FAFC',
             },
             asu: {
               maroon: '#8C1D40',
-              rose: '#E11D48',
+              gold: '#FFC627',
             }
           }
         }
@@ -37,976 +41,1122 @@
   <style>
     body {
       font-family: 'Be Vietnam Pro', sans-serif;
-      background-color: #FFFFFF;
+      background-color: #F8FAFC;
       color: #0F172A;
       overflow-x: hidden;
     }
 
-    /* Bright Sunlit Pastel Mesh Background */
-    .bright-mesh {
-      background-color: #FFFFFF;
-      background-image:
-        radial-gradient(at 10% 10%, rgba(56, 189, 248, 0.18) 0px, transparent 45%),
-        radial-gradient(at 90% 12%, rgba(251, 191, 36, 0.22) 0px, transparent 45%),
-        radial-gradient(at 80% 85%, rgba(244, 63, 94, 0.14) 0px, transparent 50%),
-        radial-gradient(at 15% 85%, rgba(37, 99, 235, 0.14) 0px, transparent 50%);
+    /* Animated Dashed Flight Routes */
+    @keyframes dashFlow {
+      to {
+        stroke-dashoffset: -48;
+      }
+    }
+    .flight-route {
+      stroke-dasharray: 7 7;
+      animation: dashFlow 2.2s linear infinite;
     }
 
-    /* Vibrant Text Gradients */
-    .text-gradient-vibrant {
-      background: linear-gradient(135deg, #1B4F9C 0%, #2563EB 45%, #E11D48 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    /* Pulsing Map Pin */
+    @keyframes pinPulse {
+      0% { transform: scale(1); opacity: 0.75; }
+      70% { transform: scale(2.4); opacity: 0; }
+      100% { transform: scale(2.4); opacity: 0; }
     }
-    .text-gradient-sun {
-      background: linear-gradient(135deg, #F59E0B 0%, #E11D48 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Floating & Morphing Blobs */
-    @keyframes floatUp {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-14px) rotate(1.5deg); }
-    }
-    @keyframes floatDown {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(12px) rotate(-1.5deg); }
-    }
-    @keyframes blobBounce {
-      0%, 100% { transform: scale(1) translate(0, 0); }
-      33% { transform: scale(1.08) translate(20px, -15px); }
-      66% { transform: scale(0.95) translate(-15px, 15px); }
-    }
-    @keyframes marqueeLeft {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    @keyframes pulseRing {
-      0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5); }
-      70% { box-shadow: 0 0 0 18px rgba(245, 158, 11, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    .pin-ring {
+      transform-origin: center;
+      transform-box: fill-box;
+      animation: pinPulse 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
     }
 
-    .animate-float-up { animation: floatUp 5s ease-in-out infinite; }
-    .animate-float-down { animation: floatDown 6s ease-in-out infinite; }
-    .animate-blob { animation: blobBounce 10s ease-in-out infinite; }
-    .animate-pulse-ring { animation: pulseRing 2.5s infinite; }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marqueeLeft 32s linear infinite;
-    }
-    .marquee-track:hover {
-      animation-play-state: paused;
-    }
-
-    /* 3D Interactive Tilt Cards */
-    .tilt-card {
+    /* Boarding Pass Ticket Styling */
+    .boarding-pass {
+      position: relative;
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-style: preserve-3d;
     }
-    .tilt-card:hover {
-      box-shadow: 0 30px 60px -15px rgba(27, 79, 156, 0.18), 0 0 30px rgba(251, 191, 36, 0.2);
+    .boarding-pass:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px -12px rgba(15, 41, 66, 0.14);
+    }
+    .ticket-divider {
+      position: relative;
+      border-top: 2px dashed #CBD5E1;
+    }
+    @media (min-width: 1024px) {
+      .ticket-divider-vertical {
+        border-top: none;
+        border-left: 2px dashed #CBD5E1;
+      }
     }
 
-    /* Scroll Reveal with Spring Effect */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px) scale(0.97);
-      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    /* Interactive Vocab Pill */
+    /* Vocab Audio Pill */
     .vocab-pill {
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      padding: 6px 14px;
+      padding: 5px 13px;
       border-radius: 9999px;
-      font-size: 0.85rem;
+      font-size: 0.8125rem;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: all 0.2s ease;
     }
     .vocab-pill:hover {
-      transform: translateY(-3px) scale(1.08);
-      box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.25);
+      transform: translateY(-2px);
+      background-color: #EFF6FF;
+      color: #1B4F9C;
     }
     .vocab-pill.speaking {
-      background: linear-gradient(135deg, #F59E0B, #E11D48) !important;
+      background-color: #F97316 !important;
       color: #FFFFFF !important;
-      transform: scale(1.12);
     }
 
-    /* SVG Ring Animation */
-    .ring-circle {
-      transition: stroke-dashoffset 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Presentation Mode */
-    body.presentation-mode { font-size: 112%; }
-    body.presentation-mode .max-w-7xl { max-width: 94vw; }
+    body.presentation-mode {
+      font-size: 112%;
+    }
+    body.presentation-mode .max-w-7xl {
+      max-width: 94vw;
+    }
+
+    /* Optimize for mobile phones: lighter animation */
+    @media (max-width: 767px) {
+      .flight-route {
+        animation: none !important;
+      }
+      .airplane-secondary {
+        display: none !important;
+      }
+    }
+
+    /* Respect Reduced Motion on Mobile/System */
+    @media (prefers-reduced-motion: reduce) {
+      .flight-route,
+      .pin-ring,
+      .airplane-anim {
+        animation: none !important;
+        display: none !important;
+      }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
   </style>
 </head>
-<body class="bright-mesh selection:bg-amber-400 selection:text-slate-950">
+<body class="selection:bg-orange-500 selection:text-white">
 
   <!-- ===================================================================== -->
-  <!-- STICKY BRIGHT GLASS NAVBAR -->
+  <!-- MINIMAL STUDENT-FACING HEADER -->
   <!-- ===================================================================== -->
-  <header class="sticky top-0 z-40 bg-white/85 backdrop-blur-xl border-b border-slate-200/80 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-      <!-- LHU Logo -->
-      <a href="#top" class="flex items-center gap-3.5 group">
-        <img src="assets/lhu-logo.png" alt="Lac Hong University" class="h-13 sm:h-14 w-auto object-contain group-hover:scale-105 transition duration-300" />
-        <div class="hidden md:block border-l-2 border-slate-200 pl-3.5">
-          <span class="block text-[11px] font-black tracking-widest uppercase text-asu-rose">KHOA CÔNG NGHỆ THÔNG TIN</span>
-          <span class="block text-sm font-black text-lhu-blue">ENGLISH CLUB & ASU MASTER CLASS</span>
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-3 group">
+        <img src="assets/lhu-logo.png" alt="Đại học Lạc Hồng - Powered by ASU" class="h-11 sm:h-12 w-auto object-contain" />
+        <div class="hidden sm:block border-l border-slate-200 pl-3">
+          <span class="block text-[11px] font-extrabold uppercase tracking-wider text-asu-maroon">Khoa Công Nghệ Thông Tin</span>
+          <span class="block text-sm font-black text-lhu-navy">Hành Trình 9 Tuần Cất Cánh</span>
         </div>
       </a>
 
-      <!-- Navigation Pills -->
-      <nav class="hidden lg:flex items-center gap-1.5 bg-slate-100/90 p-1.5 rounded-full border border-slate-200 text-xs sm:text-sm font-extrabold text-slate-600">
-        <a href="#tong-quan" class="px-4 py-2 rounded-full hover:bg-white hover:text-lhu-blue hover:shadow-sm transition">🎯 Mục Tiêu & Chu Kỳ</a>
-        <a href="#lo-trinh" class="px-4 py-2 rounded-full hover:bg-white hover:text-lhu-blue hover:shadow-sm transition">🗓️ Lộ Trình 9 Tuần</a>
-        <a href="#cuoc-thi" class="px-4 py-2 rounded-full hover:bg-white hover:text-asu-rose hover:shadow-sm transition">🏆 Thi Video ASU</a>
-        <a href="#hinh-anh" class="px-4 py-2 rounded-full hover:bg-white hover:text-amber-600 hover:shadow-sm transition">📸 Ảnh Hoạt Động</a>
+      <nav class="hidden md:flex items-center gap-1 text-xs sm:text-sm font-bold text-slate-600">
+        <a href="#giai-phap" class="px-3.5 py-2 rounded-full hover:bg-slate-100 hover:text-lhu-blue transition">Gỡ bỏ nỗi lo</a>
+        <a href="#chang-bay" class="px-3.5 py-2 rounded-full hover:bg-slate-100 hover:text-lhu-blue transition">4 Chặng bay (9 Tuần)</a>
+        <a href="#tam-ve-dau-tien" class="px-3.5 py-2 rounded-full hover:bg-slate-100 hover:text-orange-600 transition">Tấm vé đầu tiên (ASU Badge)</a>
+        <a href="#hinh-anh" class="px-3.5 py-2 rounded-full hover:bg-slate-100 hover:text-lhu-blue transition">Khoảnh khắc CLB</a>
       </nav>
 
-      <!-- Action Buttons -->
-      <div class="flex items-center gap-2.5">
-        <button onclick="openFullPlanModal()" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-blue-50 hover:bg-blue-100 text-lhu-blue text-xs sm:text-sm font-extrabold border border-blue-200 transition">
-          <span>📋 Bản Kế Hoạch Chi Tiết</span>
-        </button>
-        <button onclick="togglePresentationMode()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-lhu-blue via-blue-600 to-asu-rose text-white text-xs sm:text-sm font-black shadow-lg shadow-blue-600/25 hover:scale-105 transition">
-          <span>✨ Trình Chiếu</span>
-        </button>
-      </div>
+      <a href="#chang-bay" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm font-extrabold shadow-md shadow-orange-500/20 transition">
+        <span>✈️ Lên máy bay</span>
+      </a>
     </div>
   </header>
 
   <!-- ===================================================================== -->
-  <!-- HERO SECTION: SUNLIT, PHOTO-DOMINANT, DYNAMIC ANIMATIONS -->
+  <!-- 1. HERO SECTION: MINIMAL WORLD MAP + FLIGHT ROUTES + 1 SINGLE CTA -->
   <!-- ===================================================================== -->
-  <section id="top" class="relative pt-10 pb-20 lg:pt-16 lg:pb-24 overflow-hidden">
-    <!-- Pastel Floating Background Orbs -->
-    <div class="absolute -top-20 -left-20 w-96 h-96 bg-sky-300/30 rounded-full blur-3xl animate-blob pointer-events-none"></div>
-    <div class="absolute top-20 right-0 w-96 h-96 bg-amber-300/30 rounded-full blur-3xl animate-blob pointer-events-none" style="animation-delay: 2s;"></div>
-    <div class="absolute bottom-0 left-1/3 w-96 h-96 bg-rose-300/25 rounded-full blur-3xl animate-blob pointer-events-none" style="animation-delay: 4s;"></div>
+  <section id="top" class="relative min-h-[calc(100vh-4.5rem)] bg-white flex flex-col justify-between overflow-hidden border-b border-slate-200">
+    
+    <!-- Top Title Overlay -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-2 text-center relative z-20 space-y-4">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-xs sm:text-sm font-extrabold">
+        <span>🛫 CLB Tiếng Anh Khoa CNTT × Mạng lưới Cintana Alliance</span>
+      </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-lhu-navy tracking-tight leading-[1.12]">
+        Từ Đồng Nai ra thế giới – <span class="text-orange-500">9 tuần cất cánh</span>
+      </h1>
+
+      <p class="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">
+        Không cần giỏi tiếng Anh. Chỉ cần bắt đầu. Mỗi tuần học sẽ là <strong class="text-lhu-navy">1 mảnh vé máy bay</strong> đưa bạn từng bước chạm tới ước mơ vươn ra thế giới.
+      </p>
+    </div>
+
+    <!-- Interactive World Map Stage (Cintana Alliance Style) -->
+    <div class="relative max-w-6xl w-full mx-auto px-2 sm:px-6 flex-1 flex items-center justify-center my-2">
+      
+      <!-- SVG Minimalist World Map + Flight Paths + Animated Airplanes -->
+      <div class="relative w-full aspect-[16/9] sm:aspect-[21/10] bg-gradient-to-b from-slate-50/60 to-sky-50/40 rounded-3xl border border-slate-200/80 shadow-inner overflow-hidden flex items-center justify-center">
         
-        <!-- Left 6 Cols: Big Punchy Typography + Minimal Text -->
-        <div class="lg:col-span-6 space-y-6">
-          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white shadow-md border border-amber-200">
-            <span class="px-3 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-white font-black text-xs uppercase tracking-wider animate-pulse-ring">
-              KICKOFF 2026
-            </span>
-            <span class="text-xs sm:text-sm font-extrabold text-slate-700">
-              26/10 – 12/2026 • Khoa CNTT (5 Ngành)
-            </span>
+        <svg id="worldMapSvg" viewBox="0 0 1000 480" class="w-full h-full select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Subtle Grid Pattern -->
+            <pattern id="mapGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E2E8F0" stroke-width="0.6" />
+            </pattern>
+            <!-- Glowing Filter for Active Pins -->
+            <filter id="glowOrange" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#F97316" flood-opacity="0.55" />
+            </filter>
+          </defs>
+
+          <!-- Background Grid -->
+          <rect width="1000" height="480" fill="url(#mapGrid)" />
+
+          <!-- Minimalist World Continents Silhouette (Cintana Grey-Blue Palette) -->
+          <g fill="#CBD5E1" stroke="#F8FAFC" stroke-width="1.5" opacity="0.88">
+            <!-- North America -->
+            <path d="M 55,65 L 135,55 L 220,75 L 265,120 L 235,175 L 195,215 L 165,245 L 135,230 L 105,190 L 75,145 Z" />
+            <!-- Greenland -->
+            <path d="M 275,35 L 345,30 L 330,75 L 285,70 Z" />
+            <!-- South America -->
+            <path d="M 205,260 L 265,275 L 300,325 L 275,410 L 235,445 L 215,390 L 195,315 Z" />
+            <!-- Europe -->
+            <path d="M 435,70 L 515,60 L 560,95 L 545,145 L 495,160 L 445,155 L 420,120 Z" />
+            <!-- Africa -->
+            <path d="M 425,180 L 515,175 L 565,220 L 575,295 L 535,385 L 490,395 L 465,325 L 415,255 Z" />
+            <!-- Asia -->
+            <path d="M 555,65 L 685,55 L 825,75 L 875,130 L 835,215 L 785,260 L 735,280 L 685,255 L 625,245 L 575,195 L 555,140 Z" />
+            <!-- Japan & Taiwan & Philippines & Indonesia Islands -->
+            <path d="M 855,155 L 872,175 L 860,198 L 845,180 Z" />
+            <path d="M 800,222 L 812,232 L 804,244 L 795,234 Z" />
+            <path d="M 795,262 L 815,278 L 805,298 L 788,282 Z" />
+            <path d="M 715,305 L 775,312 L 815,325 L 795,342 L 725,335 Z" />
+            <!-- Australia -->
+            <path d="M 765,355 L 865,350 L 890,395 L 855,435 L 775,425 L 750,390 Z" />
+          </g>
+
+          <!-- ============================================================ -->
+          <!-- FLIGHT ROUTES FROM LHU (BIÊN HÒA: 752, 265) TO 4 DESTINATIONS -->
+          <!-- ============================================================ -->
+          <g fill="none" stroke-linecap="round">
+            <!-- Route 1: LHU (752,265) -> Indonesia Esa Unggul Jakarta (742,324) -->
+            <path id="route-indonesia" d="M 752,265 Q 722,295 742,324" stroke="#F97316" stroke-width="2.5" class="flight-route" />
+            
+            <!-- Route 2: LHU (752,265) -> Đài Loan (804,230) -->
+            <path id="route-taiwan" d="M 752,265 Q 770,235 804,230" stroke="#0284C7" stroke-width="2.5" class="flight-route" />
+            
+            <!-- Route 3: LHU (752,265) -> Trung Quốc (775,175) -->
+            <path id="route-china" d="M 752,265 Q 740,210 775,175" stroke="#1B4F9C" stroke-width="2.5" class="flight-route" />
+            
+            <!-- Route 4: LHU (752,265) -> ASU Arizona, Mỹ (165,175) Across Pacific Arch -->
+            <path id="route-asu" d="M 752,265 Q 480,45 165,175" stroke="#8C1D40" stroke-width="3" class="flight-route" />
+          </g>
+
+          <!-- ============================================================ -->
+          <!-- ANIMATED AIRPLANES FLYING ALONG THE ROUTES -->
+          <!-- ============================================================ -->
+          <g class="airplane-anim">
+            <!-- Airplane flying LHU -> ASU (Main Trans-Pacific Route) -->
+            <g fill="#8C1D40">
+              <path d="M -10,-6 L 10,0 L -10,6 L -5,0 Z" />
+              <animateMotion dur="7s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#route-asu" />
+              </animateMotion>
+            </g>
+            <!-- Airplane flying LHU -> Taiwan -->
+            <g fill="#0284C7" class="airplane-secondary">
+              <path d="M -7,-4 L 7,0 L -7,4 L -3,0 Z" />
+              <animateMotion dur="3.5s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#route-taiwan" />
+              </animateMotion>
+            </g>
+            <!-- Airplane flying LHU -> Indonesia -->
+            <g fill="#F97316" class="airplane-secondary">
+              <path d="M -7,-4 L 7,0 L -7,4 L -3,0 Z" />
+              <animateMotion dur="3.2s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#route-indonesia" />
+              </animateMotion>
+            </g>
+            <!-- Airplane flying LHU -> China -->
+            <g fill="#1B4F9C" class="airplane-secondary">
+              <path d="M -7,-4 L 7,0 L -7,4 L -3,0 Z" />
+              <animateMotion dur="4s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#route-china" />
+              </animateMotion>
+            </g>
+          </g>
+
+          <!-- ============================================================ -->
+          <!-- INTERACTIVE CLICKABLE PARTNER PINS -->
+          <!-- ============================================================ -->
+
+          <!-- ORIGIN: LHU - Biên Hòa, Đồng Nai (752, 265) -->
+          <g class="cursor-pointer" onclick="selectPartner('lhu')">
+            <circle cx="752" cy="265" r="14" fill="#1B4F9C" class="pin-ring" />
+            <circle cx="752" cy="265" r="8" fill="#1B4F9C" stroke="#FFFFFF" stroke-width="2.5" />
+            <rect x="642" y="248" width="98" height="24" rx="12" fill="#0F2942" />
+            <text x="691" y="264" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="800">🛫 LHU • BIÊN HÒA</text>
+          </g>
+
+          <!-- PIN 1: Indonesia - Universitas Esa Unggul, Jakarta (742, 324) -->
+          <g class="cursor-pointer" onclick="selectPartner('indonesia')">
+            <circle cx="742" cy="324" r="13" fill="#F97316" class="pin-ring" />
+            <circle cx="742" cy="324" r="7.5" fill="#F97316" stroke="#FFFFFF" stroke-width="2.5" filter="url(#glowOrange)" />
+            <text x="742" y="346" text-anchor="middle" fill="#0F2942" font-size="11" font-weight="800">Indonesia (Esa Unggul)</text>
+          </g>
+
+          <!-- PIN 2: Đài Loan (804, 230) -->
+          <g class="cursor-pointer" onclick="selectPartner('taiwan')">
+            <circle cx="804" cy="230" r="13" fill="#F97316" class="pin-ring" />
+            <circle cx="804" cy="230" r="7.5" fill="#F97316" stroke="#FFFFFF" stroke-width="2.5" filter="url(#glowOrange)" />
+            <text x="848" y="234" text-anchor="middle" fill="#0F2942" font-size="11" font-weight="800">Đài Loan</text>
+          </g>
+
+          <!-- PIN 3: Trung Quốc (775, 175) -->
+          <g class="cursor-pointer" onclick="selectPartner('china')">
+            <circle cx="775" cy="175" r="13" fill="#F97316" class="pin-ring" />
+            <circle cx="775" cy="175" r="7.5" fill="#F97316" stroke="#FFFFFF" stroke-width="2.5" filter="url(#glowOrange)" />
+            <text x="775" y="158" text-anchor="middle" fill="#0F2942" font-size="11" font-weight="800">Trung Quốc</text>
+          </g>
+
+          <!-- PIN 4: ASU - Arizona State University, Mỹ (165, 175) -->
+          <g class="cursor-pointer" onclick="selectPartner('asu')">
+            <circle cx="165" cy="175" r="15" fill="#8C1D40" class="pin-ring" />
+            <circle cx="165" cy="175" r="9" fill="#8C1D40" stroke="#FFC627" stroke-width="3" />
+            <rect x="85" y="135" width="160" height="26" rx="13" fill="#8C1D40" />
+            <text x="165" y="152" text-anchor="middle" fill="#FFC627" font-size="10.5" font-weight="800">🇺🇸 ASU (Arizona, Mỹ)</text>
+          </g>
+        </svg>
+
+        <!-- FLOATING PARTNER INFO CARD (Cintana Network Popover Style) -->
+        <div id="partnerPopover" class="absolute bottom-4 left-4 right-4 sm:left-8 sm:right-auto sm:w-96 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl border border-slate-200 transition-all duration-300 z-30">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span id="popoverBadge" class="inline-block px-2.5 py-0.5 rounded-md bg-orange-100 text-orange-700 font-extrabold text-[11px] uppercase">
+                Đối tác Mạng lưới Cintana Alliance
+              </span>
+              <h3 id="popoverTitle" class="text-lg font-black text-lhu-navy mt-1">
+                Universitas Esa Unggul
+              </h3>
+              <p id="popoverLocation" class="text-xs font-semibold text-slate-500">
+                📍 Jakarta, Indonesia
+              </p>
+            </div>
+            <button onclick="document.getElementById('partnerPopover').classList.add('hidden')" class="text-slate-400 hover:text-slate-700 font-bold text-lg leading-none px-1.5">×</button>
           </div>
-
-          <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-[1.1] text-slate-900">
-            Tự Tin Bứt Phá <br />
-            <span class="text-gradient-vibrant">CLB Tiếng Anh</span> <br />
-            & <span class="text-gradient-sun">ASU Master Class</span>
-          </h1>
-
-          <!-- Dynamic Typewriter Line -->
-          <div class="h-8 flex items-center gap-2 text-lg sm:text-2xl font-extrabold text-lhu-blue">
-            <span>🌟 Hành trình:</span>
-            <span id="typewriterText" class="underline decoration-amber-400 decoration-4 underline-offset-4">Học qua Video ASU chuẩn Mỹ</span>
-            <span class="animate-pulse text-asu-rose">|</span>
-          </div>
-
-          <!-- 4 Animated Counter Cards (Short & Visual) -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-            <div class="tilt-card bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-blue-100 text-center">
-              <div class="text-3xl sm:text-4xl font-black text-lhu-blue font-display"><span class="counter" data-target="9">9</span></div>
-              <div class="text-xs font-extrabold text-slate-600 uppercase mt-1">Tuần Sinh Hoạt</div>
-            </div>
-            <div class="tilt-card bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-amber-100 text-center">
-              <div class="text-3xl sm:text-4xl font-black text-amber-500 font-display"><span class="counter" data-target="4">4</span></div>
-              <div class="text-xs font-extrabold text-slate-600 uppercase mt-1">Chủ Đề Lớn</div>
-            </div>
-            <div class="tilt-card bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-rose-100 text-center">
-              <div class="text-3xl sm:text-4xl font-black text-asu-rose font-display"><span class="counter" data-target="5">5</span></div>
-              <div class="text-xs font-extrabold text-slate-600 uppercase mt-1">Ngành Khoa CNTT</div>
-            </div>
-            <div class="tilt-card bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-emerald-100 text-center">
-              <div class="text-3xl sm:text-4xl font-black text-emerald-600 font-display"><span class="counter" data-target="100">100</span>%</div>
-              <div class="text-xs font-extrabold text-slate-600 uppercase mt-1">Nhận ASU Badge</div>
-            </div>
-          </div>
-
-          <!-- CTA Buttons -->
-          <div class="flex flex-wrap items-center gap-4 pt-3">
-            <a href="#lo-trinh" onclick="fireConfetti()" class="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-lhu-blue to-blue-600 text-white font-black text-base shadow-xl shadow-blue-600/30 hover:scale-105 transition">
-              <span>🚀 Khám Phá 9 Tuần Ngay</span>
-            </a>
-            <a href="#cuoc-thi" class="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white hover:bg-rose-50 text-asu-rose border-2 border-rose-200 font-black text-base shadow-md hover:scale-105 transition">
-              <span>🎬 Thể Lệ Thi Video ASU</span>
-            </a>
+          <p id="popoverDesc" class="text-xs sm:text-sm text-slate-700 mt-2.5 leading-relaxed">
+            Trường đại học đối tác trong liên minh <strong>Cintana Alliance</strong>: Hợp tác chương trình trao đổi sinh viên ngắn hạn, giao lưu văn hóa – học thuật quốc tế và chia sẻ nguồn học liệu chuẩn ASU.
+          </p>
+          <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-orange-600">
+            <span id="popoverTag">✈️ Chặng bay kết nối từ LHU</span>
+            <span>👆 Bấm các điểm cam trên bản đồ</span>
           </div>
         </div>
 
-        <!-- Right 6 Cols: Giant Interactive Photo Collage (4 Photos + Floating Badges) -->
-        <div class="lg:col-span-6 relative">
-          <!-- Floating LHU Logo Crest -->
-          <div class="absolute -top-5 left-6 z-30 bg-white px-5 py-2.5 rounded-2xl shadow-xl border-2 border-amber-400 animate-float-up">
-            <img src="assets/lhu-logo.png" alt="LHU Powered by ASU" class="h-11 sm:h-12 w-auto object-contain" />
-          </div>
-
-          <!-- Floating Badge Right -->
-          <div onclick="fireConfetti()" class="cursor-pointer absolute -bottom-5 right-6 z-30 bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 px-5 py-3 rounded-2xl shadow-2xl font-black text-xs sm:text-sm flex items-center gap-2 animate-float-down">
-            <span class="text-2xl">🎖️</span>
-            <div>
-              <div class="uppercase text-[10px] tracking-wider text-slate-900">Chứng nhận Quốc tế</div>
-              <div>ASU Digital Badge</div>
-            </div>
-          </div>
-
-          <!-- Main 4-Photo Bento Collage -->
-          <div class="grid grid-cols-12 gap-3.5 pt-4">
-            <!-- Big Top Photo -->
-            <div class="col-span-12 relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white aspect-[16/9] group cursor-pointer tilt-card" onclick="openLightbox('assets/activity-1.jpg', 'Sinh viên và Giảng viên LHU tại chương trình ASU Master Class')">
-              <img id="heroMainPhoto" src="assets/activity-1.jpg" alt="ASU Master Class LHU" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent flex items-end justify-between p-5">
-                <div>
-                  <span id="heroMainBadge" class="px-3 py-1 rounded-full bg-amber-400 text-slate-950 font-black text-xs uppercase">✨ Không khí Kickoff & Master Class</span>
-                  <h3 id="heroMainTitle" class="text-white font-black text-base sm:text-lg mt-1">Tự tin giao tiếp tiếng Anh & hội nhập quốc tế tại LHU</h3>
-                </div>
-                <span class="w-10 h-10 rounded-full bg-white/25 backdrop-blur-md text-white flex items-center justify-center font-bold">🔍</span>
-              </div>
-            </div>
-
-            <!-- 3 Bottom Interactive Photos -->
-            <div class="col-span-4 relative rounded-2xl overflow-hidden shadow-lg border-2 border-white aspect-[4/3] group cursor-pointer tilt-card" onclick="openLightbox('assets/activity-3.jpg', 'Hướng dẫn ứng dụng AI vào học tiếng Anh')">
-              <img src="assets/activity-3.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2.5">
-                <span class="text-white font-bold text-xs">🤖 Thực hành AI</span>
-              </div>
-            </div>
-
-            <div class="col-span-4 relative rounded-2xl overflow-hidden shadow-lg border-2 border-white aspect-[4/3] group cursor-pointer tilt-card" onclick="openLightbox('assets/activity-7.jpg', 'Sinh viên tự tay vẽ Mindmap & Ikigai')">
-              <img src="assets/activity-7.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2.5">
-                <span class="text-white font-bold text-xs">✍️ Vẽ Mindmap</span>
-              </div>
-            </div>
-
-            <div class="col-span-4 relative rounded-2xl overflow-hidden shadow-lg border-2 border-white aspect-[4/3] group cursor-pointer tilt-card" onclick="openLightbox('assets/activity-5.jpg', 'Thảo luận nhóm 4 sinh viên sôi nổi')">
-              <img src="assets/activity-5.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2.5">
-                <span class="text-white font-bold text-xs">🗣️ Làm việc nhóm</span>
-              </div>
-            </div>
-          </div>
+        <!-- Quick Filter Pills at Bottom Right of Map -->
+        <div class="hidden lg:flex items-center gap-1.5 absolute bottom-4 right-4 bg-white/90 backdrop-blur-md p-1.5 rounded-full border border-slate-200 shadow-md z-20">
+          <button onclick="selectPartner('lhu')" class="partner-pill px-3 py-1.5 rounded-full text-xs font-bold text-slate-700 hover:bg-slate-100 transition">🛫 Biên Hòa (LHU)</button>
+          <button onclick="selectPartner('indonesia')" class="partner-pill px-3 py-1.5 rounded-full text-xs font-bold bg-orange-500 text-white transition">🇮🇩 Esa Unggul (Indonesia)</button>
+          <button onclick="selectPartner('taiwan')" class="partner-pill px-3 py-1.5 rounded-full text-xs font-bold text-slate-700 hover:bg-slate-100 transition">🇹🇼 Đài Loan</button>
+          <button onclick="selectPartner('china')" class="partner-pill px-3 py-1.5 rounded-full text-xs font-bold text-slate-700 hover:bg-slate-100 transition">🇨🇳 Trung Quốc</button>
+          <button onclick="selectPartner('asu')" class="partner-pill px-3 py-1.5 rounded-full text-xs font-bold text-slate-700 hover:bg-slate-100 transition">🇺🇸 ASU (Mỹ)</button>
         </div>
 
       </div>
     </div>
+
+    <!-- Single Primary CTA Button at Bottom of First Screen -->
+    <div class="pb-8 pt-3 text-center relative z-20">
+      <a href="#giai-phap" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-lhu-navy hover:bg-lhu-blue text-white font-black text-base sm:text-lg shadow-xl shadow-blue-950/20 hover:scale-105 transition">
+        <span>✈️ Lên máy bay – Bắt đầu chặng 1</span>
+        <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      </a>
+      <p class="text-xs text-slate-500 font-semibold mt-2">
+        👆 Bấm vào các điểm màu cam trên bản đồ để xem trường đối tác & hình thức hợp tác
+      </p>
+    </div>
+
   </section>
 
   <!-- ===================================================================== -->
-  <!-- AUTO-SCROLLING PHOTO FILMSTRIP (ALL 8 LHU PHOTOS) -->
+  <!-- 2. NGAY SAU TIÊU ĐỀ: NÊU VẤN ĐỀ & GIẢI PHÁP (3 THẺ HỎI – ĐÁP) -->
   <!-- ===================================================================== -->
-  <div class="py-6 bg-gradient-to-r from-blue-50 via-amber-50 to-rose-50 border-y border-slate-200/80 overflow-hidden">
-    <div class="marquee-track gap-5 px-4">
-      <!-- Set 1 -->
-      <div class="flex items-center gap-5">
-        <div onclick="openLightbox('assets/activity-4.jpg', 'Đông đảo sinh viên LHU tham gia ASU Master Class')" class="relative h-44 w-72 rounded-3xl overflow-hidden shadow-md border-2 border-white cursor-pointer group shrink-0">
-          <img src="assets/activity-4.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-          <span class="absolute bottom-2.5 left-3 px-3 py-1 rounded-full bg-white/90 text-slate-900 font-extrabold text-xs shadow">🌟 Hội trường ASU Master Class</span>
-        </div>
-        <div onclick="openLightbox('assets/activity-6.jpg', 'Giảng viên tận tình hướng dẫn trên lớp')" class="relative h-44 w-72 rounded-3xl overflow-hidden shadow-md border-2 border-white cursor-pointer group shrink-0">
-          <img src="assets/activity-6.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-          <span class="absolute bottom-2.5 left-3 px-3 py-1 rounded-full bg-white/90 text-slate-900 font-extrabold text-xs shadow">👩‍🏫 Giảng viên đồng hành</span>
-        </div>
-        <div onclick="openLightbox('assets/activity-7.jpg', 'Sinh viên vẽ sơ đồ tư duy và ghi chép AI Diary')" class="relative h-44 w-72 rounded-3xl overflow-hidden shadow-md border-2 border-white cursor-pointer group shrink-0">
-          <img src="assets/activity-7.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-          <span class="absolute bottom-2.5 left-3 px-3 py-1 rounded-full bg-white/90 text-slate-900 font-extrabold text-xs shadow">✍️ Thực hành cá nhân</span>
-        </div>
-        <div onclick="openLightbox('assets/activity-5.jpg', 'Thảo luận nhóm 4 sinh viên')" class="relative h-44 w-72 rounded-3xl overflow-hidden shadow-md border-2 border-white cursor-pointer group shrink-0">
-          <img src="assets/activity-5.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-          <span class="absolute bottom-2.5 left-3 px-3 py-1 rounded-full bg-white/90 text-slate-900 font-extrabold text-xs shadow">🗣️ Thảo luận nhóm 4 SV</span>
-        </div>
-        <div onclick="openLightbox('assets/activity-2.jpg', 'Vinh danh và trao quà cho các cá nhân xuất sắc')" class="relative h-44 w-72 rounded-3xl overflow-hidden shadow-md border-2 border-white cursor-pointer group shrink-0">
-          <img src="assets/activity-2.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-          <span class="absolute bottom-2.5 left-3 px-3 py-1 rounded-full bg-white/90 text-slate-900 font-extrabold text-xs shadow">🏆 Trao thưởng xuất sắc</span>
-        </div>
-        <div onclick="openLightbox('assets/activity-8.jpg', 'Tập thể lớp học vui vẻ, gắn kết')" class="relative h-44 w-72 rounded-3xl overflow-hidden shadow-md border-2 border-white cursor-pointer group shrink-0">
-          <img src="assets/activity-8.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-          <span class="absolute bottom-2.5 left-3 px-3 py-1 rounded-full bg-white/90 text-slate-900 font-extrabold text-xs shadow">🤝 Kỷ niệm đáng nhớ</span>
-        </div>
-      </div>
-      <!-- Set 2 (Seamless Loop) -->
-      <div class="flex items-center gap-5">
-        <div onclick="openLightbox('assets/activity-4.jpg', 'Đông đảo sinh viên LHU tham gia ASU Master Class')" class="relative h-44 w-72 rounded-3xl overflow-hidden shadow-md border-2 border-white cursor-pointer group shrink-0">
-          <img src="assets/activity-4.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-          <span class="absolute bottom-2.5 left-3 px-3 py-1 rounded-full bg-white/90 text-slate-900 font-extrabold text-xs shadow">🌟 Hội trường ASU Master Class</span>
-        </div>
-        <div onclick="openLightbox('assets/activity-6.jpg', 'Giảng viên tận tình hướng dẫn trên lớp')" class="relative h-44 w-72 rounded-3xl overflow-hidden shadow-md border-2 border-white cursor-pointer group shrink-0">
-          <img src="assets/activity-6.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-          <span class="absolute bottom-2.5 left-3 px-3 py-1 rounded-full bg-white/90 text-slate-900 font-extrabold text-xs shadow">👩‍🏫 Giảng viên đồng hành</span>
-        </div>
-        <div onclick="openLightbox('assets/activity-7.jpg', 'Sinh viên vẽ sơ đồ tư duy và ghi chép AI Diary')" class="relative h-44 w-72 rounded-3xl overflow-hidden shadow-md border-2 border-white cursor-pointer group shrink-0">
-          <img src="assets/activity-7.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-          <span class="absolute bottom-2.5 left-3 px-3 py-1 rounded-full bg-white/90 text-slate-900 font-extrabold text-xs shadow">✍️ Thực hành cá nhân</span>
-        </div>
-        <div onclick="openLightbox('assets/activity-5.jpg', 'Thảo luận nhóm 4 sinh viên')" class="relative h-44 w-72 rounded-3xl overflow-hidden shadow-md border-2 border-white cursor-pointer group shrink-0">
-          <img src="assets/activity-5.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-          <span class="absolute bottom-2.5 left-3 px-3 py-1 rounded-full bg-white/90 text-slate-900 font-extrabold text-xs shadow">🗣️ Thảo luận nhóm 4 SV</span>
-        </div>
-        <div onclick="openLightbox('assets/activity-2.jpg', 'Vinh danh và trao quà cho các cá nhân xuất sắc')" class="relative h-44 w-72 rounded-3xl overflow-hidden shadow-md border-2 border-white cursor-pointer group shrink-0">
-          <img src="assets/activity-2.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-          <span class="absolute bottom-2.5 left-3 px-3 py-1 rounded-full bg-white/90 text-slate-900 font-extrabold text-xs shadow">🏆 Trao thưởng xuất sắc</span>
-        </div>
-        <div onclick="openLightbox('assets/activity-8.jpg', 'Tập thể lớp học vui vẻ, gắn kết')" class="relative h-44 w-72 rounded-3xl overflow-hidden shadow-md border-2 border-white cursor-pointer group shrink-0">
-          <img src="assets/activity-8.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-          <span class="absolute bottom-2.5 left-3 px-3 py-1 rounded-full bg-white/90 text-slate-900 font-extrabold text-xs shadow">🤝 Kỷ niệm đáng nhớ</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <section id="giai-phap" class="py-16 lg:py-24 bg-slate-50 border-b border-slate-200 scroll-mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
-  <!-- ===================================================================== -->
-  <!-- SECTION 1: MỤC TIÊU & CHU KỲ 2 TUẦN (BIG PHOTOS, ULTRA-CONCISE) -->
-  <!-- ===================================================================== -->
-  <section id="tong-quan" class="py-20 lg:py-28 scroll-mt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-      
-      <!-- Header -->
       <div class="text-center max-w-3xl mx-auto space-y-3 reveal">
-        <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-lhu-blue font-black text-xs uppercase tracking-widest">
-          🎯 Phần 1 • Mục tiêu & Cách thức hoạt động
+        <span class="inline-block px-3.5 py-1 rounded-full bg-blue-100 text-lhu-blue font-extrabold text-xs uppercase tracking-wider">
+          Gỡ bỏ rào cản • Tự tin cất cánh
         </span>
-        <h2 class="text-3xl sm:text-5xl font-black text-slate-900">
-          Chu Kỳ <span class="text-gradient-vibrant">2 Tuần / 1 Chủ Đề</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-lhu-navy">
+          3 Nỗi Lo Thường Gặp & Lời Giải Tại CLB
         </h2>
-        <p class="text-slate-600 text-base sm:text-lg font-medium">
-          Sinh hoạt CLB dành cho <strong>Tân sinh viên Năm 1 (Song ngữ)</strong> • Cuộc thi Video mở rộng cho <strong>Toàn Khoa CNTT (5 ngành)</strong>
+      </div>
+
+      <!-- 3 Problem -> Solution Cards -->
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8 reveal">
+        
+        <!-- Card 1: Ngại nói tiếng Anh -->
+        <div class="bg-white rounded-3xl shadow-lg border border-slate-200/90 overflow-hidden flex flex-col justify-between hover:-translate-y-1.5 transition duration-300">
+          <!-- Top: Question -->
+          <div class="bg-rose-50/80 border-b border-rose-100 p-6 sm:p-7">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 text-rose-700 font-extrabold text-xs uppercase mb-3">
+              😟 Nỗi lo 01 • Ngại nói tiếng Anh
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">
+              “Mình nói dở, sợ bị cười?”
+            </h3>
+          </div>
+          <!-- Bottom: Answer -->
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between bg-white">
+            <div class="space-y-3">
+              <div class="inline-flex items-center gap-1.5 text-emerald-600 font-extrabold text-xs uppercase tracking-wider">
+                <span>✔ Giải pháp tại CLB</span>
+              </div>
+              <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
+                <strong>CLB không chấm lỗi sai.</strong> Có sẵn mẫu câu gợi ý và nhóm 4 người cùng hỗ trợ nhau. Bạn chỉ cần tự tin nói câu đầu tiên.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400">
+              <span>Nhóm cố định 4 SV</span>
+              <span class="text-emerald-600">100% Thân thiện</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Không biết bắt đầu từ đâu -->
+        <div class="bg-white rounded-3xl shadow-lg border border-slate-200/90 overflow-hidden flex flex-col justify-between hover:-translate-y-1.5 transition duration-300">
+          <!-- Top: Question -->
+          <div class="bg-amber-50/80 border-b border-amber-100 p-6 sm:p-7">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 font-extrabold text-xs uppercase mb-3">
+              🧭 Nỗi lo 02 • Không biết bắt đầu từ đâu
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">
+              “Muốn đi nhưng không biết bắt đầu từ đâu?”
+            </h3>
+          </div>
+          <!-- Bottom: Answer -->
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between bg-white">
+            <div class="space-y-3">
+              <div class="inline-flex items-center gap-1.5 text-lhu-blue font-extrabold text-xs uppercase tracking-wider">
+                <span>✔ Giải pháp tại CLB</span>
+              </div>
+              <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
+                <strong>Lộ trình 9 tuần, mỗi tuần một bước nhỏ:</strong> từ dùng AI để học tiếng Anh, phương pháp học ở Đại học, đến luyện hội thoại thực tế ở sân bay.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400">
+              <span>Chu kỳ 2 tuần / chủ đề</span>
+              <span class="text-lhu-blue">Từng bước rõ ràng</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Sợ chi phí du học -->
+        <div class="bg-white rounded-3xl shadow-lg border border-slate-200/90 overflow-hidden flex flex-col justify-between hover:-translate-y-1.5 transition duration-300">
+          <!-- Top: Question -->
+          <div class="bg-sky-50/80 border-b border-sky-100 p-6 sm:p-7">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-100 text-sky-800 font-extrabold text-xs uppercase mb-3">
+              💡 Nỗi lo 03 • Sợ chi phí du học
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">
+              “Du học chắc tốn kém lắm?”
+            </h3>
+          </div>
+          <!-- Bottom: Answer -->
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between bg-white">
+            <div class="space-y-3">
+              <div class="inline-flex items-center gap-1.5 text-orange-600 font-extrabold text-xs uppercase tracking-wider">
+                <span>✔ Giải pháp tại LHU</span>
+              </div>
+              <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
+                <strong>Có nhiều con đường:</strong> trao đổi ngắn hạn với trường đối tác, chương trình song ngữ LHU–ASU học ngay tại LHU, và học bổng. <strong>Bắt đầu miễn phí</strong> với ASU Master Class và digital badge.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400">
+              <span>Khởi đầu 0 đồng</span>
+              <span class="text-orange-600">Nhận ASU Badge</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Closing Quote Banner Below 3 Cards -->
+      <div class="reveal bg-gradient-to-r from-lhu-navy via-lhu-blue to-sky-700 rounded-3xl p-7 sm:p-9 text-center text-white shadow-xl">
+        <p class="text-xl sm:text-3xl font-black tracking-tight leading-snug">
+          ✈️ “Thế giới không xa như bạn nghĩ. <span class="text-amber-300">Chặng đầu tiên chỉ cách bạn 60 phút mỗi tuần.</span>”
         </p>
       </div>
 
-      <!-- 3 Big Visual Step Cards (Photo-heavy, 1-line punchy text) -->
-      <div class="grid lg:grid-cols-3 gap-8 reveal">
-        <!-- Step 1 -->
-        <div class="tilt-card bg-white rounded-[2.25rem] overflow-hidden shadow-xl border border-slate-100 group">
-          <div class="h-64 relative overflow-hidden cursor-pointer" onclick="openLightbox('assets/activity-6.jpg', 'Tuần đầu: Học từ vựng & Xem video ASU Master Class')">
-            <img src="assets/activity-6.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-            <div class="absolute top-4 left-4 px-4 py-1.5 rounded-full bg-lhu-blue text-white font-black text-xs uppercase shadow-lg">
-              BƯỚC 1 • TUẦN ĐẦU
-            </div>
-          </div>
-          <div class="p-7">
-            <h3 class="text-2xl font-black text-slate-900 mb-3">🎬 Học Từ Vựng & Video ASU</h3>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1.5 rounded-xl bg-blue-50 text-lhu-blue font-bold text-xs">🎮 Chơi Quizlet / Kahoot</span>
-              <span class="px-3 py-1.5 rounded-xl bg-blue-50 text-lhu-blue font-bold text-xs">📺 Xem Clip ASU 5–10 phút</span>
-              <span class="px-3 py-1.5 rounded-xl bg-blue-50 text-lhu-blue font-bold text-xs">👥 Thực hành theo cặp</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="tilt-card bg-white rounded-[2.25rem] overflow-hidden shadow-xl border border-slate-100 group">
-          <div class="h-64 relative overflow-hidden cursor-pointer" onclick="openLightbox('assets/activity-7.jpg', 'Giữa 2 tuần: Làm nhiệm vụ nhỏ ứng dụng thực tế')">
-            <img src="assets/activity-7.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-            <div class="absolute top-4 left-4 px-4 py-1.5 rounded-full bg-amber-500 text-white font-black text-xs uppercase shadow-lg">
-              BƯỚC 2 • GIỮA 2 TUẦN
-            </div>
-          </div>
-          <div class="p-7">
-            <h3 class="text-2xl font-black text-slate-900 mb-3">✍️ Nhiệm Vụ Nhỏ Cá Nhân</h3>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1.5 rounded-xl bg-amber-50 text-amber-800 font-bold text-xs">📒 Nhật ký AI Diary</span>
-              <span class="px-3 py-1.5 rounded-xl bg-amber-50 text-amber-800 font-bold text-xs">🧭 Vẽ sơ đồ Ikigai</span>
-              <span class="px-3 py-1.5 rounded-xl bg-amber-50 text-amber-800 font-bold text-xs">🌡️ Theo dõi Stress Diary</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="tilt-card bg-white rounded-[2.25rem] overflow-hidden shadow-xl border border-slate-100 group">
-          <div class="h-64 relative overflow-hidden cursor-pointer" onclick="openLightbox('assets/activity-5.jpg', 'Tuần sau: Thảo luận phản biện & Thuyết trình nhóm')">
-            <img src="assets/activity-5.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-            <div class="absolute top-4 left-4 px-4 py-1.5 rounded-full bg-asu-rose text-white font-black text-xs uppercase shadow-lg">
-              BƯỚC 3 • TUẦN SAU
-            </div>
-          </div>
-          <div class="p-7">
-            <h3 class="text-2xl font-black text-slate-900 mb-3">🎙️ Thảo Luận & Thuyết Trình</h3>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1.5 rounded-xl bg-rose-50 text-asu-rose font-bold text-xs">⚖️ Tranh biện Agree/Disagree</span>
-              <span class="px-3 py-1.5 rounded-xl bg-rose-50 text-asu-rose font-bold text-xs">🛫 Đóng vai Sân bay</span>
-              <span class="px-3 py-1.5 rounded-xl bg-rose-50 text-asu-rose font-bold text-xs">🗣️ Thuyết trình 3 phút</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
   <!-- ===================================================================== -->
-  <!-- SECTION 2: LỘ TRÌNH 9 TUẦN (VISUAL PHOTO CARDS + CLICK-FOR-DETAIL) -->
+  <!-- 3. 4 CHẶNG BAY (BOARDING PASS CARDS) + TUẦN 9 HẠ CÁNH GALA -->
   <!-- ===================================================================== -->
-  <section id="lo-trinh" class="py-20 lg:py-28 bg-gradient-to-b from-slate-50 via-blue-50/40 to-white border-y border-slate-200/80 scroll-mt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+  <section id="chang-bay" class="py-16 lg:py-24 bg-white border-b border-slate-200 scroll-mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
-      <!-- Section Heading -->
+      <!-- Section Heading + Ticket Progress Bar -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 reveal">
         <div class="space-y-2">
-          <span class="inline-block px-4 py-1.5 rounded-full bg-amber-100 text-amber-800 font-black text-xs uppercase tracking-widest">
-            🗓️ Phần 2 • Lộ trình 9 tuần sinh hoạt (26/10 – 12/2026)
+          <span class="inline-block px-3.5 py-1 rounded-full bg-orange-100 text-orange-700 font-extrabold text-xs uppercase tracking-wider">
+            Lộ trình 9 tuần (26/10 – 12/2026) • Mỗi chủ đề là 1 tấm vé thông hành
           </span>
-          <h2 class="text-3xl sm:text-5xl font-black text-slate-900">
-            4 Chủ Đề Lớn & <span class="text-gradient-sun">Gala Trao Giải</span>
+          <h2 class="text-3xl sm:text-5xl font-black text-lhu-navy">
+            4 Chặng Bay & Lễ Hạ Cánh
           </h2>
           <p class="text-slate-600 text-sm sm:text-base font-medium">
-            🔊 <strong>Bấm vào từ vựng</strong> để nghe phát âm tiếng Anh • Bấm nút <strong>"Xem chi tiết tuần"</strong> để mở phiếu chuẩn bị của GV & SV.
+            Mỗi chặng kéo dài <strong>2 tuần</strong> (Tuần đầu nạp từ vựng & xem video ASU ➔ Giữa 2 tuần làm nhiệm vụ nhỏ ➔ Tuần sau thảo luận & thuyết trình nhóm).
           </p>
         </div>
 
-        <button onclick="openFullPlanModal()" class="self-start inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-lhu-blue text-white font-black text-sm shadow-lg transition">
-          <span>📋 Mở Bảng Chi Tiết 9 Tuần (GV & SV)</span>
-        </button>
+        <!-- Collectible Ticket Pieces Indicator -->
+        <div class="bg-slate-100 p-3 rounded-2xl border border-slate-200 flex items-center gap-2 self-start">
+          <span class="text-xs font-black uppercase text-slate-500 px-2">Hành trình vé:</span>
+          <a href="#gate-01" class="px-3 py-1.5 rounded-xl bg-lhu-blue text-white font-black text-xs">🎫 Chặng 1</a>
+          <a href="#gate-02" class="px-3 py-1.5 rounded-xl bg-sky-600 text-white font-black text-xs">🎫 Chặng 2</a>
+          <a href="#gate-03" class="px-3 py-1.5 rounded-xl bg-emerald-600 text-white font-black text-xs">🎫 Chặng 3</a>
+          <a href="#gate-04" class="px-3 py-1.5 rounded-xl bg-purple-600 text-white font-black text-xs">🎫 Chặng 4</a>
+          <a href="#landing-gala" class="px-3 py-1.5 rounded-xl bg-orange-500 text-white font-black text-xs">🛬 Hạ cánh</a>
+        </div>
       </div>
 
-      <!-- 4 TOPICS + GALA VISUAL SHOWCASE GRID -->
-      <div class="space-y-10">
-
-        <!-- CHỦ ĐỀ 1: AI (TUẦN 1 & 2) -->
-        <div class="reveal tilt-card bg-white rounded-[2.5rem] shadow-xl border border-blue-100 overflow-hidden">
-          <div class="grid lg:grid-cols-12 items-stretch">
-            <!-- Big Photo Side (5 Cols) -->
-            <div class="lg:col-span-5 relative min-h-[280px] overflow-hidden cursor-pointer group" onclick="openLightbox('assets/activity-3.jpg', 'Chủ đề 1 (Tuần 1 & 2): Trí tuệ nhân tạo AI')">
-              <img src="assets/activity-3.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-              <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-transparent flex flex-col justify-between p-6">
-                <span class="self-start px-4 py-1.5 rounded-full bg-blue-600 text-white font-black text-xs uppercase shadow-lg">
-                  CHỦ ĐỀ 1 • TUẦN 1 & TUẦN 2
-                </span>
-                <div class="text-white">
-                  <div class="text-xs font-bold text-sky-300 uppercase">Học liệu chuẩn Mỹ</div>
-                  <div class="text-lg font-black">🎬 ASU Master Class #10</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Concise Visual Content Side (7 Cols) -->
-            <div class="lg:col-span-7 p-7 sm:p-10 flex flex-col justify-between space-y-6">
-              <div class="space-y-4">
-                <div class="flex flex-wrap items-center justify-between gap-2">
-                  <h3 class="text-2xl sm:text-3xl font-black text-slate-900">🤖 Trí Tuệ Nhân Tạo (AI)</h3>
-                  <button onclick="openTopicDetail(0)" class="px-4 py-2 rounded-full bg-blue-50 hover:bg-blue-600 hover:text-white text-lhu-blue font-extrabold text-xs transition border border-blue-200">
-                    🔍 Xem chi tiết Tuần 1 & 2 →
-                  </button>
-                </div>
-
-                <!-- 2 Ultra-Clean Week Pills -->
-                <div class="grid sm:grid-cols-2 gap-4">
-                  <div class="p-4 rounded-2xl bg-blue-50/70 border border-blue-100">
-                    <span class="text-[11px] font-black uppercase text-blue-600">TUẦN 1 • HỌC VIDEO & TỪ VỰNG</span>
-                    <div class="font-black text-slate-900 text-base mt-1">Từ vựng AI & Viết Prompt cơ bản</div>
-                    <p class="text-xs text-slate-600 mt-1">Chơi Kahoot • Xem Clip #10 • Chạy 3 prompt mẫu • Nhận <strong>AI Diary</strong></p>
-                  </div>
-                  <div class="p-4 rounded-2xl bg-indigo-50/70 border border-indigo-100">
-                    <span class="text-[11px] font-black uppercase text-indigo-600">TUẦN 2 • THẢO LUẬN & TRANH BIỆN</span>
-                    <div class="font-black text-slate-900 text-base mt-1">AI Tốt hay Xấu? Trải nghiệm của bạn</div>
-                    <p class="text-xs text-slate-600 mt-1">Đứng hàng Agree/Disagree • Chia sẻ AI Diary • Thuyết trình 3 phút</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Interactive Audio Vocab Bar -->
-              <div>
-                <div class="text-xs font-extrabold uppercase text-slate-400 mb-2">🔊 Bấm vào từ vựng để nghe phát âm:</div>
-                <div class="flex flex-wrap gap-2">
-                  <button onclick="speakWord('chatbot', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 chatbot</button>
-                  <button onclick="speakWord('prompt', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 prompt</button>
-                  <button onclick="speakWord('generate', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 generate</button>
-                  <button onclick="speakWord('summarize', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 summarize</button>
-                  <button onclick="speakWord('accurate', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 accurate</button>
-                  <button onclick="speakWord('privacy', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 privacy</button>
-                </div>
-              </div>
-            </div>
+      <!-- ============================================================ -->
+      <!-- BOARDING PASS 1: CHẶNG 1 · AI (TUẦN 1–2) -->
+      <!-- ============================================================ -->
+      <div id="gate-01" class="reveal boarding-pass bg-white rounded-3xl border-2 border-slate-200 shadow-lg overflow-hidden scroll-mt-24">
+        <!-- Boarding Pass Top Header Strip -->
+        <div class="bg-lhu-navy text-white px-6 py-3.5 flex flex-wrap items-center justify-between gap-2 text-xs font-extrabold tracking-wider uppercase">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-0.5 rounded bg-orange-500 text-white font-black">BOARDING PASS • MẢNH VÉ 1/4</span>
+            <span>CHUYẾN BAY: LHU-AI01</span>
+          </div>
+          <div class="flex items-center gap-4 text-sky-200">
+            <span>CỔNG (GATE): <strong class="text-white">01</strong></span>
+            <span>THỜI GIAN: <strong class="text-amber-300">TUẦN 1 – TUẦN 2</strong></span>
           </div>
         </div>
 
-        <!-- CHỦ ĐỀ 2: HỌC ĐH & DU HỌC (TUẦN 3 & 4) -->
-        <div class="reveal tilt-card bg-white rounded-[2.5rem] shadow-xl border border-cyan-100 overflow-hidden">
-          <div class="grid lg:grid-cols-12 items-stretch">
-            <!-- Concise Visual Content Side (7 Cols) -->
-            <div class="lg:col-span-7 p-7 sm:p-10 flex flex-col justify-between space-y-6 order-2 lg:order-1">
-              <div class="space-y-4">
-                <div class="flex flex-wrap items-center justify-between gap-2">
-                  <h3 class="text-2xl sm:text-3xl font-black text-slate-900">✈️ Học Đại Học & Du Học</h3>
-                  <button onclick="openTopicDetail(1)" class="px-4 py-2 rounded-full bg-cyan-50 hover:bg-cyan-600 hover:text-white text-cyan-800 font-extrabold text-xs transition border border-cyan-200">
-                    🔍 Xem chi tiết Tuần 3 & 4 →
-                  </button>
+        <div class="grid lg:grid-cols-12">
+          <!-- Main Ticket Body (8 Cols) -->
+          <div class="lg:col-span-8 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <!-- Route Header -->
+              <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                <div>
+                  <div class="text-xs font-bold uppercase text-slate-400">Chặng 1 • Chủ đề Trí Tuệ Nhân Tạo</div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-lhu-navy mt-0.5">🤖 Làm Chủ AI & Tư Duy Phản Biện</h3>
                 </div>
-
-                <div class="grid sm:grid-cols-2 gap-4">
-                  <div class="p-4 rounded-2xl bg-cyan-50/70 border border-cyan-100">
-                    <span class="text-[11px] font-black uppercase text-cyan-700">TUẦN 3 • 4 PHƯƠNG PHÁP HỌC ĐH</span>
-                    <div class="font-black text-slate-900 text-base mt-1">Pomodoro, Feynman, Shadowing + AI</div>
-                    <p class="text-xs text-slate-600 mt-1">Game “Find someone who…” • Dạy chéo nhóm • Dùng AI sửa câu</p>
-                  </div>
-                  <div class="p-4 rounded-2xl bg-sky-50/70 border border-sky-100">
-                    <span class="text-[11px] font-black uppercase text-sky-700">TUẦN 4 • ĐÓNG VAI SÂN BAY</span>
-                    <div class="font-black text-slate-900 text-base mt-1">Hành trang Du học & Role-play</div>
-                    <p class="text-xs text-slate-600 mt-1">Diễn 3 tình huống: <strong>Quầy Check-in, An ninh & Nhập cảnh</strong></p>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <div class="text-xs font-extrabold uppercase text-slate-400 mb-2">🔊 Bấm vào từ vựng để nghe phát âm:</div>
-                <div class="flex flex-wrap gap-2">
-                  <button onclick="speakWord('syllabus', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 syllabus</button>
-                  <button onclick="speakWord('assignment', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 assignment</button>
-                  <button onclick="speakWord('Pomodoro', this)" class="vocab-pill bg-amber-100 text-amber-900">🔊 Pomodoro</button>
-                  <button onclick="speakWord('boarding pass', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 boarding pass</button>
-                  <button onclick="speakWord('customs', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 customs</button>
-                  <button onclick="speakWord('scholarship', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 scholarship</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Big Photo Side (5 Cols) -->
-            <div class="lg:col-span-5 relative min-h-[280px] overflow-hidden cursor-pointer group order-1 lg:order-2" onclick="openLightbox('assets/activity-6.jpg', 'Chủ đề 2 (Tuần 3 & 4): Học ở Đại học & Du học')">
-              <img src="assets/activity-6.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-              <div class="absolute inset-0 bg-gradient-to-t from-cyan-950/80 via-transparent to-transparent flex flex-col justify-between p-6">
-                <span class="self-start px-4 py-1.5 rounded-full bg-cyan-500 text-slate-950 font-black text-xs uppercase shadow-lg">
-                  CHỦ ĐỀ 2 • TUẦN 3 & TUẦN 4
-                </span>
-                <div class="text-white">
-                  <div class="text-xs font-bold text-cyan-300 uppercase">Thực hành tình huống</div>
-                  <div class="text-lg font-black">🛫 Role-play Sân Bay Quốc Tế</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- NGHỈ LỄ 20/11 COMPACT RIBBON -->
-        <div class="reveal rounded-3xl bg-gradient-to-r from-amber-400 via-orange-400 to-rose-500 p-5 sm:px-8 text-white shadow-lg flex flex-wrap items-center justify-between gap-4">
-          <div class="flex items-center gap-3.5">
-            <span class="text-3xl">💐</span>
-            <div>
-              <span class="text-xs font-black uppercase tracking-wider text-amber-100">Nghỉ 01 Tuần Giữa Khóa</span>
-              <h4 class="text-lg sm:text-xl font-black">Chào Mừng Ngày Nhà Giáo Việt Nam 20/11 — Chuẩn Bị Quay Video Dự Thi ASU!</h4>
-            </div>
-          </div>
-          <a href="#cuoc-thi" class="px-5 py-2.5 rounded-full bg-white text-rose-600 font-black text-xs sm:text-sm shadow hover:scale-105 transition">
-            Xem Thể Lệ Thi Video →
-          </a>
-        </div>
-
-        <!-- CHỦ ĐỀ 3: MỤC ĐÍCH & HẠNH PHÚC (TUẦN 5 & 6) -->
-        <div class="reveal tilt-card bg-white rounded-[2.5rem] shadow-xl border border-emerald-100 overflow-hidden">
-          <div class="grid lg:grid-cols-12 items-stretch">
-            <!-- Big Photo Side (5 Cols) -->
-            <div class="lg:col-span-5 relative min-h-[280px] overflow-hidden cursor-pointer group" onclick="openLightbox('assets/activity-7.jpg', 'Chủ đề 3 (Tuần 5 & 6): Mục đích sống & Hạnh phúc')">
-              <img src="assets/activity-7.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-              <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent flex flex-col justify-between p-6">
-                <span class="self-start px-4 py-1.5 rounded-full bg-emerald-500 text-white font-black text-xs uppercase shadow-lg">
-                  CHỦ ĐỀ 3 • TUẦN 5 & TUẦN 6
-                </span>
-                <div class="text-white">
-                  <div class="text-xs font-bold text-emerald-300 uppercase">Học liệu chuẩn Mỹ</div>
-                  <div class="text-lg font-black">🎬 Master Class #24/#13 & #6</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Concise Visual Content Side (7 Cols) -->
-            <div class="lg:col-span-7 p-7 sm:p-10 flex flex-col justify-between space-y-6">
-              <div class="space-y-4">
-                <div class="flex flex-wrap items-center justify-between gap-2">
-                  <h3 class="text-2xl sm:text-3xl font-black text-slate-900">🌱 Mục Đích Sống & Hạnh Phúc</h3>
-                  <button onclick="openTopicDetail(2)" class="px-4 py-2 rounded-full bg-emerald-50 hover:bg-emerald-600 hover:text-white text-emerald-800 font-extrabold text-xs transition border border-emerald-200">
-                    🔍 Xem chi tiết Tuần 5 & 6 →
-                  </button>
-                </div>
-
-                <div class="grid sm:grid-cols-2 gap-4">
-                  <div class="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-100">
-                    <span class="text-[11px] font-black uppercase text-emerald-700">TUẦN 5 • BLUE ZONES & IKIGAI</span>
-                    <div class="font-black text-slate-900 text-base mt-1">Power of Purpose & Động lực sống</div>
-                    <p class="text-xs text-slate-600 mt-1">Tự điền <strong>sơ đồ Ikigai A4</strong> • Viết Purpose trong 3 câu tiếng Anh</p>
-                  </div>
-                  <div class="p-4 rounded-2xl bg-teal-50/70 border border-teal-100">
-                    <span class="text-[11px] font-black uppercase text-teal-700">TUẦN 6 • GRATITUDE WALL</span>
-                    <div class="font-black text-slate-900 text-base mt-1">Định nghĩa Hạnh phúc của bạn</div>
-                    <p class="text-xs text-slate-600 mt-1">Dán giấy note lên <strong>Gratitude Wall</strong> • Thuyết trình nhóm</p>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <div class="text-xs font-extrabold uppercase text-slate-400 mb-2">🔊 Bấm vào từ vựng để nghe phát âm:</div>
-                <div class="flex flex-wrap gap-2">
-                  <button onclick="speakWord('purpose', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 purpose</button>
-                  <button onclick="speakWord('motivation', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 motivation</button>
-                  <button onclick="speakWord('longevity', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 longevity</button>
-                  <button onclick="speakWord('Ikigai', this)" class="vocab-pill bg-amber-100 text-amber-900">🔊 Ikigai</button>
-                  <button onclick="speakWord('gratitude', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 gratitude</button>
-                  <button onclick="speakWord('well-being', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 well-being</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CHỦ ĐỀ 4: QUẢN LÝ STRESS (TUẦN 7 & 8) -->
-        <div class="reveal tilt-card bg-white rounded-[2.5rem] shadow-xl border border-purple-100 overflow-hidden">
-          <div class="grid lg:grid-cols-12 items-stretch">
-            <!-- Concise Visual Content Side (7 Cols) -->
-            <div class="lg:col-span-7 p-7 sm:p-10 flex flex-col justify-between space-y-6 order-2 lg:order-1">
-              <div class="space-y-4">
-                <div class="flex flex-wrap items-center justify-between gap-2">
-                  <h3 class="text-2xl sm:text-3xl font-black text-slate-900">🧘 Quản Lý Căng Thẳng (Stress)</h3>
-                  <button onclick="openTopicDetail(3)" class="px-4 py-2 rounded-full bg-purple-50 hover:bg-purple-600 hover:text-white text-purple-800 font-extrabold text-xs transition border border-purple-200">
-                    🔍 Xem chi tiết Tuần 7 & 8 →
-                  </button>
-                </div>
-
-                <div class="grid sm:grid-cols-2 gap-4">
-                  <div class="p-4 rounded-2xl bg-purple-50/70 border border-purple-100">
-                    <span class="text-[11px] font-black uppercase text-purple-700">TUẦN 7 • THE DUAL NATURE OF STRESS</span>
-                    <div class="font-black text-slate-900 text-base mt-1">Nhận diện Good Stress & Bad Stress</div>
-                    <p class="text-xs text-slate-600 mt-1">Đo “Nhiệt kế Stress” • Tập thở 1 phút • Nhận <strong>Stress Diary</strong></p>
-                  </div>
-                  <div class="p-4 rounded-2xl bg-fuchsia-50/70 border border-fuchsia-100">
-                    <span class="text-[11px] font-black uppercase text-fuchsia-700">TUẦN 8 • ADVICE CIRCLE</span>
-                    <div class="font-black text-slate-900 text-base mt-1">Bạn đã kiểm soát Stress thế nào?</div>
-                    <p class="text-xs text-slate-600 mt-1">Vòng tròn lời khuyên ẩn danh • Thuyết trình <em>“How we handle stress”</em></p>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <div class="text-xs font-extrabold uppercase text-slate-400 mb-2">🔊 Bấm vào từ vựng để nghe phát âm:</div>
-                <div class="flex flex-wrap gap-2">
-                  <button onclick="speakWord('pressure', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 pressure</button>
-                  <button onclick="speakWord('overwhelmed', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 overwhelmed</button>
-                  <button onclick="speakWord('cope', this)" class="vocab-pill bg-slate-100 text-slate-800">🔊 cope</button>
-                  <button onclick="speakWord('good stress', this)" class="vocab-pill bg-emerald-100 text-emerald-900">🔊 good stress</button>
-                  <button onclick="speakWord('You should take a break', this)" class="vocab-pill bg-purple-100 text-purple-900">🔊 You should…</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Big Photo Side (5 Cols) -->
-            <div class="lg:col-span-5 relative min-h-[280px] overflow-hidden cursor-pointer group order-1 lg:order-2" onclick="openLightbox('assets/activity-5.jpg', 'Chủ đề 4 (Tuần 7 & 8): Quản lý Stress & Advice Circle')">
-              <img src="assets/activity-5.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-              <div class="absolute inset-0 bg-gradient-to-t from-purple-950/80 via-transparent to-transparent flex flex-col justify-between p-6">
-                <span class="self-start px-4 py-1.5 rounded-full bg-purple-600 text-white font-black text-xs uppercase shadow-lg">
-                  CHỦ ĐỀ 4 • TUẦN 7 & TUẦN 8
-                </span>
-                <div class="text-white">
-                  <div class="text-xs font-bold text-purple-300 uppercase">Học liệu quốc tế</div>
-                  <div class="text-lg font-black">🎬 Webinar Cintana & Clip #28</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- TUẦN 9: GALA TỔNG KẾT & TRAO THƯỞNG -->
-        <div class="reveal tilt-card rounded-[2.5rem] bg-gradient-to-r from-lhu-blue via-indigo-900 to-asu-maroon text-white shadow-2xl overflow-hidden border-4 border-amber-400">
-          <div class="grid lg:grid-cols-12 items-stretch">
-            <div class="lg:col-span-5 relative min-h-[280px] overflow-hidden cursor-pointer group" onclick="openLightbox('assets/activity-2.jpg', 'Tuần 9: Gala Tổng kết & Trao thưởng Cuộc thi Video ASU')">
-              <img src="assets/activity-2.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-6">
-                <span class="px-4 py-1.5 rounded-full bg-amber-400 text-slate-950 font-black text-xs uppercase shadow">
-                  🏆 TUẦN 9 • GALA TỔNG KẾT & TRAO GIẢI
-                </span>
-              </div>
-            </div>
-
-            <div class="lg:col-span-7 p-7 sm:p-10 flex flex-col justify-between space-y-6">
-              <div class="space-y-3">
-                <div class="flex flex-wrap items-center justify-between gap-2">
-                  <span class="text-xs font-black uppercase tracking-widest text-amber-300">Đích đến vinh quang • Tháng 12/2026</span>
-                  <button onclick="openTopicDetail(4)" class="px-4 py-1.5 rounded-full bg-white/15 hover:bg-white text-white hover:text-slate-900 font-bold text-xs transition">
-                    🔍 Xem chi tiết Tuần 9 →
-                  </button>
-                </div>
-                <h3 class="text-2xl sm:text-4xl font-black">Tổng Kết Cuộc Thi & Vinh Danh</h3>
-                <p class="text-sky-100 text-sm sm:text-base">
-                  Công chiếu các Video đoạt giải, trao <strong>Chứng nhận số ASU Digital Badge</strong>, phần thưởng của Khoa CNTT & giải thưởng CLB (<em>Tích cực nhất, Tiến bộ nhất</em>).
-                </p>
-              </div>
-
-              <div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-white/15">
-                <div class="text-sm font-bold text-amber-300 italic">
-                  💬 Chia sẻ cuối khóa: “In this club, I learned…”
-                </div>
-                <button onclick="fireConfetti()" class="px-6 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm shadow-lg hover:scale-105 transition">
-                  🎉 Bắn Pháo Hoa Chúc Mừng!
+                <button onclick="openTopicDetail(0)" class="px-4 py-2 rounded-full bg-blue-50 hover:bg-lhu-blue text-lhu-blue hover:text-white font-extrabold text-xs border border-blue-200 transition">
+                  🔍 Chi tiết hoạt động Tuần 1–2 →
                 </button>
               </div>
+
+              <!-- 2 Weeks Summary inside Ticket -->
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+                  <span class="text-[11px] font-black uppercase text-lhu-blue">TUẦN 1 • TỪ VỰNG & CÁCH DÙNG AI</span>
+                  <div class="font-bold text-slate-900 text-sm sm:text-base mt-1">Xem Master Class #10 & Viết Prompt</div>
+                  <p class="text-xs text-slate-600 mt-1">Chơi Quizlet/Kahoot • Chạy thử 3 prompt mẫu theo cặp & tự viết 1 prompt • Nhận <strong>Phiếu AI Diary</strong>.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+                  <span class="text-[11px] font-black uppercase text-indigo-600">TUẦN 2 • GIAO TIẾP & TRANH BIỆN</span>
+                  <div class="font-bold text-slate-900 text-sm sm:text-base mt-1">AI Tốt & Xấu – Trải Nghiệm Của Bạn</div>
+                  <p class="text-xs text-slate-600 mt-1">Đoán câu trả lời AI đúng/sai • Đứng hàng Agree/Disagree <em>“Students should use AI for homework”</em> • Thuyết trình 3 phút.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Audio Vocab -->
+            <div>
+              <div class="text-xs font-bold text-slate-400 uppercase mb-2">🔊 Bấm nghe phát âm từ vựng trên chuyến bay:</div>
+              <div class="flex flex-wrap gap-1.5">
+                <button onclick="speakWord('chatbot', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 chatbot</button>
+                <button onclick="speakWord('prompt', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 prompt</button>
+                <button onclick="speakWord('generate', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 generate</button>
+                <button onclick="speakWord('translate', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 translate</button>
+                <button onclick="speakWord('summarize', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 summarize</button>
+                <button onclick="speakWord('accurate', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 accurate</button>
+                <button onclick="speakWord('privacy', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 privacy</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Perforated Ticket Stub with Photo (4 Cols) -->
+          <div class="lg:col-span-4 ticket-divider ticket-divider-vertical bg-slate-50/70 p-6 flex flex-col justify-between gap-4">
+            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] cursor-pointer group shadow-sm" onclick="openLightbox('assets/activity-3.jpg', 'Chặng 1: Thực hành ứng dụng AI trong học tập tiếng Anh')">
+              <img src="assets/activity-3.jpg" alt="Chặng 1 AI" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute bottom-2 right-2 px-2.5 py-1 rounded-md bg-black/65 text-white text-[11px] font-bold">📸 Lớp học AI tại LHU</span>
+            </div>
+            <div class="flex items-center justify-between text-xs border-t border-slate-200 pt-3">
+              <div>
+                <span class="block text-slate-400 font-bold uppercase text-[10px]">HÀNH LÝ MANG THEO</span>
+                <span class="font-extrabold text-lhu-navy">Phiếu AI Diary + Nhóm 4 SV</span>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-black">CỔNG 01</span>
             </div>
           </div>
         </div>
-
       </div>
+
+      <!-- ============================================================ -->
+      <!-- BOARDING PASS 2: CHẶNG 2 · HỌC ĐH & DU HỌC (TUẦN 3–4) -->
+      <!-- ============================================================ -->
+      <div id="gate-02" class="reveal boarding-pass bg-white rounded-3xl border-2 border-slate-200 shadow-lg overflow-hidden scroll-mt-24">
+        <div class="bg-sky-800 text-white px-6 py-3.5 flex flex-wrap items-center justify-between gap-2 text-xs font-extrabold tracking-wider uppercase">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-0.5 rounded bg-amber-400 text-slate-950 font-black">BOARDING PASS • MẢNH VÉ 2/4</span>
+            <span>CHUYẾN BAY: LHU-ABR02</span>
+          </div>
+          <div class="flex items-center gap-4 text-sky-200">
+            <span>CỔNG (GATE): <strong class="text-white">02</strong></span>
+            <span>THỜI GIAN: <strong class="text-amber-300">TUẦN 3 – TUẦN 4</strong></span>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12">
+          <div class="lg:col-span-8 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                <div>
+                  <div class="text-xs font-bold uppercase text-slate-400">Chặng 2 • Học ở Đại học & Du học</div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-lhu-navy mt-0.5">✈️ Phương Pháp Học ĐH & Hội Thoại Sân Bay</h3>
+                </div>
+                <button onclick="openTopicDetail(1)" class="px-4 py-2 rounded-full bg-sky-50 hover:bg-sky-700 text-sky-800 hover:text-white font-extrabold text-xs border border-sky-200 transition">
+                  🔍 Chi tiết hoạt động Tuần 3–4 →
+                </button>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+                  <span class="text-[11px] font-black uppercase text-sky-700">TUẦN 3 • 4 PHƯƠNG PHÁP HỌC ĐH</span>
+                  <div class="font-bold text-slate-900 text-sm sm:text-base mt-1">Pomodoro, Spaced Repetition, Shadowing, Feynman</div>
+                  <p class="text-xs text-slate-600 mt-1">Chơi <em>“Find someone who…”</em> • Mỗi nhóm đọc 1 phương pháp rồi dạy lại nhóm khác • Thử dùng AI sửa câu.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+                  <span class="text-[11px] font-black uppercase text-blue-700">TUẦN 4 • ĐÓNG VAI Ở SÂN BAY</span>
+                  <div class="font-bold text-slate-900 text-sm sm:text-base mt-1">Chuẩn Bị Du Học & Role-play 3 Tình Huống</div>
+                  <p class="text-xs text-slate-600 mt-1">Trả lời <em>“Where would you like to study abroad?”</em> • Đóng vai: <strong>Check-in, An ninh & Nhập cảnh</strong>.</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="text-xs font-bold text-slate-400 uppercase mb-2">🔊 Bấm nghe phát âm từ vựng trên chuyến bay:</div>
+              <div class="flex flex-wrap gap-1.5">
+                <button onclick="speakWord('syllabus', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 syllabus</button>
+                <button onclick="speakWord('assignment', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 assignment</button>
+                <button onclick="speakWord('Pomodoro', this)" class="vocab-pill bg-amber-50 text-amber-800">🔊 Pomodoro</button>
+                <button onclick="speakWord('passport', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 passport</button>
+                <button onclick="speakWord('boarding pass', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 boarding pass</button>
+                <button onclick="speakWord('customs', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 customs</button>
+                <button onclick="speakWord('scholarship', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 scholarship</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 ticket-divider ticket-divider-vertical bg-slate-50/70 p-6 flex flex-col justify-between gap-4">
+            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] cursor-pointer group shadow-sm" onclick="openLightbox('assets/activity-6.jpg', 'Chặng 2: Phương pháp học tập Đại học & Chuẩn bị hành trang du học')">
+              <img src="assets/activity-6.jpg" alt="Chặng 2 Du học" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute bottom-2 right-2 px-2.5 py-1 rounded-md bg-black/65 text-white text-[11px] font-bold">📸 Giờ học tương tác</span>
+            </div>
+            <div class="flex items-center justify-between text-xs border-t border-slate-200 pt-3">
+              <div>
+                <span class="block text-slate-400 font-bold uppercase text-[10px]">HÀNH LÝ MANG THEO</span>
+                <span class="font-extrabold text-lhu-navy">Checklist Du học + Thẻ vai Sân bay</span>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-sky-100 text-sky-800 font-black">CỔNG 02</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRANSIT NOTICE: NGHỈ LỄ 20/11 (1 TUẦN) -->
+      <div class="reveal rounded-2xl bg-amber-50 border-2 border-dashed border-amber-300 px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">💐</span>
+          <div>
+            <span class="text-xs font-black uppercase text-amber-800">Điểm dừng quá cảnh • Nghỉ 01 Tuần Dịp Lễ 20/11</span>
+            <p class="text-sm font-bold text-slate-800">Chào mừng Ngày Nhà giáo Việt Nam 20/11 — Thời gian lý tưởng để quay Video tham gia cuộc thi ASU Master Class!</p>
+          </div>
+        </div>
+        <a href="#tam-ve-dau-tien" class="text-xs font-extrabold text-orange-600 hover:underline">Xem thể lệ thi Video →</a>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- BOARDING PASS 3: CHẶNG 3 · MỤC ĐÍCH & HẠNH PHÚC (TUẦN 5–6) -->
+      <!-- ============================================================ -->
+      <div id="gate-03" class="reveal boarding-pass bg-white rounded-3xl border-2 border-slate-200 shadow-lg overflow-hidden scroll-mt-24">
+        <div class="bg-emerald-800 text-white px-6 py-3.5 flex flex-wrap items-center justify-between gap-2 text-xs font-extrabold tracking-wider uppercase">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-0.5 rounded bg-amber-400 text-slate-950 font-black">BOARDING PASS • MẢNH VÉ 3/4</span>
+            <span>CHUYẾN BAY: LHU-PUR03</span>
+          </div>
+          <div class="flex items-center gap-4 text-emerald-200">
+            <span>CỔNG (GATE): <strong class="text-white">03</strong></span>
+            <span>THỜI GIAN: <strong class="text-amber-300">TUẦN 5 – TUẦN 6</strong></span>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12">
+          <div class="lg:col-span-8 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                <div>
+                  <div class="text-xs font-bold uppercase text-slate-400">Chặng 3 • Mục đích sống & Hạnh phúc</div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-lhu-navy mt-0.5">🌱 Blue Zones, Sơ Đồ Ikigai & Happiness</h3>
+                </div>
+                <button onclick="openTopicDetail(2)" class="px-4 py-2 rounded-full bg-emerald-50 hover:bg-emerald-700 text-emerald-800 hover:text-white font-extrabold text-xs border border-emerald-200 transition">
+                  🔍 Chi tiết hoạt động Tuần 5–6 →
+                </button>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+                  <span class="text-[11px] font-black uppercase text-emerald-700">TUẦN 5 • POWER OF PURPOSE & BLUE ZONES</span>
+                  <div class="font-bold text-slate-900 text-sm sm:text-base mt-1">Xem Master Class #24/#13 & Điền Sơ Đồ Ikigai</div>
+                  <p class="text-xs text-slate-600 mt-1">Khám phá bản đồ 5 Blue Zones • Thảo luận <em>“What motivates students?”</em> • Viết Purpose của bản thân trong 3 câu.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+                  <span class="text-[11px] font-black uppercase text-teal-700">TUẦN 6 • ĐỊNH NGHĨA HẠNH PHÚC</span>
+                  <div class="font-bold text-slate-900 text-sm sm:text-base mt-1">Master Class #6 & Bức Tường Biết Ơn</div>
+                  <p class="text-xs text-slate-600 mt-1">Chấm mức hạnh phúc 1–10 • Viết 1 điều biết ơn dán lên <strong>Gratitude Wall</strong> • Thuyết trình <em>“Our definition of happiness”</em>.</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="text-xs font-bold text-slate-400 uppercase mb-2">🔊 Bấm nghe phát âm từ vựng trên chuyến bay:</div>
+              <div class="flex flex-wrap gap-1.5">
+                <button onclick="speakWord('purpose', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 purpose</button>
+                <button onclick="speakWord('motivation', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 motivation</button>
+                <button onclick="speakWord('longevity', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 longevity</button>
+                <button onclick="speakWord('Ikigai', this)" class="vocab-pill bg-amber-50 text-amber-800">🔊 Ikigai</button>
+                <button onclick="speakWord('gratitude', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 gratitude</button>
+                <button onclick="speakWord('satisfaction', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 satisfaction</button>
+                <button onclick="speakWord('well-being', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 well-being</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 ticket-divider ticket-divider-vertical bg-slate-50/70 p-6 flex flex-col justify-between gap-4">
+            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] cursor-pointer group shadow-sm" onclick="openLightbox('assets/activity-7.jpg', 'Chặng 3: Sinh viên tự điền sơ đồ Ikigai và viết mục tiêu cá nhân')">
+              <img src="assets/activity-7.jpg" alt="Chặng 3 Ikigai" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute bottom-2 right-2 px-2.5 py-1 rounded-md bg-black/65 text-white text-[11px] font-bold">📸 Điền sơ đồ Ikigai A4</span>
+            </div>
+            <div class="flex items-center justify-between text-xs border-t border-slate-200 pt-3">
+              <div>
+                <span class="block text-slate-400 font-bold uppercase text-[10px]">HÀNH LÝ MANG THEO</span>
+                <span class="font-extrabold text-lhu-navy">Sơ đồ Ikigai A4 + Gratitude Note</span>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-black">CỔNG 03</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- BOARDING PASS 4: CHẶNG 4 · QUẢN LÝ STRESS (TUẦN 7–8) -->
+      <!-- ============================================================ -->
+      <div id="gate-04" class="reveal boarding-pass bg-white rounded-3xl border-2 border-slate-200 shadow-lg overflow-hidden scroll-mt-24">
+        <div class="bg-purple-900 text-white px-6 py-3.5 flex flex-wrap items-center justify-between gap-2 text-xs font-extrabold tracking-wider uppercase">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-0.5 rounded bg-amber-400 text-slate-950 font-black">BOARDING PASS • MẢNH VÉ 4/4</span>
+            <span>CHUYẾN BAY: LHU-STR04</span>
+          </div>
+          <div class="flex items-center gap-4 text-purple-200">
+            <span>CỔNG (GATE): <strong class="text-white">04</strong></span>
+            <span>THỜI GIAN: <strong class="text-amber-300">TUẦN 7 – TUẦN 8</strong></span>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12">
+          <div class="lg:col-span-8 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                <div>
+                  <div class="text-xs font-bold uppercase text-slate-400">Chặng 4 • Quản lý căng thẳng (Stress)</div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-lhu-navy mt-0.5">🧘 The Dual Nature of Stress & Advice Circle</h3>
+                </div>
+                <button onclick="openTopicDetail(3)" class="px-4 py-2 rounded-full bg-purple-50 hover:bg-purple-700 text-purple-800 hover:text-white font-extrabold text-xs border border-purple-200 transition">
+                  🔍 Chi tiết hoạt động Tuần 7–8 →
+                </button>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+                  <span class="text-[11px] font-black uppercase text-purple-700">TUẦN 7 • HAI MẶT CỦA STRESS</span>
+                  <div class="font-bold text-slate-900 text-sm sm:text-base mt-1">Webinar Cintana & Clip #28</div>
+                  <p class="text-xs text-slate-600 mt-1">Đánh dấu “Nhiệt kế stress” • Phân loại thẻ Good / Bad stress • Tập thở 1 phút & nhận <strong>Stress Diary</strong>.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+                  <span class="text-[11px] font-black uppercase text-fuchsia-700">TUẦN 8 • VÒNG TRÒN LỜI KHUYÊN</span>
+                  <div class="font-bold text-slate-900 text-sm sm:text-base mt-1">Bạn Đã Kiểm Soát Stress Thế Nào?</div>
+                  <p class="text-xs text-slate-600 mt-1">Chia sẻ Stress Diary • <strong>Advice Circle</strong>: rút vấn đề ẩn danh & khuyên • Thuyết trình <em>“How we handle stress”</em>.</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="text-xs font-bold text-slate-400 uppercase mb-2">🔊 Bấm nghe phát âm từ vựng & mẫu câu khuyên:</div>
+              <div class="flex flex-wrap gap-1.5">
+                <button onclick="speakWord('pressure', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 pressure</button>
+                <button onclick="speakWord('overwhelmed', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 overwhelmed</button>
+                <button onclick="speakWord('cope', this)" class="vocab-pill bg-slate-100 text-slate-700">🔊 cope</button>
+                <button onclick="speakWord('good stress', this)" class="vocab-pill bg-emerald-50 text-emerald-800">🔊 good stress</button>
+                <button onclick="speakWord('You should', this)" class="vocab-pill bg-purple-50 text-purple-800">🔊 You should…</button>
+                <button onclick="speakWord('Why don’t you', this)" class="vocab-pill bg-purple-50 text-purple-800">🔊 Why don’t you…</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 ticket-divider ticket-divider-vertical bg-slate-50/70 p-6 flex flex-col justify-between gap-4">
+            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] cursor-pointer group shadow-sm" onclick="openLightbox('assets/activity-5.jpg', 'Chặng 4: Thảo luận nhóm và chia sẻ lời khuyên trong Advice Circle')">
+              <img src="assets/activity-5.jpg" alt="Chặng 4 Stress" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute bottom-2 right-2 px-2.5 py-1 rounded-md bg-black/65 text-white text-[11px] font-bold">📸 Vòng tròn chia sẻ</span>
+            </div>
+            <div class="flex items-center justify-between text-xs border-t border-slate-200 pt-3">
+              <div>
+                <span class="block text-slate-400 font-bold uppercase text-[10px]">HÀNH LÝ MANG THEO</span>
+                <span class="font-extrabold text-lhu-navy">Phiếu Stress Diary + Advice Card</span>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-800 font-black">CỔNG 04</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TUẦN 9: HẠ CÁNH – GALA TRAO GIẢI -->
+      <!-- ============================================================ -->
+      <div id="landing-gala" class="reveal boarding-pass rounded-3xl bg-gradient-to-r from-lhu-navy via-lhu-blue to-asu-maroon text-white shadow-2xl overflow-hidden border-2 border-amber-400 scroll-mt-24">
+        <div class="bg-black/25 px-6 py-3.5 flex flex-wrap items-center justify-between gap-2 text-xs font-extrabold tracking-wider uppercase border-b border-white/15">
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-0.5 rounded bg-amber-400 text-slate-950 font-black">🛬 ĐÍCH ĐẾN • TUẦN 9</span>
+            <span>CHUYẾN BAY HOÀN TẤT: LHU-GALA09</span>
+          </div>
+          <span class="text-amber-300">GHÉP ĐỦ 4 MẢNH VÉ • SẴN SÀNG VƯƠN RA THẾ GIỚI</span>
+        </div>
+
+        <div class="grid lg:grid-cols-12 items-center">
+          <div class="lg:col-span-7 p-6 sm:p-10 space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 class="text-2xl sm:text-4xl font-black">🏆 Hạ Cánh – Gala Trao Giải</h3>
+              <button onclick="openTopicDetail(4)" class="px-4 py-1.5 rounded-full bg-white/15 hover:bg-white text-white hover:text-slate-900 font-bold text-xs transition">
+                🔍 Chi tiết Tuần 9 →
+              </button>
+            </div>
+            <p class="text-sky-100 text-sm sm:text-base leading-relaxed">
+              Cùng xem lại những video xuất sắc nhất toàn Khoa, nhận <strong>Chứng nhận số (Digital Badge) của ASU</strong>, phần thưởng của Khoa và vinh danh các giải CLB (<em>Tích cực nhất, Tiến bộ nhất</em>).
+            </p>
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <div class="px-4 py-2.5 rounded-2xl bg-white/10 border border-white/20 text-xs sm:text-sm font-bold text-amber-300">
+                💬 Chia sẻ cuối hành trình: <em>“In this club, I learned…”</em>
+              </div>
+              <button onclick="fireConfetti()" class="px-6 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm shadow-lg transition">
+                🎉 Chúc mừng Hạ cánh!
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 p-6">
+            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] border-2 border-white/25 cursor-pointer group" onclick="openLightbox('assets/activity-2.jpg', 'Tuần 9: Hạ cánh – Gala tổng kết và trao giải thưởng')">
+              <img src="assets/activity-2.jpg" alt="Hạ cánh Gala trao giải" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-4">
+                <span class="text-white text-xs sm:text-sm font-bold">🎖️ Trao thưởng & Chứng nhận ASU Digital Badge</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- ===================================================================== -->
-  <!-- SECTION 3: CUỘC THI VIDEO ASU MASTER CLASS (BRIGHT, VISUAL, RINGS) -->
+  <!-- 4. CUỘC THI VIDEO ASU MASTER CLASS → "TẤM VÉ ĐẦU TIÊN" -->
   <!-- ===================================================================== -->
-  <section id="cuoc-thi" class="py-20 lg:py-28 bg-white scroll-mt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+  <section id="tam-ve-dau-tien" class="py-16 lg:py-24 bg-slate-50 border-b border-slate-200 scroll-mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
 
-      <!-- Contest Header -->
+      <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto space-y-4 reveal">
-        <span class="inline-block px-4 py-1.5 rounded-full bg-rose-100 text-asu-rose font-black text-xs uppercase tracking-widest">
-          🎬 Phần 3 • Sân chơi mở rộng toàn Khoa CNTT (5 Ngành)
+        <span class="inline-block px-4 py-1.5 rounded-full bg-rose-100 text-asu-maroon font-black text-xs uppercase tracking-widest">
+          🎫 Cuộc thi Video ASU Master Class • Mở rộng toàn Khoa CNTT (5 Ngành)
         </span>
-        <h2 class="text-3xl sm:text-5xl font-black text-slate-900">
-          Cuộc Thi Video <span class="text-gradient-sun">ASU Master Class</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-lhu-navy">
+          Tấm Vé Đầu Tiên Ra Thế Giới
         </h2>
         <p class="text-slate-600 text-base sm:text-lg font-medium">
-          Chọn <strong>01 video bất kỳ trong playlist ASU Master Class</strong> ➔ Quay video tiếng Anh (<strong>3–5 phút</strong>) tóm tắt nội dung & cách áp dụng vào bản thân.
+          Chứng nhận số (<strong>Digital Badge</strong>) từ <strong>Arizona State University (ASU)</strong> chính là tấm vé thông hành quốc tế đầu tiên trong hồ sơ của bạn. Chọn <strong>1 video bất kỳ trong playlist ASU Master Class</strong>, quay video tiếng Anh (3–5 phút) tóm tắt nội dung và cách bản thân áp dụng!
         </p>
       </div>
 
-      <!-- 4 Visual Contest Rule Pills -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-        <div class="tilt-card bg-gradient-to-b from-blue-50 to-white p-6 rounded-3xl border border-blue-100 shadow-md text-center">
-          <div class="w-14 h-14 mx-auto rounded-2xl bg-lhu-blue text-white flex items-center justify-center text-2xl mb-4 shadow-md">👥</div>
-          <h4 class="font-black text-lg text-slate-900">Toàn Khoa CNTT</h4>
-          <p class="text-xs sm:text-sm text-slate-600 mt-1">Mở cho cả <strong>5 ngành</strong>. Thi <strong>Cá nhân</strong> hoặc <strong>Nhóm 2 người</strong>.</p>
+      <!-- 4 Contest Overview Cards (Carefully Verified Copy) -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+          <div class="text-2xl mb-2">👥</div>
+          <div class="text-xs font-extrabold uppercase text-lhu-blue">Đối tượng & Hình thức</div>
+          <div class="text-lg font-black text-slate-900 mt-1">SV Toàn Khoa CNTT</div>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5">Dành cho sinh viên cả 5 ngành trong Khoa. Dự thi <strong>cá nhân</strong> hoặc <strong>nhóm 2 người</strong>.</p>
         </div>
 
-        <div class="tilt-card bg-gradient-to-b from-amber-50 to-white p-6 rounded-3xl border border-amber-200 shadow-md text-center">
-          <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-500 text-white flex items-center justify-center text-2xl mb-4 shadow-md">⏱️</div>
-          <h4 class="font-black text-lg text-slate-900">Thời Lượng 3–5 Phút</h4>
-          <p class="text-xs sm:text-sm text-slate-600 mt-1">(1) Tóm tắt Master Class & (2) Cách bản thân áp dụng thực tế.</p>
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+          <div class="text-2xl mb-2">🎬</div>
+          <div class="text-xs font-extrabold uppercase text-orange-600">Nội dung & Thời lượng</div>
+          <div class="text-lg font-black text-slate-900 mt-1">Video 3 – 5 Phút</div>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5">(1) Tóm tắt nội dung Master Class đã chọn; (2) Cách bản thân áp dụng vào học tập/cuộc sống.</p>
         </div>
 
-        <div class="tilt-card bg-gradient-to-b from-purple-50 to-white p-6 rounded-3xl border border-purple-100 shadow-md text-center">
-          <div class="w-14 h-14 mx-auto rounded-2xl bg-purple-600 text-white flex items-center justify-center text-2xl mb-4 shadow-md">📤</div>
-          <h4 class="font-black text-lg text-slate-900">Nộp Qua Form Khoa</h4>
-          <p class="text-xs sm:text-sm text-slate-600 mt-1">Gửi link <strong>Google Drive</strong> hoặc <strong>YouTube (Không công khai)</strong>.</p>
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+          <div class="text-2xl mb-2">📤</div>
+          <div class="text-xs font-extrabold uppercase text-sky-700">Cách thức nộp bài</div>
+          <div class="text-lg font-black text-slate-900 mt-1">Qua Form Đăng Ký</div>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5">Gồm họ tên, MSSV, lớp, ngành, email, tên video đã chọn & link <strong>Google Drive / YouTube (Không công khai)</strong>.</p>
         </div>
 
-        <div class="tilt-card bg-gradient-to-b from-rose-50 to-white p-6 rounded-3xl border border-rose-200 shadow-md text-center">
-          <div class="w-14 h-14 mx-auto rounded-2xl bg-asu-rose text-white flex items-center justify-center text-2xl mb-4 shadow-md">🎖️</div>
-          <h4 class="font-black text-lg text-slate-900">100% Nhận ASU Badge</h4>
-          <p class="text-xs sm:text-sm text-slate-600 mt-1">Mọi bài hợp lệ nhận <strong>Badge ASU</strong>. Giải nhất nhận thưởng Khoa!</p>
+        <div class="bg-gradient-to-br from-asu-maroon to-rose-900 text-white p-6 rounded-3xl shadow-lg">
+          <div class="text-2xl mb-2">🎖️</div>
+          <div class="text-xs font-extrabold uppercase text-amber-300">Quyền lợi & Giải thưởng</div>
+          <div class="text-lg font-black text-white mt-1">Mọi bài hợp lệ đều nhận badge</div>
+          <p class="text-xs sm:text-sm text-rose-100 mt-1.5">Nhận <strong>ASU Digital Badge</strong> qua email đăng ký vào cuối cuộc thi. Video hay nhất nhận thưởng của Khoa!</p>
         </div>
       </div>
 
-      <!-- DOs & DON'Ts + CIRCULAR PROGRESS RUBRIC -->
+      <!-- DOs & DON'Ts + 100-POINT RUBRIC -->
       <div class="grid lg:grid-cols-12 gap-8 items-stretch reveal">
-        
-        <!-- Left 6 Cols: Allowed vs Prohibited Visual Cards -->
-        <div class="lg:col-span-6 grid sm:grid-cols-2 gap-6">
+        <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
           <!-- ĐƯỢC DÙNG -->
-          <div class="tilt-card rounded-[2rem] bg-emerald-50/80 border-2 border-emerald-300 p-7 flex flex-col justify-between shadow-lg">
+          <div class="bg-white rounded-3xl border-2 border-emerald-300 p-6 sm:p-7 flex flex-col justify-between shadow-sm">
             <div class="space-y-4">
               <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-600 text-white font-black text-xs uppercase">
                 ✅ ĐƯỢC DÙNG
               </span>
-              <h3 class="text-xl font-black text-emerald-950">Đạo cụ thủ công & Tự nói</h3>
-              <div class="space-y-2.5 text-sm font-semibold text-emerald-900">
-                <div class="bg-white p-3 rounded-2xl shadow-sm flex items-center gap-2.5">🎨 Tranh vẽ tay, sơ đồ, bảng</div>
-                <div class="bg-white p-3 rounded-2xl shadow-sm flex items-center gap-2.5">🎭 Đạo cụ, dụng cụ minh họa</div>
-                <div class="bg-white p-3 rounded-2xl shadow-sm flex items-center gap-2.5">✂️ Cắt nối cơ bản các đoạn quay</div>
-                <div class="bg-white p-3 rounded-2xl shadow-sm flex items-center gap-2.5">🗣️ Xuất hiện trực tiếp & tự nói</div>
-              </div>
+              <h3 class="text-xl font-black text-slate-900">Sáng tạo trực quan & Tự trình bày</h3>
+              <ul class="space-y-2.5 text-sm text-slate-700 font-medium">
+                <li class="flex items-start gap-2"><span class="text-emerald-600 font-black">✔</span> <span><strong>Tranh vẽ, bảng, đạo cụ, dụng cụ minh họa</strong> trực quan.</span></li>
+                <li class="flex items-start gap-2"><span class="text-emerald-600 font-black">✔</span> <span><strong>Cắt nối cơ bản</strong> các đoạn quay.</span></li>
+                <li class="flex items-start gap-2"><span class="text-emerald-600 font-black">✔</span> <span><strong>Người dự thi phải xuất hiện trực tiếp</strong> và tự nói.</span></li>
+              </ul>
             </div>
           </div>
 
           <!-- KHÔNG ĐƯỢC DÙNG -->
-          <div class="tilt-card rounded-[2rem] bg-rose-50/80 border-2 border-rose-300 p-7 flex flex-col justify-between shadow-lg">
+          <div class="bg-white rounded-3xl border-2 border-rose-300 p-6 sm:p-7 flex flex-col justify-between shadow-sm">
             <div class="space-y-4">
-              <span class="inline-block px-3.5 py-1 rounded-full bg-asu-rose text-white font-black text-xs uppercase">
-                🚫 CẤM SỬ DỤNG
+              <span class="inline-block px-3.5 py-1 rounded-full bg-rose-600 text-white font-black text-xs uppercase">
+                🚫 KHÔNG ĐƯỢC DÙNG
               </span>
-              <h3 class="text-xl font-black text-rose-950">Không Kỹ Xảo • Không AI</h3>
-              <div class="space-y-2.5 text-sm font-semibold text-rose-900">
-                <div class="bg-white p-3 rounded-2xl shadow-sm flex items-center gap-2.5">❌ Chuyển cảnh, filter, sticker</div>
-                <div class="bg-white p-3 rounded-2xl shadow-sm flex items-center gap-2.5">❌ Chữ chạy (auto-subtitles)</div>
-                <div class="bg-white p-3 rounded-2xl shadow-sm flex items-center gap-2.5">❌ Giọng đọc AI (AI Voice)</div>
-                <div class="bg-white p-3 rounded-2xl shadow-sm flex items-center gap-2.5">❌ Nhân vật tạo bằng AI</div>
-              </div>
+              <h3 class="text-xl font-black text-slate-900">Không kỹ xảo • Không dùng AI</h3>
+              <ul class="space-y-2.5 text-sm text-slate-700 font-medium">
+                <li class="flex items-start gap-2"><span class="text-rose-600 font-black">✖</span> <span><strong>Hiệu ứng:</strong> chuyển cảnh, filter, sticker, chữ chạy.</span></li>
+                <li class="flex items-start gap-2"><span class="text-rose-600 font-black">✖</span> <span><strong>Giọng đọc hoặc nhân vật tạo bằng AI.</strong></span></li>
+              </ul>
             </div>
-            <div class="mt-4 text-xs font-extrabold text-rose-700 bg-rose-100 p-3 rounded-xl">
-              ⚠️ Vi phạm hiệu ứng hoặc AI sẽ không được xét giải!
+            <div class="mt-4 p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs font-extrabold text-rose-700">
+              ⚠️ Video vi phạm quy định hiệu ứng hoặc AI không được xét giải.
             </div>
           </div>
         </div>
 
-        <!-- Right 6 Cols: 4 Circular Progress Gauges (Thang điểm 100) -->
-        <div class="lg:col-span-6 bg-slate-900 text-white rounded-[2rem] p-7 sm:p-9 shadow-2xl flex flex-col justify-between">
-          <div class="flex items-center justify-between border-b border-white/15 pb-4 mb-6">
-            <div>
-              <span class="text-xs font-black uppercase text-amber-400">Thang chấm chuẩn</span>
-              <h3 class="text-2xl font-black">TIÊU CHÍ 100 ĐIỂM</h3>
-            </div>
-            <span class="px-4 py-1.5 rounded-full bg-amber-400 text-slate-950 font-black text-lg">100 Điểm</span>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-white/10 rounded-2xl p-4 flex items-center gap-4 border border-white/10">
-              <div class="w-16 h-16 rounded-2xl bg-sky-500 text-slate-950 font-black text-2xl flex items-center justify-center shrink-0 font-display">30đ</div>
+        <!-- Thang điểm 100 -->
+        <div class="lg:col-span-5 bg-lhu-navy text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b border-white/15 pb-4 mb-5">
               <div>
-                <div class="font-extrabold text-sm text-white">Tóm tắt Master Class</div>
-                <div class="text-xs text-slate-300 mt-0.5">Đúng & đủ ý chính</div>
+                <span class="text-xs font-bold uppercase text-amber-300">Tiêu chí chấm đề xuất</span>
+                <h3 class="text-xl sm:text-2xl font-black">THANG ĐIỂM 100</h3>
+              </div>
+              <span class="px-3.5 py-1 rounded-full bg-amber-400 text-slate-950 font-black text-sm">100 Điểm</span>
+            </div>
+
+            <div class="space-y-4 text-sm">
+              <div>
+                <div class="flex justify-between font-bold mb-1">
+                  <span>1. Tóm tắt đúng và đủ ý chính của Master Class</span>
+                  <span class="text-amber-300 font-black">30 điểm</span>
+                </div>
+                <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-sky-400 rounded-full" style="width: 30%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between font-bold mb-1">
+                  <span>2. Cách áp dụng cụ thể, gắn với bản thân</span>
+                  <span class="text-amber-300 font-black">30 điểm</span>
+                </div>
+                <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-amber-400 rounded-full" style="width: 30%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between font-bold mb-1">
+                  <span>3. Ngôn ngữ: phát âm, lưu loát, dùng từ</span>
+                  <span class="text-amber-300 font-black">25 điểm</span>
+                </div>
+                <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-400 rounded-full" style="width: 25%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between font-bold mb-1">
+                  <span>4. Sáng tạo trong trình bày (tranh vẽ, dụng cụ)</span>
+                  <span class="text-amber-300 font-black">15 điểm</span>
+                </div>
+                <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-orange-400 rounded-full" style="width: 15%"></div>
+                </div>
               </div>
             </div>
-
-            <div class="bg-white/10 rounded-2xl p-4 flex items-center gap-4 border border-white/10">
-              <div class="w-16 h-16 rounded-2xl bg-amber-400 text-slate-950 font-black text-2xl flex items-center justify-center shrink-0 font-display">30đ</div>
-              <div>
-                <div class="font-extrabold text-sm text-white">Áp dụng bản thân</div>
-                <div class="text-xs text-slate-300 mt-0.5">Cụ thể, thực tế</div>
-              </div>
-            </div>
-
-            <div class="bg-white/10 rounded-2xl p-4 flex items-center gap-4 border border-white/10">
-              <div class="w-16 h-16 rounded-2xl bg-emerald-400 text-slate-950 font-black text-2xl flex items-center justify-center shrink-0 font-display">25đ</div>
-              <div>
-                <div class="font-extrabold text-sm text-white">Ngôn ngữ Tiếng Anh</div>
-                <div class="text-xs text-slate-300 mt-0.5">Phát âm, lưu loát</div>
-              </div>
-            </div>
-
-            <div class="bg-white/10 rounded-2xl p-4 flex items-center gap-4 border border-white/10">
-              <div class="w-16 h-16 rounded-2xl bg-rose-500 text-white font-black text-2xl flex items-center justify-center shrink-0 font-display">15đ</div>
-              <div>
-                <div class="font-extrabold text-sm text-white">Độ sáng tạo</div>
-                <div class="text-xs text-slate-300 mt-0.5">Tranh vẽ, đạo cụ</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-6 text-xs sm:text-sm text-sky-200 bg-white/5 p-3.5 rounded-xl border border-white/10">
-            💡 <strong>Bí quyết đạt giải cao:</strong> Hãy dùng sơ đồ giấy vẽ tay hoặc đạo cụ minh họa cho câu chuyện của chính bạn!
           </div>
         </div>
-
       </div>
+
     </div>
   </section>
 
   <!-- ===================================================================== -->
-  <!-- SECTION 4: BENTO GALLERY (8 LARGE LHU PHOTOS) -->
+  <!-- 5. HÌNH ẢNH HOẠT ĐỘNG & THỐNG KÊ (ĐÃ CHUYỂN TỪ ĐẦU TRANG XUỐNG DƯỚI) -->
   <!-- ===================================================================== -->
-  <section id="hinh-anh" class="py-20 lg:py-28 bg-slate-50 border-t border-slate-200/80 scroll-mt-16">
+  <section id="hinh-anh" class="py-16 lg:py-24 bg-white scroll-mt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+      <!-- Summary Stat Cards (Moved from Hero to Bottom Section) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+        <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 text-center">
+          <div class="text-2xl sm:text-3xl font-black text-lhu-blue">26/10 – 12/2026</div>
+          <div class="text-xs font-bold text-slate-500 uppercase mt-1">Thời gian (Nghỉ 1 tuần 20/11)</div>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 text-center">
+          <div class="text-2xl sm:text-3xl font-black text-orange-500">9 Tuần • 4 Chặng</div>
+          <div class="text-xs font-bold text-slate-500 uppercase mt-1">Sinh hoạt CLB cho SV Năm 1</div>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 text-center">
+          <div class="text-2xl sm:text-3xl font-black text-asu-maroon">Toàn Khoa CNTT</div>
+          <div class="text-xs font-bold text-slate-500 uppercase mt-1">5 Ngành tham gia thi Video</div>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 text-center">
+          <div class="text-2xl sm:text-3xl font-black text-emerald-600">ASU Digital Badge</div>
+          <div class="text-xs font-bold text-slate-500 uppercase mt-1">Mọi bài hợp lệ đều nhận Badge</div>
+        </div>
+      </div>
+
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 reveal">
         <div>
-          <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-lhu-blue font-black text-xs uppercase tracking-widest">
-            📸 Phần 4 • Thư viện hình ảnh thực tế
+          <span class="inline-block px-3.5 py-1 rounded-full bg-blue-50 text-lhu-blue font-extrabold text-xs uppercase">
+            Hình ảnh thực tế tại LHU
           </span>
-          <h2 class="text-3xl sm:text-5xl font-black text-slate-900 mt-2">
-            Khoảnh Khắc <span class="text-gradient-vibrant">Sinh Viên LHU</span>
+          <h2 class="text-2xl sm:text-4xl font-black text-lhu-navy mt-1">
+            Không Khí Học Tập & Giao Lưu ASU Master Class
           </h2>
         </div>
-        <p class="text-sm font-bold text-slate-500">🔍 Bấm vào ảnh bất kỳ để phóng to toàn màn hình</p>
+        <p class="text-xs sm:text-sm text-slate-500 font-semibold">🔍 Bấm vào ảnh bất kỳ để phóng to</p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5 reveal">
-        <div onclick="openLightbox('assets/activity-4.jpg', 'Đông đảo sinh viên LHU tại hội trường ASU Master Class')" class="lg:col-span-6 relative rounded-[2rem] overflow-hidden shadow-lg border-4 border-white group cursor-pointer aspect-[16/10] tilt-card">
-          <img src="assets/activity-4.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-5">
-            <span class="text-white font-black text-base">🌟 Cộng đồng sinh viên LHU hào hứng tham gia ASU Master Class</span>
-          </div>
+      <!-- 8-Photo Gallery Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 reveal">
+        <div onclick="openLightbox('assets/activity-4.jpg', 'Đông đảo sinh viên LHU tham gia chương trình ASU Master Class')" class="lg:col-span-6 relative rounded-3xl overflow-hidden shadow-md group cursor-pointer aspect-[16/10]">
+          <img src="assets/activity-4.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
         </div>
-
-        <div onclick="openLightbox('assets/activity-8.jpg', 'Tập thể lớp học gắn kết cùng Giảng viên')" class="lg:col-span-6 relative rounded-[2rem] overflow-hidden shadow-lg border-4 border-white group cursor-pointer aspect-[16/10] tilt-card">
-          <img src="assets/activity-8.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-5">
-            <span class="text-white font-black text-base">🤝 Tinh thần gắn kết tuyệt vời giữa Giảng viên và Sinh viên</span>
-          </div>
+        <div onclick="openLightbox('assets/activity-8.jpg', 'Tập thể lớp học vui vẻ, gắn kết cùng Giảng viên')" class="lg:col-span-6 relative rounded-3xl overflow-hidden shadow-md group cursor-pointer aspect-[16/10]">
+          <img src="assets/activity-8.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
         </div>
-
-        <div onclick="openLightbox('assets/activity-1.jpg', 'Giao lưu trên sân khấu ASU Master Class')" class="lg:col-span-4 relative rounded-3xl overflow-hidden shadow-md border-4 border-white group cursor-pointer aspect-[4/3] tilt-card">
-          <img src="assets/activity-1.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+        <div onclick="openLightbox('assets/activity-1.jpg', 'Giao lưu tại ASU Master Class')" class="lg:col-span-4 relative rounded-2xl overflow-hidden shadow-sm group cursor-pointer aspect-[4/3]">
+          <img src="assets/activity-1.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
         </div>
-
-        <div onclick="openLightbox('assets/activity-3.jpg', 'Hướng dẫn công cụ AI trực tiếp trên lớp')" class="lg:col-span-4 relative rounded-3xl overflow-hidden shadow-md border-4 border-white group cursor-pointer aspect-[4/3] tilt-card">
-          <img src="assets/activity-3.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+        <div onclick="openLightbox('assets/activity-3.jpg', 'Hướng dẫn sử dụng AI học tiếng Anh')" class="lg:col-span-4 relative rounded-2xl overflow-hidden shadow-sm group cursor-pointer aspect-[4/3]">
+          <img src="assets/activity-3.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
         </div>
-
-        <div onclick="openLightbox('assets/activity-6.jpg', 'Giảng viên hướng dẫn phương pháp học Đại học')" class="lg:col-span-4 relative rounded-3xl overflow-hidden shadow-md border-4 border-white group cursor-pointer aspect-[4/3] tilt-card">
-          <img src="assets/activity-6.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+        <div onclick="openLightbox('assets/activity-6.jpg', 'Giảng viên đồng hành hướng dẫn trên lớp')" class="lg:col-span-4 relative rounded-2xl overflow-hidden shadow-sm group cursor-pointer aspect-[4/3]">
+          <img src="assets/activity-6.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
         </div>
-
-        <div onclick="openLightbox('assets/activity-7.jpg', 'Sinh viên vẽ sơ đồ tư duy Mindmap')" class="lg:col-span-4 relative rounded-3xl overflow-hidden shadow-md border-4 border-white group cursor-pointer aspect-[4/3] tilt-card">
-          <img src="assets/activity-7.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+        <div onclick="openLightbox('assets/activity-7.jpg', 'Sinh viên tự tay vẽ sơ đồ tư duy')" class="lg:col-span-4 relative rounded-2xl overflow-hidden shadow-sm group cursor-pointer aspect-[4/3]">
+          <img src="assets/activity-7.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
         </div>
-
-        <div onclick="openLightbox('assets/activity-5.jpg', 'Thảo luận nhóm 4 sinh viên')" class="lg:col-span-4 relative rounded-3xl overflow-hidden shadow-md border-4 border-white group cursor-pointer aspect-[4/3] tilt-card">
-          <img src="assets/activity-5.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+        <div onclick="openLightbox('assets/activity-5.jpg', 'Thảo luận nhóm 4 sinh viên')" class="lg:col-span-4 relative rounded-2xl overflow-hidden shadow-sm group cursor-pointer aspect-[4/3]">
+          <img src="assets/activity-5.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
         </div>
-
-        <div onclick="openLightbox('assets/activity-2.jpg', 'Trao phần thưởng cho các sinh viên xuất sắc')" class="lg:col-span-4 relative rounded-3xl overflow-hidden shadow-md border-4 border-white group cursor-pointer aspect-[4/3] tilt-card">
-          <img src="assets/activity-2.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+        <div onclick="openLightbox('assets/activity-2.jpg', 'Vinh danh và trao phần thưởng cuối khóa')" class="lg:col-span-4 relative rounded-2xl overflow-hidden shadow-sm group cursor-pointer aspect-[4/3]">
+          <img src="assets/activity-2.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-white border-t border-slate-200 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-4">
-        <img src="assets/lhu-logo.png" alt="Lac Hong University" class="h-14 w-auto object-contain" />
-        <div class="border-l-2 border-slate-200 pl-4">
-          <h4 class="font-black text-base sm:text-lg text-lhu-blue">TRƯỜNG ĐẠI HỌC LẠC HỒNG (LHU) — KHOA CNTT</h4>
-          <p class="text-xs sm:text-sm text-slate-500">CLB Tiếng Anh Tân Sinh Viên & Cuộc Thi Video ASU Master Class (26/10 – 12/2026)</p>
+  <!-- ===================================================================== -->
+  <!-- FOOTER (CHỨA NÚT DÀNH RIÊNG CHO GIẢNG VIÊN: KẾ HOẠCH CHI TIẾT & TRÌNH CHIẾU) -->
+  <!-- ===================================================================== -->
+  <footer class="bg-lhu-navy text-white py-12 border-t-4 border-orange-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class="bg-white p-2.5 rounded-2xl">
+            <img src="assets/lhu-logo.png" alt="Lac Hong University" class="h-12 w-auto object-contain" />
+          </div>
+          <div>
+            <h4 class="font-black text-base sm:text-lg text-white">TRƯỜNG ĐẠI HỌC LẠC HỒNG (LHU) — KHOA CNTT</h4>
+            <p class="text-xs sm:text-sm text-sky-200">Từ Đồng Nai ra thế giới – 9 tuần cất cánh (26/10 – 12/2026)</p>
+          </div>
         </div>
+
+        <a href="#top" class="px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-black text-xs sm:text-sm shadow-lg transition">
+          ✈️ Lên đầu trang – Bắt đầu hành trình
+        </a>
       </div>
-      <div class="flex items-center gap-3">
-        <button onclick="openFullPlanModal()" class="px-5 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs sm:text-sm transition">
-          📋 Bản Kế Hoạch Chi Tiết
-        </button>
-        <button onclick="fireConfetti()" class="px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 font-black text-xs sm:text-sm shadow-md hover:scale-105 transition">
-          🎉 Sẵn Sàng Kickoff!
-        </button>
+
+      <!-- Teacher Controls Bar (Moved to Footer as requested) -->
+      <div class="pt-6 border-t border-white/15 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-300">
+        <span>👩‍🏫 <strong>Góc dành cho Giảng viên & Ban Chủ Nhiệm CLB:</strong></span>
+        <div class="flex flex-wrap items-center gap-2.5">
+          <button onclick="openFullPlanModal()" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold border border-white/15 transition">
+            📋 Mở Bản Kế Hoạch Chi Tiết 9 Tuần (GV & SV)
+          </button>
+          <button onclick="togglePresentationMode()" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-amber-300 font-bold border border-white/15 transition">
+            🖥️ Bật / Tắt Chế Độ Trình Chiếu Hội Trường
+          </button>
+        </div>
       </div>
     </div>
   </footer>
 
   <!-- ===================================================================== -->
-  <!-- MODAL 1: XEM CHI TIẾT TỪNG CHỦ ĐỀ (POPUP KHI BẤM "XEM CHI TIẾT") -->
+  <!-- MODAL 1: CHI TIẾT TỪNG CHẶNG BAY -->
   <!-- ===================================================================== -->
   <div id="topicDetailModal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-4" onclick="closeTopicDetail()">
-    <div class="bg-white rounded-[2rem] max-w-3xl w-full max-h-[88vh] overflow-auto shadow-2xl border border-slate-200 p-6 sm:p-8" onclick="event.stopPropagation()">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[88vh] overflow-auto shadow-2xl border border-slate-200 p-6 sm:p-8" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
-        <h3 id="modalTopicTitle" class="text-xl sm:text-2xl font-black text-lhu-blue">Chi Tiết Chủ Đề</h3>
+        <h3 id="modalTopicTitle" class="text-xl sm:text-2xl font-black text-lhu-navy">Chi Tiết Chặng Bay</h3>
         <button onclick="closeTopicDetail()" class="px-4 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm">Đóng ✕</button>
       </div>
-      <div id="modalTopicBody" class="space-y-6 text-sm sm:text-base text-slate-700"></div>
+      <div id="modalTopicBody" class="space-y-5 text-sm sm:text-base text-slate-700"></div>
     </div>
   </div>
 
   <!-- ===================================================================== -->
-  <!-- MODAL 2: BẢNG KẾ HOẠCH CHI TIẾT 9 TUẦN -->
+  <!-- MODAL 2: BẢNG KẾ HOẠCH CHI TIẾT 9 TUẦN (DÀNH CHO GIẢNG VIÊN) -->
   <!-- ===================================================================== -->
   <div id="fullPlanModal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-3 sm:p-6" onclick="closeFullPlanModal()">
-    <div class="bg-white rounded-[2rem] max-w-7xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200" onclick="event.stopPropagation()">
-      <div class="bg-lhu-blue text-white px-6 py-4 flex items-center justify-between">
+    <div class="bg-white rounded-3xl max-w-7xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200" onclick="event.stopPropagation()">
+      <div class="bg-lhu-navy text-white px-6 py-4 flex items-center justify-between">
         <div>
-          <span class="text-xs font-bold uppercase text-amber-300">Bản chi tiết dành cho Giảng viên & Sinh viên</span>
-          <h3 class="text-lg sm:text-xl font-black">BẢNG TỔNG HỢP KẾ HOẠCH 9 TUẦN SINH HOẠT CLB</h3>
+          <span class="text-xs font-bold uppercase text-amber-300">Tài liệu dành cho Giảng viên & BTC</span>
+          <h3 class="text-lg sm:text-xl font-black">BẢNG KẾ HOẠCH CHI TIẾT 9 TUẦN SINH HOẠT CLB</h3>
         </div>
         <button onclick="closeFullPlanModal()" class="px-4 py-1.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-bold text-sm">Đóng ✕</button>
       </div>
@@ -1015,7 +1165,7 @@
           <thead>
             <tr class="bg-slate-100 text-slate-900 border-b-2 border-slate-300">
               <th class="py-3 px-3 font-black text-center w-14">Tuần</th>
-              <th class="py-3 px-3 font-black w-36">Chủ đề</th>
+              <th class="py-3 px-3 font-black w-36">Chặng / Chủ đề</th>
               <th class="py-3 px-3 font-black w-52">Buổi học</th>
               <th class="py-3 px-3 font-black">GV cần chuẩn bị</th>
               <th class="py-3 px-3 font-black">Sinh viên cần làm</th>
@@ -1024,7 +1174,7 @@
           <tbody class="divide-y divide-slate-200 text-slate-700">
             <tr>
               <td class="py-3 px-3 font-black text-center text-lhu-blue">1</td>
-              <td class="py-3 px-3 font-bold" rowspan="2">🤖 AI</td>
+              <td class="py-3 px-3 font-bold" rowspan="2">Chặng 1: AI</td>
               <td class="py-3 px-3 font-semibold">Từ vựng về AI + cách dùng AI cơ bản</td>
               <td class="py-3 px-3">Slide 10 từ vựng (chatbot, prompt, generate, translate, summarize, accurate, mistake, fake, privacy…); đoạn 5–7 phút Master Class #10 kèm 3 câu hỏi; 3 prompt mẫu; phiếu AI Diary; QR phát động cuộc thi; danh sách chia nhóm 4 SV</td>
               <td class="py-3 px-3">Học từ vựng qua Quizlet/Kahoot; xem clip và trả lời câu hỏi; theo cặp chạy 3 prompt mẫu rồi tự viết 1 prompt; nhận nhóm và phiếu AI Diary</td>
@@ -1037,7 +1187,7 @@
             </tr>
             <tr>
               <td class="py-3 px-3 font-black text-center text-lhu-blue">3</td>
-              <td class="py-3 px-3 font-bold" rowspan="2">✈️ Học ở ĐH & Du học</td>
+              <td class="py-3 px-3 font-bold" rowspan="2">Chặng 2: Học ở ĐH & Du học</td>
               <td class="py-3 px-3 font-semibold">Cách học tiếng Anh, phương pháp học ở ĐH (có dùng AI để học)</td>
               <td class="py-3 px-3">Từ vựng (syllabus, deadline, assignment, note-taking, self-study, flashcard…); tài liệu ngắn về 4 phương pháp (Pomodoro, Spaced repetition, Shadowing, Feynman); demo dùng AI để luyện nói và sửa lỗi</td>
               <td class="py-3 px-3">Chơi “Find someone who…” về thói quen học; mỗi nhóm đọc 1 phương pháp rồi dạy lại cho nhóm khác; thử dùng AI sửa câu; chọn 1 phương pháp để áp dụng trong tuần</td>
@@ -1054,7 +1204,7 @@
             </tr>
             <tr>
               <td class="py-3 px-3 font-black text-center text-lhu-blue">5</td>
-              <td class="py-3 px-3 font-bold" rowspan="2">🌱 Mục đích & Hạnh phúc</td>
+              <td class="py-3 px-3 font-bold" rowspan="2">Chặng 3: Mục đích & Hạnh phúc</td>
               <td class="py-3 px-3 font-semibold">Power of Purpose / Blue Zones: motivation</td>
               <td class="py-3 px-3">Clip Master Class #24 hoặc #13; bản đồ 5 Blue Zones; từ vựng (purpose, motivation, goal, habit, longevity, community…); sơ đồ Ikigai in khổ A4; bài đọc thêm</td>
               <td class="py-3 px-3">Xem clip và điền từ còn thiếu; tự điền sơ đồ Ikigai; chia sẻ theo cặp; thảo luận nhóm “What motivates students?”; viết purpose của bản thân trong 3 câu</td>
@@ -1067,7 +1217,7 @@
             </tr>
             <tr>
               <td class="py-3 px-3 font-black text-center text-lhu-blue">7</td>
-              <td class="py-3 px-3 font-bold" rowspan="2">🧘 Stress</td>
+              <td class="py-3 px-3 font-bold" rowspan="2">Chặng 4: Stress</td>
               <td class="py-3 px-3 font-semibold">The Dual Nature of Stress</td>
               <td class="py-3 px-3">Đoạn 5–10 phút webinar Cintana và clip #28; từ vựng (pressure, cope, deadline, overwhelmed, relax, good/bad stress…); thẻ phân loại good / bad stress; mẫu Stress Diary</td>
               <td class="py-3 px-3">Đánh dấu mức stress của mình trên “nhiệt kế stress”; xem clip; phân loại thẻ good / bad stress theo nhóm; tập thở 1 phút; nhận mẫu Stress Diary</td>
@@ -1078,9 +1228,9 @@
               <td class="py-3 px-3">Mẫu câu khuyên (You should… / Why don’t you… / It helps me to…); giấy ghi vấn đề ẩn danh; rubric; phiếu khảo sát cuối khóa</td>
               <td class="py-3 px-3">Chia sẻ Stress Diary theo cặp; “Advice circle”: rút 1 vấn đề ẩn danh và đưa lời khuyên; thuyết trình nhóm “How we handle stress”; làm khảo sát cuối khóa</td>
             </tr>
-            <tr class="bg-rose-50">
-              <td class="py-3 px-3 font-black text-center text-asu-rose">9</td>
-              <td class="py-3 px-3 font-black text-asu-rose">🏆 Tổng kết</td>
+            <tr class="bg-orange-50">
+              <td class="py-3 px-3 font-black text-center text-orange-600">9</td>
+              <td class="py-3 px-3 font-black text-orange-600">Hạ cánh – Gala trao giải</td>
               <td class="py-3 px-3 font-bold">Tổng kết cuộc thi + trao thưởng</td>
               <td class="py-3 px-3">Danh sách đoạt giải; video đoạt giải; giấy khen, quà; giải CLB (Tích cực nhất, Tiến bộ nhất)</td>
               <td class="py-3 px-3">Xem video đoạt giải; nhận badge, giải thưởng; chia sẻ 1 câu: “In this club, I learned…”</td>
@@ -1104,58 +1254,58 @@
 
   <!-- INTERACTIVE SCRIPTS -->
   <script>
-    // 1. Typewriter Text Effect in Hero
-    const phrases = [
-      'Học qua Video ASU chuẩn Mỹ 🎬',
-      'Tự tin phản xạ Tiếng Anh mỗi tuần 🗣️',
-      'Ứng dụng AI thông minh vào Đại học 🤖',
-      'Chinh phục ASU Digital Badge quốc tế 🎖️'
-    ];
-    let phraseIdx = 0;
-    let charIdx = 0;
-    let isDeleting = false;
-    const twEl = document.getElementById('typewriterText');
-
-    function runTypewriter() {
-      const currentPhrase = phrases[phraseIdx];
-      if (!isDeleting) {
-        twEl.textContent = currentPhrase.substring(0, charIdx + 1);
-        charIdx++;
-        if (charIdx === currentPhrase.length) {
-          isDeleting = true;
-          setTimeout(runTypewriter, 2000);
-          return;
-        }
-      } else {
-        twEl.textContent = currentPhrase.substring(0, charIdx - 1);
-        charIdx--;
-        if (charIdx === 0) {
-          isDeleting = false;
-          phraseIdx = (phraseIdx + 1) % phrases.length;
-        }
+    // 1. Interactive World Map Partner Data
+    const partnerData = {
+      lhu: {
+        badge: '🛫 Điểm cất cánh • Việt Nam',
+        title: 'Trường Đại học Lạc Hồng (LHU)',
+        location: '📍 Biên Hòa, Đồng Nai, Việt Nam',
+        desc: 'Thành viên mạng lưới <strong>Cintana Alliance</strong> — Triển khai chương trình <strong>Song ngữ LHU–ASU học ngay tại LHU</strong>, giúp sinh viên tiếp cận giáo trình chuẩn Mỹ và chuẩn bị ngoại ngữ vững vàng.',
+        tag: '🌟 Khởi đầu ngay tại CLB Tiếng Anh Khoa CNTT'
+      },
+      indonesia: {
+        badge: '🇮🇩 Đối tác Cintana Alliance • Đông Nam Á',
+        title: 'Universitas Esa Unggul',
+        location: '📍 Jakarta, Indonesia',
+        desc: 'Trường đại học đối tác uy tín trong liên minh <strong>Cintana Alliance</strong>: Hợp tác chương trình <strong>trao đổi sinh viên ngắn hạn</strong>, giao lưu văn hóa – học thuật quốc tế và cùng chia sẻ hệ sinh thái học liệu ASU.',
+        tag: '✈️ Cơ hội giao lưu & trao đổi ngắn hạn'
+      },
+      taiwan: {
+        badge: '🇹🇼 Điểm đến Đối tác • Đông Á',
+        title: 'Các Trường Đại Học Đối Tác Đài Loan',
+        location: '📍 Đài Loan (Cập nhật danh sách trường đối tác của Khoa/LHU)',
+        desc: 'Hợp tác chương trình <strong>trao đổi học kỳ, thực tập chuyên ngành CNTT</strong> và các chương trình học bổng chuyển tiếp / sau đại học dành cho sinh viên có nền tảng ngoại ngữ.',
+        tag: '✈️ Chương trình trao đổi & học bổng'
+      },
+      china: {
+        badge: '🇨🇳 Điểm đến Đối tác • Châu Á',
+        title: 'Các Trường Đại Học Đối Tác Trung Quốc',
+        location: '📍 Trung Quốc (Cập nhật danh sách trường đối tác của Khoa/LHU)',
+        desc: 'Hợp tác các chương trình <strong>trao đổi học thuật, trại hè công nghệ – ngôn ngữ ngắn hạn</strong> và giao lưu sinh viên quốc tế.',
+        tag: '✈️ Giao lưu học thuật & công nghệ'
+      },
+      asu: {
+        badge: '🇺🇸 Đối tác Chiến lược Toàn cầu',
+        title: 'Arizona State University (ASU)',
+        location: '📍 Tempe, Arizona, Hoa Kỳ (Top 1% Đại học thế giới)',
+        desc: 'Cung cấp trực tiếp kho bài giảng <strong>ASU Master Class</strong>, chuỗi <strong>Webinar Cintana</strong> và cấp <strong>Chứng nhận số (ASU Digital Badge)</strong> cho sinh viên hoàn thành bài dự thi hợp lệ ngay tại LHU.',
+        tag: '🎖️ Nhận ASU Digital Badge miễn phí ngay học kỳ này'
       }
-      setTimeout(runTypewriter, isDeleting ? 30 : 55);
+    };
+
+    function selectPartner(key) {
+      const data = partnerData[key];
+      if (!data) return;
+      const pop = document.getElementById('partnerPopover');
+      pop.classList.remove('hidden');
+      document.getElementById('popoverBadge').innerHTML = data.badge;
+      document.getElementById('popoverTitle').innerHTML = data.title;
+      document.getElementById('popoverLocation').innerHTML = data.location;
+      document.getElementById('popoverDesc').innerHTML = data.desc;
+      document.getElementById('popoverTag').innerHTML = data.tag;
     }
-    runTypewriter();
 
-    // 2. Interactive 3D Mouse Tilt Effect on Cards
-    document.querySelectorAll('.tilt-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -4;
-        const rotateY = ((x - centerX) / centerX) * 4;
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-      });
-    });
-
-    // 3. Click-to-Speak English Pronunciation
+    // 2. Click-to-Speak English Pronunciation
     function speakWord(text, btnEl) {
       if (!('speechSynthesis' in window)) return;
       window.speechSynthesis.cancel();
@@ -1170,19 +1320,19 @@
       window.speechSynthesis.speak(utter);
     }
 
-    // 4. Confetti Cannon
+    // 3. Confetti Cannon
     function fireConfetti() {
       if (typeof confetti === 'function') {
         confetti({
-          particleCount: 95,
-          spread: 80,
+          particleCount: 80,
+          spread: 70,
           origin: { y: 0.6 },
-          colors: ['#1B4F9C', '#F59E0B', '#E11D48', '#10B981', '#38BDF8']
+          colors: ['#F97316', '#1B4F9C', '#FFC627', '#8C1D40']
         });
       }
     }
 
-    // 5. Scroll Reveal Observer
+    // 4. Scroll Reveal Observer
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1192,75 +1342,75 @@
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // 6. Topic Detail Popup Data (Keeps main page clean while preserving 100% details on click)
+    // 5. Topic Detail Modal Data
     const topicDetails = [
       {
-        title: '🤖 Chủ đề 1 (Tuần 1 & Tuần 2): Trí Tuệ Nhân Tạo (AI)',
+        title: '🎫 Chặng 1 · Cổng 01 (Tuần 1–2): Trí Tuệ Nhân Tạo (AI)',
         html: `
-          <div class="p-5 rounded-2xl bg-blue-50 border border-blue-200 space-y-2">
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
             <h4 class="font-black text-lg text-lhu-blue">Tuần 1: Từ vựng về AI + Cách dùng AI cơ bản</h4>
-            <p><strong>👩‍🏫 GV chuẩn bị:</strong> Slide 10 từ vựng (chatbot, prompt, generate, translate, summarize, accurate, mistake, fake, privacy…); đoạn 5–7 phút Master Class #10 kèm 3 câu hỏi; 3 prompt mẫu; phiếu AI Diary; QR phát động cuộc thi; danh sách chia nhóm 4 SV.</p>
-            <p><strong>🎓 Sinh viên làm:</strong> Học từ vựng qua Quizlet/Kahoot; xem clip và trả lời câu hỏi; theo cặp chạy 3 prompt mẫu rồi tự viết 1 prompt; nhận nhóm và phiếu AI Diary.</p>
+            <p><strong>🎓 Sinh viên cần làm:</strong> Học từ vựng qua Quizlet/Kahoot; xem clip Master Class #10 và trả lời câu hỏi; theo cặp chạy 3 prompt mẫu rồi tự viết 1 prompt; nhận nhóm 4 SV và phiếu AI Diary.</p>
+            <p class="text-xs text-slate-500"><strong>👩‍🏫 GV chuẩn bị:</strong> Slide 10 từ vựng (chatbot, prompt, generate, translate, summarize, accurate, mistake, fake, privacy…); đoạn 5–7 phút Master Class #10 kèm 3 câu hỏi; 3 prompt mẫu; phiếu AI Diary; QR phát động cuộc thi; danh sách chia nhóm 4 SV.</p>
           </div>
-          <div class="p-5 rounded-2xl bg-indigo-50 border border-indigo-200 space-y-2">
-            <h4 class="font-black text-lg text-indigo-800">Tuần 2: Giao tiếp: AI tốt và xấu, trải nghiệm của bạn</h4>
-            <p><strong>👩‍🏫 GV chuẩn bị:</strong> 1 ví dụ AI trả lời sai để khởi động; thẻ câu hỏi thảo luận; mẫu câu đồng ý / không đồng ý; rubric thuyết trình nhóm; đồng hồ bấm giờ.</p>
-            <p><strong>🎓 Sinh viên làm:</strong> Đoán câu trả lời AI đúng hay sai; chia sẻ AI Diary theo cặp; đứng theo hàng Agree / Disagree với câu “Students should use AI for homework”; thuyết trình nhóm 3 phút.</p>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <h4 class="font-black text-lg text-indigo-700">Tuần 2: Giao tiếp: AI tốt và xấu, trải nghiệm của bạn</h4>
+            <p><strong>🎓 Sinh viên cần làm:</strong> Đoán câu trả lời AI đúng hay sai; chia sẻ AI Diary theo cặp; đứng theo hàng Agree / Disagree với câu “Students should use AI for homework”; thuyết trình nhóm 3 phút.</p>
+            <p class="text-xs text-slate-500"><strong>👩‍🏫 GV chuẩn bị:</strong> 1 ví dụ AI trả lời sai để khởi động; thẻ câu hỏi thảo luận; mẫu câu đồng ý / không đồng ý; rubric thuyết trình nhóm; đồng hồ bấm giờ.</p>
           </div>
         `
       },
       {
-        title: '✈️ Chủ đề 2 (Tuần 3 & Tuần 4): Học ở Đại Học & Du Học',
+        title: '🎫 Chặng 2 · Cổng 02 (Tuần 3–4): Học ở Đại Học & Du Học',
         html: `
-          <div class="p-5 rounded-2xl bg-cyan-50 border border-cyan-200 space-y-2">
-            <h4 class="font-black text-lg text-cyan-800">Tuần 3: Cách học tiếng Anh, phương pháp học ở ĐH (có dùng AI)</h4>
-            <p><strong>👩‍🏫 GV chuẩn bị:</strong> Từ vựng (syllabus, deadline, assignment, note-taking, self-study, flashcard…); tài liệu ngắn về 4 phương pháp (Pomodoro, Spaced repetition, Shadowing, Feynman); demo dùng AI để luyện nói và sửa lỗi.</p>
-            <p><strong>🎓 Sinh viên làm:</strong> Chơi “Find someone who…” về thói quen học; mỗi nhóm đọc 1 phương pháp rồi dạy lại cho nhóm khác; thử dùng AI sửa câu; chọn 1 phương pháp để áp dụng trong tuần.</p>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <h4 class="font-black text-lg text-sky-700">Tuần 3: Cách học tiếng Anh, phương pháp học ở ĐH (có dùng AI)</h4>
+            <p><strong>🎓 Sinh viên cần làm:</strong> Chơi “Find someone who…” về thói quen học; mỗi nhóm đọc 1 phương pháp rồi dạy lại cho nhóm khác; thử dùng AI sửa câu; chọn 1 phương pháp để áp dụng trong tuần.</p>
+            <p class="text-xs text-slate-500"><strong>👩‍🏫 GV chuẩn bị:</strong> Từ vựng (syllabus, deadline, assignment, note-taking, self-study, flashcard…); tài liệu ngắn về 4 phương pháp (Pomodoro, Spaced repetition, Shadowing, Feynman); demo dùng AI để luyện nói và sửa lỗi.</p>
           </div>
-          <div class="p-5 rounded-2xl bg-sky-50 border border-sky-200 space-y-2">
-            <h4 class="font-black text-lg text-sky-800">Tuần 4: Du học cần chuẩn bị gì + Đóng vai hội thoại ở sân bay</h4>
-            <p><strong>👩‍🏫 GV chuẩn bị:</strong> Từ vựng (passport, visa, boarding pass, check-in, luggage, customs, gate, delay, scholarship…); checklist chuẩn bị du học; hội thoại mẫu cho 3 tình huống (check-in, an ninh, nhập cảnh); thẻ vai.</p>
-            <p><strong>🎓 Sinh viên làm:</strong> Kể kết quả thử phương pháp học; trả lời “Where would you like to study abroad?”; luyện hội thoại theo nhóm; diễn role-play sân bay (thuyết trình nhóm).</p>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <h4 class="font-black text-lg text-blue-700">Tuần 4: Du học cần chuẩn bị gì + Đóng vai hội thoại ở sân bay</h4>
+            <p><strong>🎓 Sinh viên cần làm:</strong> Kể kết quả thử phương pháp học; trả lời “Where would you like to study abroad?”; luyện hội thoại theo nhóm; diễn role-play sân bay (thuyết trình nhóm).</p>
+            <p class="text-xs text-slate-500"><strong>👩‍🏫 GV chuẩn bị:</strong> Từ vựng (passport, visa, boarding pass, check-in, luggage, customs, gate, delay, scholarship…); checklist chuẩn bị du học; hội thoại mẫu cho 3 tình huống (check-in, an ninh, nhập cảnh); thẻ vai.</p>
           </div>
         `
       },
       {
-        title: '🌱 Chủ đề 3 (Tuần 5 & Tuần 6): Mục Đích Sống & Hạnh Phúc',
+        title: '🎫 Chặng 3 · Cổng 03 (Tuần 5–6): Mục Đích Sống & Hạnh Phúc',
         html: `
-          <div class="p-5 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-2">
-            <h4 class="font-black text-lg text-emerald-800">Tuần 5: Power of Purpose / Blue Zones: Motivation</h4>
-            <p><strong>👩‍🏫 GV chuẩn bị:</strong> Clip Master Class #24 hoặc #13; bản đồ 5 Blue Zones; từ vựng (purpose, motivation, goal, habit, longevity, community…); sơ đồ Ikigai in khổ A4; bài đọc thêm.</p>
-            <p><strong>🎓 Sinh viên làm:</strong> Xem clip và điền từ còn thiếu; tự điền sơ đồ Ikigai; chia sẻ theo cặp; thảo luận nhóm “What motivates students?”; viết purpose của bản thân trong 3 câu.</p>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <h4 class="font-black text-lg text-emerald-700">Tuần 5: Power of Purpose / Blue Zones: Motivation</h4>
+            <p><strong>🎓 Sinh viên cần làm:</strong> Xem clip và điền từ còn thiếu; tự điền sơ đồ Ikigai; chia sẻ theo cặp; thảo luận nhóm “What motivates students?”; viết purpose của bản thân trong 3 câu.</p>
+            <p class="text-xs text-slate-500"><strong>👩‍🏫 GV chuẩn bị:</strong> Clip Master Class #24 hoặc #13; bản đồ 5 Blue Zones; từ vựng (purpose, motivation, goal, habit, longevity, community…); sơ đồ Ikigai in khổ A4; bài đọc thêm.</p>
           </div>
-          <div class="p-5 rounded-2xl bg-teal-50 border border-teal-200 space-y-2">
-            <h4 class="font-black text-lg text-teal-800">Tuần 6: Happiness: Định nghĩa hạnh phúc của bạn</h4>
-            <p><strong>👩‍🏫 GV chuẩn bị:</strong> Clip Master Class #6; từ vựng (gratitude, joy, satisfaction, well-being, mindset…); giấy note cho “gratitude wall”; rubric.</p>
-            <p><strong>🎓 Sinh viên làm:</strong> Tự chấm mức hạnh phúc hôm nay theo thang 1–10; xem clip; viết 1 điều biết ơn dán lên tường; thuyết trình nhóm “Our definition of happiness”.</p>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <h4 class="font-black text-lg text-teal-700">Tuần 6: Happiness: Định nghĩa hạnh phúc của bạn</h4>
+            <p><strong>🎓 Sinh viên cần làm:</strong> Tự chấm mức hạnh phúc hôm nay theo thang 1–10; xem clip; viết 1 điều biết ơn dán lên tường; thuyết trình nhóm “Our definition of happiness”.</p>
+            <p class="text-xs text-slate-500"><strong>👩‍🏫 GV chuẩn bị:</strong> Clip Master Class #6; từ vựng (gratitude, joy, satisfaction, well-being, mindset…); giấy note cho “gratitude wall”; rubric.</p>
           </div>
         `
       },
       {
-        title: '🧘 Chủ đề 4 (Tuần 7 & Tuần 8): Quản Lý Căng Thẳng (Stress)',
+        title: '🎫 Chặng 4 · Cổng 04 (Tuần 7–8): Quản Lý Căng Thẳng (Stress)',
         html: `
-          <div class="p-5 rounded-2xl bg-purple-50 border border-purple-200 space-y-2">
-            <h4 class="font-black text-lg text-purple-800">Tuần 7: The Dual Nature of Stress</h4>
-            <p><strong>👩‍🏫 GV chuẩn bị:</strong> Đoạn 5–10 phút webinar Cintana và clip #28; từ vựng (pressure, cope, deadline, overwhelmed, relax, good/bad stress…); thẻ phân loại good / bad stress; mẫu Stress Diary.</p>
-            <p><strong>🎓 Sinh viên làm:</strong> Đánh dấu mức stress của mình trên “nhiệt kế stress”; xem clip; phân loại thẻ good / bad stress theo nhóm; tập thở 1 phút; nhận mẫu Stress Diary.</p>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <h4 class="font-black text-lg text-purple-700">Tuần 7: The Dual Nature of Stress</h4>
+            <p><strong>🎓 Sinh viên cần làm:</strong> Đánh dấu mức stress của mình trên “nhiệt kế stress”; xem clip; phân loại thẻ good / bad stress theo nhóm; tập thở 1 phút; nhận mẫu Stress Diary.</p>
+            <p class="text-xs text-slate-500"><strong>👩‍🏫 GV chuẩn bị:</strong> Đoạn 5–10 phút webinar Cintana và clip #28; từ vựng (pressure, cope, deadline, overwhelmed, relax, good/bad stress…); thẻ phân loại good / bad stress; mẫu Stress Diary.</p>
           </div>
-          <div class="p-5 rounded-2xl bg-fuchsia-50 border border-fuchsia-200 space-y-2">
-            <h4 class="font-black text-lg text-fuchsia-800">Tuần 8: Thảo luận: Bạn đã kiểm soát stress thế nào</h4>
-            <p><strong>👩‍🏫 GV chuẩn bị:</strong> Mẫu câu khuyên (You should… / Why don’t you… / It helps me to…); giấy ghi vấn đề ẩn danh; rubric; phiếu khảo sát cuối khóa.</p>
-            <p><strong>🎓 Sinh viên làm:</strong> Chia sẻ Stress Diary theo cặp; “Advice circle”: rút 1 vấn đề ẩn danh và đưa lời khuyên; thuyết trình nhóm “How we handle stress”; làm khảo sát cuối khóa.</p>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <h4 class="font-black text-lg text-fuchsia-700">Tuần 8: Thảo luận: Bạn đã kiểm soát stress thế nào</h4>
+            <p><strong>🎓 Sinh viên cần làm:</strong> Chia sẻ Stress Diary theo cặp; “Advice circle”: rút 1 vấn đề ẩn danh và đưa lời khuyên; thuyết trình nhóm “How we handle stress”; làm khảo sát cuối khóa.</p>
+            <p class="text-xs text-slate-500"><strong>👩‍🏫 GV chuẩn bị:</strong> Mẫu câu khuyên (You should… / Why don’t you… / It helps me to…); giấy ghi vấn đề ẩn danh; rubric; phiếu khảo sát cuối khóa.</p>
           </div>
         `
       },
       {
-        title: '🏆 Tuần 9: Tổng Kết Cuộc Thi & Trao Thưởng',
+        title: '🛬 Tuần 9: Hạ Cánh – Gala Trao Giải',
         html: `
           <div class="p-5 rounded-2xl bg-amber-50 border border-amber-200 space-y-2">
-            <h4 class="font-black text-lg text-asu-rose">Tuần 9: Gala Tổng kết & Trao giải</h4>
-            <p><strong>👩‍🏫 GV chuẩn bị:</strong> Danh sách đoạt giải; video đoạt giải; giấy khen, quà; giải CLB (Tích cực nhất, Tiến bộ nhất).</p>
-            <p><strong>🎓 Sinh viên làm:</strong> Xem video đoạt giải; nhận badge, giải thưởng; chia sẻ 1 câu: “In this club, I learned…”.</p>
+            <h4 class="font-black text-lg text-orange-700">Tuần 9: Tổng kết cuộc thi & Trao thưởng</h4>
+            <p><strong>🎓 Sinh viên cần làm:</strong> Xem video đoạt giải; nhận badge, giải thưởng; chia sẻ 1 câu: “In this club, I learned…”.</p>
+            <p class="text-xs text-slate-500"><strong>👩‍🏫 GV chuẩn bị:</strong> Danh sách đoạt giải; video đoạt giải; giấy khen, quà; giải CLB (Tích cực nhất, Tiến bộ nhất).</p>
           </div>
         `
       }
@@ -1275,14 +1425,12 @@
     function closeTopicDetail() {
       document.getElementById('topicDetailModal').classList.add('hidden');
     }
-
     function openFullPlanModal() {
       document.getElementById('fullPlanModal').classList.remove('hidden');
     }
     function closeFullPlanModal() {
       document.getElementById('fullPlanModal').classList.add('hidden');
     }
-
     function openLightbox(src, caption) {
       document.getElementById('lightboxImg').src = src;
       document.getElementById('lightboxCaption').textContent = caption || '';
@@ -1291,17 +1439,14 @@
     function closeLightbox() {
       document.getElementById('lightboxModal').classList.add('hidden');
     }
-
     function togglePresentationMode() {
       document.body.classList.toggle('presentation-mode');
-      fireConfetti();
       if (document.body.classList.contains('presentation-mode') && document.documentElement.requestFullscreen) {
         document.documentElement.requestFullscreen().catch(() => {});
       } else if (!document.body.classList.contains('presentation-mode') && document.fullscreenElement) {
         document.exitFullscreen().catch(() => {});
       }
     }
-
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeLightbox();
