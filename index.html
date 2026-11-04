@@ -44,28 +44,28 @@
       overflow-x: hidden;
     }
 
-    /* International Neo-Pop Tactile Cards */
+    /* Clean International Tactile Cards */
     .intl-card {
       background: #FFFFFF;
-      border: 2.5px solid #0F172A;
-      box-shadow: 6px 6px 0px #0F172A;
-      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      border: 2px solid #0F172A;
+      box-shadow: 5px 5px 0px #0F172A;
+      transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .intl-card:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 10px 10px 0px #0F172A;
+      transform: translate(-2px, -2px);
+      box-shadow: 8px 8px 0px #0F172A;
     }
 
     .asu-card-glow {
       background: linear-gradient(135deg, #8C1D40 0%, #4A0E22 55%, #0A192F 100%);
-      border: 2.5px solid #FFC627;
-      box-shadow: 0 20px 50px -12px rgba(140, 29, 64, 0.45), 6px 6px 0px #FFC627;
+      border: 2px solid #FFC627;
+      box-shadow: 0 18px 40px -12px rgba(140, 29, 64, 0.45), 5px 5px 0px #FFC627;
     }
 
     .pill-btn {
       border: 2px solid #0F172A;
       box-shadow: 3px 3px 0px #0F172A;
-      transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: all 0.18s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .pill-btn:hover {
       transform: translate(-1.5px, -1.5px);
@@ -78,28 +78,12 @@
 
     /* Dot Grids */
     .bg-intl-grid {
-      background-image: radial-gradient(rgba(15, 23, 42, 0.11) 1.5px, transparent 1.5px);
+      background-image: radial-gradient(rgba(15, 23, 42, 0.09) 1.5px, transparent 1.5px);
       background-size: 24px 24px;
     }
     .bg-dark-grid {
-      background-image: radial-gradient(rgba(255, 198, 39, 0.16) 1.5px, transparent 1.5px);
+      background-image: radial-gradient(rgba(255, 198, 39, 0.14) 1.5px, transparent 1.5px);
       background-size: 24px 24px;
-    }
-
-    /* Smooth Floating Polaroid Cards */
-    @keyframes floatSmooth {
-      0%, 100% { transform: translate3d(0, 0px, 0) rotate(-1.5deg); }
-      50% { transform: translate3d(0, -8px, 0) rotate(1deg); }
-    }
-    @keyframes floatSmoothReverse {
-      0%, 100% { transform: translate3d(0, 0px, 0) rotate(1.5deg); }
-      50% { transform: translate3d(0, 8px, 0) rotate(-1deg); }
-    }
-    .animate-float-smooth {
-      animation: floatSmooth 5.5s ease-in-out infinite;
-    }
-    .animate-float-reverse {
-      animation: floatSmoothReverse 6s ease-in-out infinite;
     }
 
     /* Infinite Smooth Filmstrip Marquee */
@@ -110,7 +94,7 @@
     .marquee-track {
       display: flex;
       width: max-content;
-      animation: marqueeScroll 38s linear infinite;
+      animation: marqueeScroll 40s linear infinite;
       will-change: transform;
     }
     .marquee-track:hover {
@@ -148,25 +132,25 @@
 
   <!-- STICKY INTERNATIONAL NAVIGATION -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b-2 border-slate-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
       <!-- Dual Brand Logos -->
-      <a href="#top" class="flex items-center gap-3 group">
-        <img src="assets/pba-lhu-logo.png" alt="LHU Powered by ASU" class="h-11 sm:h-12 w-auto object-contain transition group-hover:scale-105" onerror="this.src='assets/lhu-logo.png'" />
+      <a href="#top" class="flex items-center gap-3 group shrink-0">
+        <img src="assets/pba-lhu-logo.png" alt="LHU Powered by ASU" class="h-10 sm:h-11 w-auto object-contain transition group-hover:scale-105" onerror="this.src='assets/lhu-logo.png'" />
         <div class="hidden sm:block border-l-2 border-slate-200 pl-3">
           <div class="flex items-center gap-1.5">
             <span class="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded bg-asu-maroon text-asu-gold">ASU Master Class</span>
             <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-50 text-lhu-blue border border-blue-200">Khoa CNTT</span>
           </div>
-          <p class="font-display font-black text-slate-900 text-sm sm:text-base tracking-tight mt-0.5">
+          <p class="font-display font-black text-slate-900 text-sm tracking-tight mt-0.5 whitespace-nowrap">
             VIDEO CHALLENGE <span class="text-asu-maroon">2026</span>
           </p>
         </div>
       </a>
 
       <!-- Nav Links -->
-      <nav class="hidden lg:flex items-center gap-1 text-sm font-bold text-slate-700">
+      <nav class="hidden xl:flex items-center gap-1 text-xs font-extrabold text-slate-700 whitespace-nowrap">
         <a href="#muc-dich" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-asu-maroon transition">5 Mục đích</a>
-        <a href="#lo-trinh-4-chu-de" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-asu-maroon transition flex items-center gap-1.5">
+        <a href="#chang-bay" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-asu-maroon transition flex items-center gap-1.5">
           <span>4 Chủ đề &amp; Lịch trình</span>
           <span class="px-1.5 py-0.5 bg-asu-gold text-slate-950 rounded text-[10px] font-black">HOT</span>
         </a>
@@ -177,8 +161,11 @@
       </nav>
 
       <!-- Action Buttons -->
-      <div class="flex items-center gap-2.5">
-        <a href="#cong-cu-nop-bai" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-asu-maroon hover:bg-asu-maroonDark text-asu-gold font-extrabold text-xs sm:text-sm pill-btn">
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="#chang-bay" class="hidden sm:inline-flex xl:hidden items-center gap-1 px-3 py-2 rounded-xl bg-slate-100 text-slate-900 font-bold text-xs border border-slate-300">
+          📅 4 Chủ đề
+        </a>
+        <a href="#cong-cu-nop-bai" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-asu-maroon hover:bg-asu-maroonDark text-asu-gold font-extrabold text-xs sm:text-sm pill-btn whitespace-nowrap">
           <span>🎬 Nộp Video Dự Thi</span>
         </a>
       </div>
@@ -186,13 +173,13 @@
   </header>
 
   <!-- HERO SECTION: INTERNATIONAL MASTER CLASS SHOWCASE -->
-  <section id="top" class="relative overflow-hidden bg-slate-950 text-white bg-dark-grid pt-10 pb-16 lg:py-16 border-b-4 border-asu-gold">
+  <section id="top" class="relative overflow-hidden bg-slate-950 text-white bg-dark-grid py-12 lg:py-16 border-b-4 border-asu-gold">
     <!-- Ambient Glows -->
     <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-asu-maroon/40 blur-3xl pointer-events-none"></div>
     <div class="absolute top-1/3 -right-24 w-96 h-96 rounded-full bg-amber-500/20 blur-3xl pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         
         <!-- Left Column (7 cols): International Messaging & Key Milestones -->
         <div class="lg:col-span-7 space-y-6">
@@ -205,7 +192,7 @@
             </span>
           </div>
 
-          <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight">
+          <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-[54px] leading-[1.1] tracking-tight">
             CUỘC THI VIDEO <br/>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-asu-gold via-amber-300 to-orange-400">
               ASU MASTER CLASS
@@ -215,12 +202,12 @@
             </span>
           </h1>
 
-          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+          <p class="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl">
             Sân chơi học thuật &amp; sáng tạo video chuẩn quốc tế dành cho sinh viên <strong class="text-white">CLB ngôn ngữ Khoa CNTT, Chương trình Song ngữ (Thương mại điện tử...)</strong> và <strong class="text-white">toàn trường ĐH Lạc Hồng</strong>. Khai thác tinh hoa bài giảng từ <strong class="text-asu-gold">Arizona State University (Hoa Kỳ)</strong>, vượt qua nỗi sợ ống kính và nhận chứng nhận <strong class="text-asu-gold underline decoration-asu-gold/60">Huy hiệu số ASU Digital Badge</strong>!
           </p>
 
           <!-- Key Event Spotlight Cards (Kick-off, Duration, Prizes) -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-1">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
             <!-- Card 1: Kick-off -->
             <div class="p-4 rounded-2xl bg-gradient-to-br from-asu-maroon to-slate-900 border-2 border-asu-gold/80 shadow-lg">
               <div class="flex items-center justify-between text-xs font-bold text-asu-gold uppercase tracking-wider">
@@ -252,8 +239,8 @@
           </div>
 
           <!-- CTA Row -->
-          <div class="flex flex-wrap items-center gap-4 pt-2">
-            <a href="#lo-trinh-4-chu-de" class="px-6 py-3.5 rounded-2xl bg-asu-gold hover:bg-amber-300 text-slate-950 font-black text-sm sm:text-base pill-btn flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-3.5 pt-1">
+            <a href="#chang-bay" class="px-6 py-3.5 rounded-2xl bg-asu-gold hover:bg-amber-300 text-slate-950 font-black text-sm sm:text-base pill-btn flex items-center gap-2">
               <span>🔥 Xem 4 Chủ đề &amp; Lịch nộp bài</span>
               <span>→</span>
             </a>
@@ -263,53 +250,53 @@
           </div>
         </div>
 
-        <!-- Right Column (5 cols): Real Student Visual Collage + ASU Digital Badge Highlight -->
+        <!-- Right Column (5 cols): Balanced Photo Showcase + ASU Digital Badge Highlight -->
         <div class="lg:col-span-5 space-y-4">
-          <!-- Top Two Floating Polaroid Photos from Real LHU International Activities -->
+          <!-- Two Equal-Height Photo Cards -->
           <div class="grid grid-cols-2 gap-4">
-            <div onclick="openLightbox('assets/pba-a5.jpg', 'Sinh viên Đại học Lạc Hồng tỏa sáng tại đấu trường quốc tế World Governments Summit với dự án YOUR VOICE')" class="animate-float-smooth cursor-pointer group bg-white p-2 rounded-3xl intl-card text-slate-900">
-              <div class="relative h-36 sm:h-40 rounded-2xl overflow-hidden border border-slate-900">
-                <img src="assets/pba-a5.jpg" alt="Sinh viên LHU tại World Governments Summit" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-                <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-asu-gold text-slate-950 font-black text-[10px] border border-slate-900">
+            <div onclick="openLightbox('assets/pba-a5.jpg', 'Sinh viên Đại học Lạc Hồng tỏa sáng tại đấu trường quốc tế World Governments Summit với dự án YOUR VOICE')" class="cursor-pointer group bg-white p-2.5 rounded-2xl intl-card text-slate-900 flex flex-col justify-between">
+              <div class="relative h-36 sm:h-40 w-full rounded-xl overflow-hidden border border-slate-900 bg-slate-900">
+                <img src="assets/pba-a5.jpg" alt="Sinh viên LHU tại World Governments Summit" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-asu-gold text-slate-950 font-black text-[10px] border border-slate-900 shadow">
                   🌟 YOUR VOICE
                 </span>
               </div>
-              <p class="text-[11px] font-extrabold text-slate-800 mt-2 px-1 line-clamp-2">
+              <p class="text-xs font-extrabold text-slate-800 mt-2.5 px-1 leading-snug">
                 SV LHU tự tin thuyết trình tiếng Anh tại đấu trường quốc tế
               </p>
             </div>
 
-            <div onclick="openLightbox('assets/activity-1.jpg', 'Sinh viên và Giảng viên LHU hào hứng tham gia chuỗi chương trình học thuật ASU Master Class')" class="animate-float-reverse cursor-pointer group bg-white p-2 rounded-3xl intl-card text-slate-900">
-              <div class="relative h-36 sm:h-40 rounded-2xl overflow-hidden border border-slate-900">
-                <img src="assets/activity-1.jpg" alt="Sinh viên LHU tại ASU Master Class" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-                <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-asu-maroon text-white font-black text-[10px]">
+            <div onclick="openLightbox('assets/activity-1.jpg', 'Sinh viên và Giảng viên LHU hào hứng tham gia chuỗi chương trình học thuật ASU Master Class')" class="cursor-pointer group bg-white p-2.5 rounded-2xl intl-card text-slate-900 flex flex-col justify-between">
+              <div class="relative h-36 sm:h-40 w-full rounded-xl overflow-hidden border border-slate-900 bg-slate-900">
+                <img src="assets/activity-1.jpg" alt="Sinh viên LHU tại ASU Master Class" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-asu-maroon text-white font-black text-[10px] shadow">
                   🎬 MASTER CLASS
                 </span>
               </div>
-              <p class="text-[11px] font-extrabold text-slate-800 mt-2 px-1 line-clamp-2">
+              <p class="text-xs font-extrabold text-slate-800 mt-2.5 px-1 leading-snug">
                 Không khí sôi nổi tại CLB Tiếng Anh &amp; ASU Master Class
               </p>
             </div>
           </div>
 
-          <!-- Official ASU Digital Badge Benefit Card (Clear & Inspiring) -->
+          <!-- Official ASU Digital Badge Benefit Card -->
           <div class="asu-card-glow rounded-3xl p-5 sm:p-6 text-white relative overflow-hidden">
-            <div class="flex items-center justify-between gap-3 border-b border-white/15 pb-3.5 mb-4">
+            <div class="flex items-center justify-between gap-3 border-b border-white/15 pb-3.5 mb-3.5">
               <div class="flex items-center gap-2.5">
-                <img src="assets/asu-logo.png" alt="Powered by ASU" class="h-8 w-auto bg-white px-2 py-1 rounded-lg" />
+                <img src="assets/asu-logo.png" alt="Powered by ASU" class="h-8 w-auto bg-white px-2 py-1 rounded-lg shrink-0" />
                 <div>
                   <span class="text-[10px] font-black uppercase tracking-widest text-asu-gold block">ĐẶC QUYỀN DÀNH CHO THÍ SINH THAM GIA</span>
-                  <h3 class="font-display font-extrabold text-base text-white">Chứng Nhận Huy Hiệu Số — ASU Digital Badge</h3>
+                  <h3 class="font-display font-extrabold text-sm sm:text-base text-white">Chứng Nhận Huy Hiệu Số — ASU Digital Badge</h3>
                 </div>
               </div>
-              <span class="text-2xl">🏅</span>
+              <span class="text-2xl shrink-0">🏅</span>
             </div>
 
             <p class="text-xs sm:text-sm text-amber-100 leading-relaxed">
-              Mọi sinh viên có video tham gia hợp lệ sẽ nhận được <strong class="text-asu-gold">Digital Badge chính thức từ Arizona State University (ASU)</strong> cho từng chủ đề đã thuyết trình, gửi trực tiếp qua <strong class="text-white">email sinh viên đã đăng ký</strong> để làm đẹp CV &amp; hồ sơ học thuật!
+              Sinh viên tham gia sẽ nhận <strong class="text-asu-gold">Digital Badge của Arizona State University (ASU)</strong> cho các chủ đề đã thuyết trình, gửi trực tiếp qua <strong class="text-white">email sinh viên đã đăng ký</strong>!
             </p>
 
-            <div class="mt-4 grid grid-cols-2 gap-2 text-[11px] font-bold">
+            <div class="mt-4 grid grid-cols-2 gap-2.5 text-xs font-bold">
               <div class="p-2.5 rounded-xl bg-black/30 border border-white/15 flex items-center gap-2">
                 <span class="text-asu-gold">✔</span>
                 <span>Tham gia 1 chủ đề = 1 Badge</span>
@@ -326,97 +313,97 @@
     </div>
   </section>
 
-  <!-- INTERACTIVE REAL PHOTO FILMSTRIP MARQUEE (BẤM VÀO ĐỂ PHÓNG TO) -->
+  <!-- INTERACTIVE REAL PHOTO FILMSTRIP MARQUEE -->
   <section class="bg-amber-50 border-b-2 border-slate-900 py-5 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-3 flex items-center justify-between">
       <div class="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-asu-maroon">
         <span>📸 Khoảnh Khắc Thực Tế Sinh Viên LHU &amp; Chuỗi Hoạt Động ASU Master Class</span>
       </div>
-      <span class="text-[11px] font-bold text-slate-500 hidden sm:inline">✨ Bấm vào ảnh bất kỳ để xem kích thước lớn</span>
+      <span class="text-[11px] font-bold text-slate-600 hidden sm:inline">✨ Bấm vào ảnh bất kỳ để phóng to</span>
     </div>
 
     <div class="marquee-track flex items-center gap-4 px-4">
       <!-- Set 1 -->
-      <div onclick="openLightbox('assets/zhejiang-1.jpg', 'Đoàn sinh viên LHU giao lưu quốc tế trước backdrop LHU Powered by Arizona State University')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0">
-        <img src="assets/zhejiang-1.jpg" alt="LHU Powered by ASU" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+      <div onclick="openLightbox('assets/zhejiang-1.jpg', 'Đoàn sinh viên LHU giao lưu quốc tế trước backdrop LHU Powered by Arizona State University')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0 bg-slate-900">
+        <img src="assets/zhejiang-1.jpg" alt="LHU Powered by ASU" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-2.5">
           <span class="text-[11px] font-bold text-white">🌐 Giao lưu Quốc tế LHU × ASU</span>
         </div>
       </div>
 
-      <div onclick="openLightbox('assets/activity-3.jpg', 'Hướng dẫn sinh viên ứng dụng công cụ AI thông minh vào việc học tiếng Anh và tóm tắt bài giảng')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0">
-        <img src="assets/activity-3.jpg" alt="Ứng dụng AI học tiếng Anh" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+      <div onclick="openLightbox('assets/activity-3.jpg', 'Hướng dẫn sinh viên ứng dụng công cụ AI thông minh vào việc học tiếng Anh và tóm tắt bài giảng')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0 bg-slate-900">
+        <img src="assets/activity-3.jpg" alt="Ứng dụng AI học tiếng Anh" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-2.5">
           <span class="text-[11px] font-bold text-asu-gold">🤖 Chủ đề 1: Ứng dụng AI tạo sinh</span>
         </div>
       </div>
 
-      <div onclick="openLightbox('assets/zhejiang-2.jpg', 'Đoàn sinh viên Khoa CNTT LHU tại sân bay quốc tế lên đường tham gia chương trình trao đổi văn hóa')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0">
-        <img src="assets/zhejiang-2.jpg" alt="Sinh viên Khoa CNTT tại sân bay" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+      <div onclick="openLightbox('assets/zhejiang-2.jpg', 'Đoàn sinh viên Khoa CNTT LHU tại sân bay quốc tế lên đường tham gia chương trình trao đổi văn hóa')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0 bg-slate-900">
+        <img src="assets/zhejiang-2.jpg" alt="Sinh viên Khoa CNTT tại sân bay" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-2.5">
           <span class="text-[11px] font-bold text-sky-300">✈️ Chủ đề 2: Du học &amp; Văn hóa</span>
         </div>
       </div>
 
-      <div onclick="openLightbox('assets/activity-5.jpg', 'Sinh viên thảo luận nhóm sôi nổi, chia sẻ cách vượt qua áp lực học tập và rèn phản xạ nói')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0">
-        <img src="assets/activity-5.jpg" alt="Thảo luận nhóm sôi nổi" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+      <div onclick="openLightbox('assets/activity-5.jpg', 'Sinh viên thảo luận nhóm sôi nổi, chia sẻ cách vượt qua áp lực học tập và rèn phản xạ nói')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0 bg-slate-900">
+        <img src="assets/activity-5.jpg" alt="Thảo luận nhóm sôi nổi" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-2.5">
           <span class="text-[11px] font-bold text-rose-300">⚡ Chủ đề 3: Làm chủ Stress</span>
         </div>
       </div>
 
-      <div onclick="openLightbox('assets/activity-7.jpg', 'Sinh viên tự tay thiết kế sơ đồ Ikigai khám phá mục đích sống và niềm vui học tập')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0">
-        <img src="assets/activity-7.jpg" alt="Sơ đồ Ikigai mục đích sống" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+      <div onclick="openLightbox('assets/activity-7.jpg', 'Sinh viên tự tay thiết kế sơ đồ Ikigai khám phá mục đích sống và niềm vui học tập')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0 bg-slate-900">
+        <img src="assets/activity-7.jpg" alt="Sơ đồ Ikigai mục đích sống" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-2.5">
           <span class="text-[11px] font-bold text-emerald-300">🌱 Chủ đề 4: Hạnh phúc &amp; Mục đích sống</span>
         </div>
       </div>
 
-      <div onclick="openLightbox('assets/pba-a6.jpg', 'Sinh viên Đại học Lạc Hồng tự tin tỏa sáng trên sân khấu quốc tế')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0">
-        <img src="assets/pba-a6.jpg" alt="Sinh viên LHU tỏa sáng" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+      <div onclick="openLightbox('assets/pba-a6.jpg', 'Sinh viên Đại học Lạc Hồng tự tin tỏa sáng trên sân khấu quốc tế')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0 bg-slate-900">
+        <img src="assets/pba-a6.jpg" alt="Sinh viên LHU tỏa sáng" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-2.5">
           <span class="text-[11px] font-bold text-white">🏆 Bản lĩnh Sinh viên LHU</span>
         </div>
       </div>
 
-      <div onclick="openLightbox('assets/activity-2.jpg', 'Trao phần thưởng và chứng nhận cho các sinh viên xuất sắc trong chương trình')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0">
-        <img src="assets/activity-2.jpg" alt="Trao thưởng sinh viên xuất sắc" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+      <div onclick="openLightbox('assets/activity-2.jpg', 'Trao phần thưởng và chứng nhận cho các sinh viên xuất sắc trong chương trình')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0 bg-slate-900">
+        <img src="assets/activity-2.jpg" alt="Trao thưởng sinh viên xuất sắc" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-2.5">
           <span class="text-[11px] font-bold text-asu-gold">🎁 Vinh danh &amp; Trao thưởng</span>
         </div>
       </div>
 
       <!-- Set 2 (Duplicate for seamless infinite loop) -->
-      <div onclick="openLightbox('assets/zhejiang-1.jpg', 'Đoàn sinh viên LHU giao lưu quốc tế trước backdrop LHU Powered by Arizona State University')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0">
-        <img src="assets/zhejiang-1.jpg" alt="LHU Powered by ASU" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+      <div onclick="openLightbox('assets/zhejiang-1.jpg', 'Đoàn sinh viên LHU giao lưu quốc tế trước backdrop LHU Powered by Arizona State University')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0 bg-slate-900">
+        <img src="assets/zhejiang-1.jpg" alt="LHU Powered by ASU" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-2.5">
           <span class="text-[11px] font-bold text-white">🌐 Giao lưu Quốc tế LHU × ASU</span>
         </div>
       </div>
 
-      <div onclick="openLightbox('assets/activity-3.jpg', 'Hướng dẫn sinh viên ứng dụng công cụ AI thông minh vào việc học tiếng Anh và tóm tắt bài giảng')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0">
-        <img src="assets/activity-3.jpg" alt="Ứng dụng AI học tiếng Anh" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+      <div onclick="openLightbox('assets/activity-3.jpg', 'Hướng dẫn sinh viên ứng dụng công cụ AI thông minh vào việc học tiếng Anh và tóm tắt bài giảng')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0 bg-slate-900">
+        <img src="assets/activity-3.jpg" alt="Ứng dụng AI học tiếng Anh" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-2.5">
           <span class="text-[11px] font-bold text-asu-gold">🤖 Chủ đề 1: Ứng dụng AI tạo sinh</span>
         </div>
       </div>
 
-      <div onclick="openLightbox('assets/zhejiang-2.jpg', 'Đoàn sinh viên Khoa CNTT LHU tại sân bay quốc tế lên đường tham gia chương trình trao đổi văn hóa')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0">
-        <img src="assets/zhejiang-2.jpg" alt="Sinh viên Khoa CNTT tại sân bay" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+      <div onclick="openLightbox('assets/zhejiang-2.jpg', 'Đoàn sinh viên Khoa CNTT LHU tại sân bay quốc tế lên đường tham gia chương trình trao đổi văn hóa')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0 bg-slate-900">
+        <img src="assets/zhejiang-2.jpg" alt="Sinh viên Khoa CNTT tại sân bay" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-2.5">
           <span class="text-[11px] font-bold text-sky-300">✈️ Chủ đề 2: Du học &amp; Văn hóa</span>
         </div>
       </div>
 
-      <div onclick="openLightbox('assets/activity-5.jpg', 'Sinh viên thảo luận nhóm sôi nổi, chia sẻ cách vượt qua áp lực học tập và rèn phản xạ nói')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0">
-        <img src="assets/activity-5.jpg" alt="Thảo luận nhóm sôi nổi" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+      <div onclick="openLightbox('assets/activity-5.jpg', 'Sinh viên thảo luận nhóm sôi nổi, chia sẻ cách vượt qua áp lực học tập và rèn phản xạ nói')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0 bg-slate-900">
+        <img src="assets/activity-5.jpg" alt="Thảo luận nhóm sôi nổi" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-2.5">
           <span class="text-[11px] font-bold text-rose-300">⚡ Chủ đề 3: Làm chủ Stress</span>
         </div>
       </div>
 
-      <div onclick="openLightbox('assets/activity-7.jpg', 'Sinh viên tự tay thiết kế sơ đồ Ikigai khám phá mục đích sống và niềm vui học tập')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0">
-        <img src="assets/activity-7.jpg" alt="Sơ đồ Ikigai mục đích sống" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+      <div onclick="openLightbox('assets/activity-7.jpg', 'Sinh viên tự tay thiết kế sơ đồ Ikigai khám phá mục đích sống và niềm vui học tập')" class="relative h-36 w-60 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-[3px_3px_0px_#0F172A] cursor-pointer group shrink-0 bg-slate-900">
+        <img src="assets/activity-7.jpg" alt="Sơ đồ Ikigai mục đích sống" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-2.5">
           <span class="text-[11px] font-bold text-emerald-300">🌱 Chủ đề 4: Hạnh phúc &amp; Mục đích sống</span>
         </div>
@@ -428,7 +415,7 @@
   <section id="muc-dich" class="py-16 sm:py-20 bg-intl-grid border-b-2 border-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-asu-maroon/10 border border-asu-maroon/30 text-asu-maroon font-black text-xs uppercase tracking-wider mb-3">
             <span>01 • Mục Đích &amp; Giá Trị Cốt Lõi</span>
@@ -459,19 +446,19 @@
 
           <!-- 4 Interactive Steps -->
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 flex-1">
-            <div class="p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm hover:bg-white/15 transition">
+            <div class="p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm">
               <div class="text-xs font-mono font-bold text-asu-gold">BƯỚC 01</div>
               <div class="text-2xl my-1">👀</div>
               <div class="font-display font-black text-base text-white">XEM (Watch)</div>
               <p class="text-[11px] text-slate-300 mt-1">Chọn và xem 1 video trong playlist ASU Master Class của CLB.</p>
             </div>
-            <div class="p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm hover:bg-white/15 transition">
+            <div class="p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm">
               <div class="text-xs font-mono font-bold text-asu-gold">BƯỚC 02</div>
               <div class="text-2xl my-1">🧠</div>
               <div class="font-display font-black text-base text-white">HIỂU (Understand)</div>
               <p class="text-[11px] text-slate-300 mt-1">Nắm vững ý chính (được dùng AI hỗ trợ giải nghĩa &amp; tóm tắt).</p>
             </div>
-            <div class="p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm hover:bg-white/15 transition">
+            <div class="p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm">
               <div class="text-xs font-mono font-bold text-asu-gold">BƯỚC 03</div>
               <div class="text-2xl my-1">🎙️</div>
               <div class="font-display font-black text-base text-white">NÓI (Speak)</div>
@@ -492,12 +479,12 @@
         <!-- Objective 1 -->
         <div class="intl-card rounded-2xl overflow-hidden bg-white flex flex-col justify-between">
           <div>
-            <div class="h-40 relative overflow-hidden border-b-2 border-slate-900 cursor-pointer group" onclick="openLightbox('assets/activity-5.jpg', 'Sinh viên luyện nói tiếng Anh có chuẩn bị và thảo luận sôi nổi')">
-              <img src="assets/activity-5.jpg" alt="Tăng kỹ năng nói tiếng Anh" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-lhu-blue text-white font-black text-[10px] uppercase">MỤC ĐÍCH 01</span>
+            <div class="h-44 w-full relative overflow-hidden border-b-2 border-slate-900 cursor-pointer group bg-slate-900" onclick="openLightbox('assets/activity-5.jpg', 'Sinh viên luyện nói tiếng Anh có chuẩn bị và thảo luận sôi nổi')">
+              <img src="assets/activity-5.jpg" alt="Tăng kỹ năng nói tiếng Anh" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-lhu-blue text-white font-black text-[10px] uppercase shadow">MỤC ĐÍCH 01</span>
             </div>
             <div class="p-5">
-              <h3 class="font-display font-black text-xl text-slate-900">🗣️ Tăng kỹ năng nói tiếng Anh</h3>
+              <h3 class="font-display font-black text-lg sm:text-xl text-slate-900">🗣️ Tăng kỹ năng nói tiếng Anh</h3>
               <p class="text-slate-600 text-sm mt-2 leading-relaxed">
                 Sinh viên luyện nói tiếng Anh <strong>có chuẩn bị trước</strong> thông qua việc tóm tắt và chia sẻ quan điểm về các chủ đề học thuật gần gũi, thiết thực.
               </p>
@@ -512,12 +499,12 @@
         <!-- Objective 2 -->
         <div class="intl-card rounded-2xl overflow-hidden bg-white flex flex-col justify-between">
           <div>
-            <div class="h-40 relative overflow-hidden border-b-2 border-slate-900 cursor-pointer group" onclick="openLightbox('assets/activity-6.jpg', 'Tăng sự tự tin và tính chủ động trước ống kính')">
-              <img src="assets/activity-6.jpg" alt="Tăng sự tự tin" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-amber-400 text-slate-950 font-black text-[10px] uppercase">MỤC ĐÍCH 02</span>
+            <div class="h-44 w-full relative overflow-hidden border-b-2 border-slate-900 cursor-pointer group bg-slate-900" onclick="openLightbox('assets/activity-6.jpg', 'Tăng sự tự tin và tính chủ động trước ống kính')">
+              <img src="assets/activity-6.jpg" alt="Tăng sự tự tin" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-amber-400 text-slate-950 font-black text-[10px] uppercase shadow">MỤC ĐÍCH 02</span>
             </div>
             <div class="p-5">
-              <h3 class="font-display font-black text-xl text-slate-900">🎥 Tăng sự tự tin &amp; chủ động</h3>
+              <h3 class="font-display font-black text-lg sm:text-xl text-slate-900">🎥 Tăng sự tự tin &amp; chủ động</h3>
               <p class="text-slate-600 text-sm mt-2 leading-relaxed">
                 Tự chọn nội dung, tự lên dàn ý, tự ghi hình; từng bước vượt qua tâm lý ngại xuất hiện trước ống kính (<strong>cho phép bắt đầu từ khung hình nhỏ dạng Zoom</strong> hoặc <strong>thi nhóm 2 người</strong>).
               </p>
@@ -532,12 +519,12 @@
         <!-- Objective 3 -->
         <div class="intl-card rounded-2xl overflow-hidden bg-white flex flex-col justify-between">
           <div>
-            <div class="h-40 relative overflow-hidden border-b-2 border-slate-900 cursor-pointer group" onclick="openLightbox('assets/asu-cintana.png', 'Khai thác hiệu quả học liệu quốc tế ASU Master Class')">
-              <img src="assets/asu-cintana.png" alt="Học liệu ASU Master Class" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-asu-maroon text-asu-gold font-black text-[10px] uppercase">MỤC ĐÍCH 03</span>
+            <div class="h-44 w-full relative overflow-hidden border-b-2 border-slate-900 cursor-pointer group bg-slate-900" onclick="openLightbox('assets/asu-cintana.png', 'Khai thác hiệu quả học liệu quốc tế ASU Master Class')">
+              <img src="assets/asu-cintana.png" alt="Học liệu ASU Master Class" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-asu-maroon text-asu-gold font-black text-[10px] uppercase shadow">MỤC ĐÍCH 03</span>
             </div>
             <div class="p-5">
-              <h3 class="font-display font-black text-xl text-slate-900">🎓 Khai thác học liệu ASU Master Class</h3>
+              <h3 class="font-display font-black text-lg sm:text-xl text-slate-900">🎓 Khai thác học liệu ASU Master Class</h3>
               <p class="text-slate-600 text-sm mt-2 leading-relaxed">
                 Giúp sinh viên biết, khai thác và hiểu sâu học liệu <strong>ASU Master Class</strong>; đặc biệt hỗ trợ <strong>sinh viên Song ngữ ngành Thương mại điện tử</strong> làm quen môi trường học bằng tiếng Anh.
               </p>
@@ -552,12 +539,12 @@
         <!-- Objective 4 -->
         <div class="intl-card rounded-2xl overflow-hidden bg-white flex flex-col justify-between">
           <div>
-            <div class="h-40 relative overflow-hidden border-b-2 border-slate-900 cursor-pointer group" onclick="openLightbox('assets/activity-3.jpg', 'Rèn luyện kỹ năng tự học và học tập suốt đời')">
-              <img src="assets/activity-3.jpg" alt="Kỹ năng tự học" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-emerald-500 text-slate-950 font-black text-[10px] uppercase">MỤC ĐÍCH 04</span>
+            <div class="h-44 w-full relative overflow-hidden border-b-2 border-slate-900 cursor-pointer group bg-slate-900" onclick="openLightbox('assets/activity-3.jpg', 'Rèn luyện kỹ năng tự học và học tập suốt đời')">
+              <img src="assets/activity-3.jpg" alt="Kỹ năng tự học" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-emerald-500 text-slate-950 font-black text-[10px] uppercase shadow">MỤC ĐÍCH 04</span>
             </div>
             <div class="p-5">
-              <h3 class="font-display font-black text-xl text-slate-900">🔄 Rèn kỹ năng tự học suốt đời</h3>
+              <h3 class="font-display font-black text-lg sm:text-xl text-slate-900">🔄 Rèn kỹ năng tự học suốt đời</h3>
               <p class="text-slate-600 text-sm mt-2 leading-relaxed">
                 Sinh viên hình thành quy trình tự học chủ động <strong>“Xem – Hiểu – Nói – Liên hệ thực tế”</strong> có thể áp dụng hiệu quả cho tất cả các học phần chuyên ngành khác.
               </p>
@@ -572,12 +559,12 @@
         <!-- Objective 5 -->
         <div class="intl-card rounded-2xl overflow-hidden bg-white flex flex-col justify-between">
           <div>
-            <div class="h-40 relative overflow-hidden border-b-2 border-slate-900 cursor-pointer group" onclick="openLightbox('assets/pba-a6.jpg', 'Tạo sản phẩm truyền thông cá nhân và lan tỏa cảm hứng')">
-              <img src="assets/pba-a6.jpg" alt="Sản phẩm truyền thông" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-purple-600 text-white font-black text-[10px] uppercase">MỤC ĐÍCH 05</span>
+            <div class="h-44 w-full relative overflow-hidden border-b-2 border-slate-900 cursor-pointer group bg-slate-900" onclick="openLightbox('assets/pba-a6.jpg', 'Tạo sản phẩm truyền thông cá nhân và lan tỏa cảm hứng')">
+              <img src="assets/pba-a6.jpg" alt="Sản phẩm truyền thông" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-purple-600 text-white font-black text-[10px] uppercase shadow">MỤC ĐÍCH 05</span>
             </div>
             <div class="p-5">
-              <h3 class="font-display font-black text-xl text-slate-900">🌟 Tạo dấu ấn &amp; Sản phẩm truyền thông</h3>
+              <h3 class="font-display font-black text-lg sm:text-xl text-slate-900">🌟 Tạo dấu ấn &amp; Sản phẩm truyền thông</h3>
               <p class="text-slate-600 text-sm mt-2 leading-relaxed">
                 Mỗi video là một sản phẩm học thuật cá nhân đáng tự hào của sinh viên, đồng thời là tư liệu truyền thông truyền cảm hứng cho <strong>CLB Tiếng Anh, các ngành và Khoa CNTT</strong>.
               </p>
@@ -591,17 +578,19 @@
 
         <!-- Eligibility & Kick-off Visual Summary Card -->
         <div class="intl-card rounded-2xl overflow-hidden bg-slate-900 text-white flex flex-col justify-between">
-          <div class="h-40 relative overflow-hidden border-b-2 border-slate-900 cursor-pointer group" onclick="openLightbox('assets/zhejiang-1.jpg', 'Đoàn sinh viên Đại học Lạc Hồng trong chương trình hợp tác quốc tế Powered by ASU')">
-            <img src="assets/zhejiang-1.jpg" alt="Sinh viên LHU" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-asu-gold text-slate-950 font-black text-[10px] uppercase">ĐỐI TƯỢNG THAM GIA</span>
-          </div>
-          <div class="p-5">
-            <h3 class="font-display font-black text-lg text-asu-gold">Chào đón mọi sinh viên đam mê!</h3>
-            <ul class="mt-2.5 space-y-1.5 text-xs sm:text-sm text-slate-200">
-              <li class="flex items-center gap-2"><span class="text-asu-gold font-bold">✔</span> Sinh viên CLB ngôn ngữ Khoa CNTT</li>
-              <li class="flex items-center gap-2"><span class="text-asu-gold font-bold">✔</span> Sinh viên chương trình Song ngữ Khoa CNTT</li>
-              <li class="flex items-center gap-2"><span class="text-asu-gold font-bold">✔</span> Sinh viên Trường ĐH Lạc Hồng quan tâm</li>
-            </ul>
+          <div>
+            <div class="h-44 w-full relative overflow-hidden border-b-2 border-slate-900 cursor-pointer group bg-slate-950" onclick="openLightbox('assets/zhejiang-1.jpg', 'Đoàn sinh viên Đại học Lạc Hồng trong chương trình hợp tác quốc tế Powered by ASU')">
+              <img src="assets/zhejiang-1.jpg" alt="Sinh viên LHU" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-asu-gold text-slate-950 font-black text-[10px] uppercase shadow">ĐỐI TƯỢNG THAM GIA</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-display font-black text-lg sm:text-xl text-asu-gold">Chào đón mọi sinh viên đam mê!</h3>
+              <ul class="mt-2.5 space-y-1.5 text-xs sm:text-sm text-slate-200">
+                <li class="flex items-center gap-2"><span class="text-asu-gold font-bold">✔</span> Sinh viên CLB ngôn ngữ Khoa CNTT</li>
+                <li class="flex items-center gap-2"><span class="text-asu-gold font-bold">✔</span> Sinh viên chương trình Song ngữ Khoa CNTT</li>
+                <li class="flex items-center gap-2"><span class="text-asu-gold font-bold">✔</span> Sinh viên Trường ĐH Lạc Hồng quan tâm</li>
+              </ul>
+            </div>
           </div>
           <div class="px-5 pb-4 pt-2 border-t border-white/10 text-xs font-bold text-amber-300 flex items-center justify-between">
             <span>📍 Kick-off: 13h30 ngày 06/11 @ D505</span>
@@ -612,8 +601,9 @@
     </div>
   </section>
 
-  <!-- SECTION 2: LỘ TRÌNH 4 CHỦ ĐỀ (WITH 3-PHOTO COLLAGES PER TOPIC) -->
-  <section id="lo-trinh-4-chu-de" class="py-16 sm:py-20 bg-white border-b-2 border-slate-900">
+  <!-- SECTION 2: LỘ TRÌNH 4 CHỦ ĐỀ (ANCHOR SUPPORT FOR BOTH #chang-bay AND #lo-trinh-4-chu-de) -->
+  <div id="lo-trinh-4-chu-de"></div>
+  <section id="chang-bay" class="py-16 sm:py-20 bg-white border-b-2 border-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
@@ -652,7 +642,9 @@
       <!-- Kick-off Highlight Strip -->
       <div class="intl-card rounded-2xl bg-amber-50 border-2 border-slate-900 p-4 sm:p-5 mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div class="flex items-center gap-4">
-          <img src="assets/pba-a2.jpg" alt="Kick-off CLB Tiếng Anh" onclick="openLightbox('assets/pba-a2.jpg', 'Không khí sôi nổi của thầy cô và sinh viên Đại học Lạc Hồng')" class="w-20 h-16 rounded-2xl object-cover border-2 border-slate-900 cursor-pointer shrink-0 hover:scale-105 transition" />
+          <div onclick="openLightbox('assets/pba-a2.jpg', 'Không khí sôi nổi của thầy cô và sinh viên Đại học Lạc Hồng')" class="relative w-20 h-16 rounded-2xl overflow-hidden border-2 border-slate-900 cursor-pointer shrink-0 bg-slate-900">
+            <img src="assets/pba-a2.jpg" alt="Kick-off CLB Tiếng Anh" class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition" />
+          </div>
           <div>
             <div class="flex flex-wrap items-center gap-2">
               <span class="px-2 py-0.5 rounded bg-asu-maroon text-white font-black text-[10px] uppercase">SỰ KIỆN MỞ MÀN TRỰC TIẾP</span>
@@ -671,13 +663,12 @@
         </a>
       </div>
 
-      <!-- 4 Theme Cards Grid (With Rich 3-Photo Collages from Previous Content) -->
+      <!-- 4 Theme Cards Grid (Fixed Equal-Height 3-Photo Collages) -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="topicsGrid">
         
         <!-- TOPIC 1 -->
         <article data-topic="1" class="topic-card intl-card rounded-3xl overflow-hidden bg-white flex flex-col justify-between">
           <div class="p-6 space-y-4">
-            <!-- Header Badge -->
             <div class="flex items-center justify-between gap-2">
               <span class="px-3 py-1 rounded-full bg-asu-gold text-slate-950 font-black text-xs uppercase border border-slate-900">
                 CHỦ ĐỀ 01 • 06/11 – 21/11
@@ -694,18 +685,18 @@
               <p class="text-xs text-slate-500 font-semibold mt-0.5">Generative AI &amp; Practical Applications in Study and Life</p>
             </div>
 
-            <!-- 3-Photo Collage (Click to Lightbox) -->
-            <div class="grid grid-cols-3 gap-2.5">
-              <div onclick="openLightbox('assets/activity-3.jpg', 'Chủ đề 1: Sinh viên LHU thực hành ứng dụng công cụ AI vào học tiếng Anh và chuyên ngành')" class="col-span-2 relative h-40 rounded-2xl overflow-hidden border-2 border-slate-900 cursor-pointer group">
-                <img src="assets/activity-3.jpg" alt="Thực hành AI" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-                <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-slate-950/80 text-white text-[10px] font-bold">Thực hành AI tại lớp</span>
+            <!-- Fixed Height 3-Photo Collage (h-44 locked on outer grid) -->
+            <div class="grid grid-cols-3 gap-2.5 h-44">
+              <div onclick="openLightbox('assets/activity-3.jpg', 'Chủ đề 1: Sinh viên LHU thực hành ứng dụng công cụ AI vào học tiếng Anh và chuyên ngành')" class="col-span-2 relative h-full rounded-2xl overflow-hidden border-2 border-slate-900 cursor-pointer group bg-slate-900">
+                <img src="assets/activity-3.jpg" alt="Thực hành AI" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-slate-950/85 text-white text-[10px] font-bold">Thực hành AI tại lớp</span>
               </div>
-              <div class="grid grid-rows-2 gap-2.5">
-                <div onclick="openLightbox('assets/asu-innovation.jpg', 'Học liệu chuẩn ASU: Powered by Innovation')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group">
-                  <img src="assets/asu-innovation.jpg" alt="ASU Innovation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <div class="grid grid-rows-2 gap-2.5 h-full">
+                <div onclick="openLightbox('assets/asu-innovation.jpg', 'Học liệu chuẩn ASU: Powered by Innovation')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group bg-slate-900">
+                  <img src="assets/asu-innovation.jpg" alt="ASU Innovation" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 </div>
-                <div onclick="openLightbox('assets/asu-cintana.png', 'Không gian công nghệ hiện đại trong mạng lưới ASU – Cintana')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group">
-                  <img src="assets/asu-cintana.png" alt="ASU Lab" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div onclick="openLightbox('assets/asu-cintana.png', 'Không gian công nghệ hiện đại trong mạng lưới ASU – Cintana')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group bg-slate-900">
+                  <img src="assets/asu-cintana.png" alt="ASU Lab" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 </div>
               </div>
             </div>
@@ -769,18 +760,18 @@
               <p class="text-xs text-slate-500 font-semibold mt-0.5">Study Abroad &amp; Cross-Cultural Exchange Mindset</p>
             </div>
 
-            <!-- 3-Photo Collage -->
-            <div class="grid grid-cols-3 gap-2.5">
-              <div onclick="openLightbox('assets/zhejiang-2.jpg', 'Chủ đề 2: Đoàn sinh viên Khoa CNTT LHU tại Sân bay Quốc tế lên đường giao lưu học thuật')" class="col-span-2 relative h-40 rounded-2xl overflow-hidden border-2 border-slate-900 cursor-pointer group">
-                <img src="assets/zhejiang-2.jpg" alt="Sinh viên LHU tại sân bay quốc tế" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-                <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-slate-950/80 text-white text-[10px] font-bold">SV Khoa CNTT cất cánh quốc tế</span>
+            <!-- Fixed Height 3-Photo Collage -->
+            <div class="grid grid-cols-3 gap-2.5 h-44">
+              <div onclick="openLightbox('assets/zhejiang-2.jpg', 'Chủ đề 2: Đoàn sinh viên Khoa CNTT LHU tại Sân bay Quốc tế lên đường giao lưu học thuật')" class="col-span-2 relative h-full rounded-2xl overflow-hidden border-2 border-slate-900 cursor-pointer group bg-slate-900">
+                <img src="assets/zhejiang-2.jpg" alt="Sinh viên LHU tại sân bay quốc tế" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-slate-950/85 text-white text-[10px] font-bold">SV Khoa CNTT cất cánh quốc tế</span>
               </div>
-              <div class="grid grid-rows-2 gap-2.5">
-                <div onclick="openLightbox('assets/asu-discovery.jpg', 'Powered by Discovery – Mở rộng chân trời học thuật cùng ASU')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group">
-                  <img src="assets/asu-discovery.jpg" alt="ASU Discovery" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <div class="grid grid-rows-2 gap-2.5 h-full">
+                <div onclick="openLightbox('assets/asu-discovery.jpg', 'Powered by Discovery – Mở rộng chân trời học thuật cùng ASU')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group bg-slate-900">
+                  <img src="assets/asu-discovery.jpg" alt="ASU Discovery" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 </div>
-                <div onclick="openLightbox('assets/asu-01.png', 'Khuôn viên Đại học Bang Arizona (ASU, Hoa Kỳ)')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group">
-                  <img src="assets/asu-01.png" alt="ASU Campus" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div onclick="openLightbox('assets/asu-01.png', 'Khuôn viên Đại học Bang Arizona (ASU, Hoa Kỳ)')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group bg-slate-900">
+                  <img src="assets/asu-01.png" alt="ASU Campus" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 </div>
               </div>
             </div>
@@ -844,18 +835,18 @@
               <p class="text-xs text-slate-500 font-semibold mt-0.5">Stress: The Good &amp; The Bad – Turning Pressure into Power</p>
             </div>
 
-            <!-- 3-Photo Collage -->
-            <div class="grid grid-cols-3 gap-2.5">
-              <div onclick="openLightbox('assets/activity-5.jpg', 'Chủ đề 3: Sinh viên LHU cùng chia sẻ cách giải tỏa áp lực học tập và hỗ trợ đồng đội')" class="col-span-2 relative h-40 rounded-2xl overflow-hidden border-2 border-slate-900 cursor-pointer group">
-                <img src="assets/activity-5.jpg" alt="Chia sẻ vượt qua Stress" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-                <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-slate-950/80 text-white text-[10px] font-bold">Chia sẻ &amp; giải tỏa áp lực</span>
+            <!-- Fixed Height 3-Photo Collage -->
+            <div class="grid grid-cols-3 gap-2.5 h-44">
+              <div onclick="openLightbox('assets/activity-5.jpg', 'Chủ đề 3: Sinh viên LHU cùng chia sẻ cách giải tỏa áp lực học tập và hỗ trợ đồng đội')" class="col-span-2 relative h-full rounded-2xl overflow-hidden border-2 border-slate-900 cursor-pointer group bg-slate-900">
+                <img src="assets/activity-5.jpg" alt="Chia sẻ vượt qua Stress" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-slate-950/85 text-white text-[10px] font-bold">Chia sẻ &amp; giải tỏa áp lực</span>
               </div>
-              <div class="grid grid-rows-2 gap-2.5">
-                <div onclick="openLightbox('assets/activity-8.jpg', 'Không khí lớp học thân thiện, gắn kết cùng Giảng viên')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group">
-                  <img src="assets/activity-8.jpg" alt="Lớp học gắn kết" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <div class="grid grid-rows-2 gap-2.5 h-full">
+                <div onclick="openLightbox('assets/activity-8.jpg', 'Không khí lớp học thân thiện, gắn kết cùng Giảng viên')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group bg-slate-900">
+                  <img src="assets/activity-8.jpg" alt="Lớp học gắn kết" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 </div>
-                <div onclick="openLightbox('assets/pba-a3.jpg', 'Tinh thần đồng đội và năng lượng tích cực của sinh viên Đại học Lạc Hồng')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group">
-                  <img src="assets/pba-a3.jpg" alt="Tinh thần đồng đội LHU" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div onclick="openLightbox('assets/pba-a3.jpg', 'Tinh thần đồng đội và năng lượng tích cực của sinh viên Đại học Lạc Hồng')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group bg-slate-900">
+                  <img src="assets/pba-a3.jpg" alt="Tinh thần đồng đội LHU" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 </div>
               </div>
             </div>
@@ -919,18 +910,18 @@
               <p class="text-xs text-slate-500 font-semibold mt-0.5">The Science of Happiness &amp; Finding Your Life Purpose</p>
             </div>
 
-            <!-- 3-Photo Collage -->
-            <div class="grid grid-cols-3 gap-2.5">
-              <div onclick="openLightbox('assets/activity-7.jpg', 'Chủ đề 4: Sinh viên LHU tự tay vẽ sơ đồ Ikigai khám phá mục đích sống và hạnh phúc')" class="col-span-2 relative h-40 rounded-2xl overflow-hidden border-2 border-slate-900 cursor-pointer group">
-                <img src="assets/activity-7.jpg" alt="Sơ đồ Ikigai mục đích sống" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-                <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-slate-950/80 text-white text-[10px] font-bold">Thiết kế bản đồ Ikigai</span>
+            <!-- Fixed Height 3-Photo Collage -->
+            <div class="grid grid-cols-3 gap-2.5 h-44">
+              <div onclick="openLightbox('assets/activity-7.jpg', 'Chủ đề 4: Sinh viên LHU tự tay vẽ sơ đồ Ikigai khám phá mục đích sống và hạnh phúc')" class="col-span-2 relative h-full rounded-2xl overflow-hidden border-2 border-slate-900 cursor-pointer group bg-slate-900">
+                <img src="assets/activity-7.jpg" alt="Sơ đồ Ikigai mục đích sống" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-slate-950/85 text-white text-[10px] font-bold">Thiết kế bản đồ Ikigai</span>
               </div>
-              <div class="grid grid-rows-2 gap-2.5">
-                <div onclick="openLightbox('assets/asu-curiosity.jpg', 'Powered by Curiosity – Khơi dậy sự tò mò và mục đích sống cùng ASU')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group">
-                  <img src="assets/asu-curiosity.jpg" alt="ASU Curiosity" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <div class="grid grid-rows-2 gap-2.5 h-full">
+                <div onclick="openLightbox('assets/asu-curiosity.jpg', 'Powered by Curiosity – Khơi dậy sự tò mò và mục đích sống cùng ASU')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group bg-slate-900">
+                  <img src="assets/asu-curiosity.jpg" alt="ASU Curiosity" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 </div>
-                <div onclick="openLightbox('assets/pba-a4.jpg', 'Nụ cười và năng lượng hạnh phúc của sinh viên Đại học Lạc Hồng')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group">
-                  <img src="assets/pba-a4.jpg" alt="Năng lượng tích cực LHU" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div onclick="openLightbox('assets/pba-a4.jpg', 'Nụ cười và năng lượng hạnh phúc của sinh viên Đại học Lạc Hồng')" class="relative h-full rounded-xl overflow-hidden border-2 border-slate-900 cursor-pointer group bg-slate-900">
+                  <img src="assets/pba-a4.jpg" alt="Năng lượng tích cực LHU" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 </div>
               </div>
             </div>
@@ -1561,12 +1552,12 @@
         </p>
       </div>
 
-      <!-- Bento Photo Gallery Grid -->
+      <!-- Bento Photo Gallery Grid (Explicit Fixed Heights for Rock-Solid Rendering) -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5">
         <!-- Big Feature 1 (6 cols) -->
-        <div onclick="openLightbox('assets/zhejiang-1.jpg', 'Đoàn sinh viên LHU giao lưu quốc tế trước backdrop LHU Powered by Arizona State University')" class="lg:col-span-6 relative rounded-3xl overflow-hidden intl-card group cursor-pointer aspect-[16/10]">
-          <img src="assets/zhejiang-1.jpg" alt="LHU Powered by ASU" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent"></div>
+        <div onclick="openLightbox('assets/zhejiang-1.jpg', 'Đoàn sinh viên LHU giao lưu quốc tế trước backdrop LHU Powered by Arizona State University')" class="lg:col-span-6 relative h-64 sm:h-72 rounded-3xl overflow-hidden intl-card group cursor-pointer bg-slate-900">
+          <img src="assets/zhejiang-1.jpg" alt="LHU Powered by ASU" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
           <div class="absolute bottom-4 left-4 right-4 text-white">
             <span class="px-2.5 py-0.5 rounded bg-asu-gold text-slate-950 font-black text-[10px] uppercase">LHU POWERED BY ASU</span>
             <h3 class="font-display font-black text-base sm:text-lg mt-1">Kết nối học thuật chuẩn quốc tế cùng Arizona State University</h3>
@@ -1574,9 +1565,9 @@
         </div>
 
         <!-- Big Feature 2 (6 cols) -->
-        <div onclick="openLightbox('assets/pba-a5.jpg', 'Sinh viên LHU vươn tầm quốc tế: Dự án YOUR VOICE tỏa sáng tại World Governments Summit')" class="lg:col-span-6 relative rounded-3xl overflow-hidden intl-card group cursor-pointer aspect-[16/10]">
-          <img src="assets/pba-a5.jpg" alt="Dự án YOUR VOICE tại World Governments Summit" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent"></div>
+        <div onclick="openLightbox('assets/pba-a5.jpg', 'Sinh viên LHU vươn tầm quốc tế: Dự án YOUR VOICE tỏa sáng tại World Governments Summit')" class="lg:col-span-6 relative h-64 sm:h-72 rounded-3xl overflow-hidden intl-card group cursor-pointer bg-slate-900">
+          <img src="assets/pba-a5.jpg" alt="Dự án YOUR VOICE tại World Governments Summit" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
           <div class="absolute bottom-4 left-4 right-4 text-white">
             <span class="px-2.5 py-0.5 rounded bg-asu-maroon text-asu-gold font-black text-[10px] uppercase">WORLD GOVERNMENTS SUMMIT</span>
             <h3 class="font-display font-black text-base sm:text-lg mt-1">Bản lĩnh sinh viên LHU tự tin thuyết trình bằng tiếng Anh trên đấu trường thế giới</h3>
@@ -1584,52 +1575,52 @@
         </div>
 
         <!-- Row 2: 3 Medium Photos (4 cols each) -->
-        <div onclick="openLightbox('assets/zhejiang-2.jpg', 'Sinh viên Khoa CNTT LHU tại Sân bay Quốc tế chuẩn bị lên đường giao lưu văn hóa')" class="lg:col-span-4 relative rounded-2xl overflow-hidden intl-card group cursor-pointer aspect-[4/3]">
-          <img src="assets/zhejiang-2.jpg" alt="SV Khoa CNTT tại sân bay" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 to-transparent p-3.5 text-white">
+        <div onclick="openLightbox('assets/zhejiang-2.jpg', 'Sinh viên Khoa CNTT LHU tại Sân bay Quốc tế chuẩn bị lên đường giao lưu văn hóa')" class="lg:col-span-4 relative h-56 rounded-2xl overflow-hidden intl-card group cursor-pointer bg-slate-900">
+          <img src="assets/zhejiang-2.jpg" alt="SV Khoa CNTT tại sân bay" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-3.5 text-white">
             <p class="font-bold text-xs sm:text-sm">✈️ Sinh viên Khoa CNTT trên hành trình trao đổi văn hóa quốc tế</p>
           </div>
         </div>
 
-        <div onclick="openLightbox('assets/activity-4.jpg', 'Đông đảo sinh viên LHU hào hứng tham gia chuỗi chương trình ASU Master Class')" class="lg:col-span-4 relative rounded-2xl overflow-hidden intl-card group cursor-pointer aspect-[4/3]">
-          <img src="assets/activity-4.jpg" alt="Chuỗi ASU Master Class tại LHU" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 to-transparent p-3.5 text-white">
+        <div onclick="openLightbox('assets/activity-4.jpg', 'Đông đảo sinh viên LHU hào hứng tham gia chuỗi chương trình ASU Master Class')" class="lg:col-span-4 relative h-56 rounded-2xl overflow-hidden intl-card group cursor-pointer bg-slate-900">
+          <img src="assets/activity-4.jpg" alt="Chuỗi ASU Master Class tại LHU" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-3.5 text-white">
             <p class="font-bold text-xs sm:text-sm">🎓 Không khí học tập sôi nổi tại chuỗi chương trình ASU Master Class</p>
           </div>
         </div>
 
-        <div onclick="openLightbox('assets/activity-8.jpg', 'Tập thể lớp học gắn kết cùng Giảng viên trong chuỗi hoạt động CLB Tiếng Anh')" class="lg:col-span-4 relative rounded-2xl overflow-hidden intl-card group cursor-pointer aspect-[4/3]">
-          <img src="assets/activity-8.jpg" alt="Tập thể CLB Tiếng Anh gắn kết" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 to-transparent p-3.5 text-white">
+        <div onclick="openLightbox('assets/activity-8.jpg', 'Tập thể lớp học gắn kết cùng Giảng viên trong chuỗi hoạt động CLB Tiếng Anh')" class="lg:col-span-4 relative h-56 rounded-2xl overflow-hidden intl-card group cursor-pointer bg-slate-900">
+          <img src="assets/activity-8.jpg" alt="Tập thể CLB Tiếng Anh gắn kết" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-3.5 text-white">
             <p class="font-bold text-xs sm:text-sm">🤝 Môi trường thân thiện, cởi mở giúp sinh viên vượt qua nỗi sợ nói tiếng Anh</p>
           </div>
         </div>
 
         <!-- Row 3: 4 Compact Photos (3 cols each) -->
-        <div onclick="openLightbox('assets/activity-1.jpg', 'Giao lưu và chia sẻ quan điểm tại ASU Master Class')" class="lg:col-span-3 relative rounded-2xl overflow-hidden intl-card group cursor-pointer aspect-[4/3]">
-          <img src="assets/activity-1.jpg" alt="Giao lưu ASU Master Class" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 to-transparent p-3 text-white">
+        <div onclick="openLightbox('assets/activity-1.jpg', 'Giao lưu và chia sẻ quan điểm tại ASU Master Class')" class="lg:col-span-3 relative h-48 rounded-2xl overflow-hidden intl-card group cursor-pointer bg-slate-900">
+          <img src="assets/activity-1.jpg" alt="Giao lưu ASU Master Class" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-3 text-white">
             <p class="font-bold text-xs">🎙️ Tự tin chia sẻ quan điểm</p>
           </div>
         </div>
 
-        <div onclick="openLightbox('assets/activity-3.jpg', 'Hướng dẫn ứng dụng AI thông minh vào việc học ngoại ngữ')" class="lg:col-span-3 relative rounded-2xl overflow-hidden intl-card group cursor-pointer aspect-[4/3]">
-          <img src="assets/activity-3.jpg" alt="Ứng dụng AI học tiếng Anh" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 to-transparent p-3 text-white">
+        <div onclick="openLightbox('assets/activity-3.jpg', 'Hướng dẫn ứng dụng AI thông minh vào việc học ngoại ngữ')" class="lg:col-span-3 relative h-48 rounded-2xl overflow-hidden intl-card group cursor-pointer bg-slate-900">
+          <img src="assets/activity-3.jpg" alt="Ứng dụng AI học tiếng Anh" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-3 text-white">
             <p class="font-bold text-xs">🤖 Làm chủ công cụ AI tạo sinh</p>
           </div>
         </div>
 
-        <div onclick="openLightbox('assets/activity-7.jpg', 'Sinh viên tự tay thiết kế bản đồ Ikigai khám phá mục đích sống')" class="lg:col-span-3 relative rounded-2xl overflow-hidden intl-card group cursor-pointer aspect-[4/3]">
-          <img src="assets/activity-7.jpg" alt="Thiết kế Ikigai" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 to-transparent p-3 text-white">
+        <div onclick="openLightbox('assets/activity-7.jpg', 'Sinh viên tự tay thiết kế bản đồ Ikigai khám phá mục đích sống')" class="lg:col-span-3 relative h-48 rounded-2xl overflow-hidden intl-card group cursor-pointer bg-slate-900">
+          <img src="assets/activity-7.jpg" alt="Thiết kế Ikigai" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-3 text-white">
             <p class="font-bold text-xs">🌱 Khám phá mục đích sống Ikigai</p>
           </div>
         </div>
 
-        <div onclick="openLightbox('assets/activity-2.jpg', 'Vinh danh và trao phần thưởng cho các sinh viên xuất sắc')" class="lg:col-span-3 relative rounded-2xl overflow-hidden intl-card group cursor-pointer aspect-[4/3]">
-          <img src="assets/activity-2.jpg" alt="Trao thưởng sinh viên" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 to-transparent p-3 text-white">
+        <div onclick="openLightbox('assets/activity-2.jpg', 'Vinh danh và trao phần thưởng cho các sinh viên xuất sắc')" class="lg:col-span-3 relative h-48 rounded-2xl overflow-hidden intl-card group cursor-pointer bg-slate-900">
+          <img src="assets/activity-2.jpg" alt="Trao thưởng sinh viên" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-3 text-white">
             <p class="font-bold text-xs">🏆 Vinh danh &amp; Nhận giải thưởng</p>
           </div>
         </div>
@@ -1648,7 +1639,7 @@
         </div>
       </div>
       <div class="flex flex-wrap items-center gap-3 text-xs font-bold">
-        <a href="#lo-trinh-4-chu-de" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-asu-gold transition">
+        <a href="#chang-bay" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-asu-gold transition">
           📅 Xem Lịch Trình 4 Chủ Đề
         </a>
         <a href="#top" class="px-4 py-2 rounded-xl bg-asu-maroon text-asu-gold hover:bg-asu-maroonDark transition">
