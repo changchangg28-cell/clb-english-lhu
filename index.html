@@ -162,11 +162,11 @@
 
       <!-- Action Buttons -->
       <div class="flex items-center gap-2 shrink-0">
-        <a href="#chang-bay" class="hidden sm:inline-flex xl:hidden items-center gap-1 px-3 py-2 rounded-xl bg-slate-100 text-slate-900 font-bold text-xs border border-slate-300">
-          📅 4 Chủ đề
+        <a href="#cong-cu-nop-bai" class="hidden sm:inline-flex items-center gap-1 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-xs pill-btn whitespace-nowrap">
+          🛠️ Tạo tên file
         </a>
-        <a href="#cong-cu-nop-bai" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-asu-maroon hover:bg-asu-maroonDark text-asu-gold font-extrabold text-xs sm:text-sm pill-btn whitespace-nowrap">
-          <span>🎬 Nộp Video Dự Thi</span>
+        <a href="https://forms.gle/A2rCL66HG4RgdCj48" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-asu-maroon hover:bg-asu-maroonDark text-asu-gold font-extrabold text-xs sm:text-sm pill-btn whitespace-nowrap">
+          <span>🎬 Nộp Bài Thi (Form) ↗</span>
         </a>
       </div>
     </div>
@@ -240,12 +240,15 @@
 
           <!-- CTA Row -->
           <div class="flex flex-wrap items-center gap-3.5 pt-1">
-            <a href="#chang-bay" class="px-6 py-3.5 rounded-2xl bg-asu-gold hover:bg-amber-300 text-slate-950 font-black text-sm sm:text-base pill-btn flex items-center gap-2">
-              <span>🔥 Xem 4 Chủ đề &amp; Lịch nộp bài</span>
-              <span>→</span>
+            <a href="https://forms.gle/A2rCL66HG4RgdCj48" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-2xl bg-asu-gold hover:bg-amber-300 text-slate-950 font-black text-sm sm:text-base pill-btn flex items-center gap-2">
+              <span>🚀 Nộp Bài Thi Ngay (Google Form)</span>
+              <span>↗</span>
             </a>
-            <a href="#cong-cu-nop-bai" class="px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 font-bold text-sm sm:text-base transition flex items-center gap-2">
-              <span>🛠️ Tạo tên file chuẩn &amp; Check hợp lệ</span>
+            <a href="#chang-bay" class="px-5 py-3.5 rounded-2xl bg-asu-maroon hover:bg-asu-maroonDark text-white border-2 border-asu-gold/70 font-bold text-sm sm:text-base transition flex items-center gap-2">
+              <span>🔥 Xem 4 Chủ đề &amp; Lịch trình</span>
+            </a>
+            <a href="#cong-cu-nop-bai" class="px-4 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 font-bold text-xs sm:text-sm transition flex items-center gap-2">
+              <span>🛠️ Tạo tên file chuẩn</span>
             </a>
           </div>
         </div>
@@ -1460,8 +1463,13 @@
             </div>
 
             <!-- Required Google Form Fields Info -->
-            <div class="p-4 rounded-2xl bg-amber-50 border border-amber-300 text-xs text-slate-700 space-y-1">
-              <div class="font-extrabold text-slate-900">📝 Thông tin điền trên Google Form nộp bài:</div>
+            <div class="p-4 rounded-2xl bg-amber-50 border border-amber-300 text-xs text-slate-700 space-y-2">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="font-extrabold text-slate-900">📝 Thông tin điền trên Google Form nộp bài:</div>
+                <a href="https://forms.gle/A2rCL66HG4RgdCj48" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-asu-maroon text-asu-gold font-black text-xs hover:bg-asu-maroonDark transition">
+                  🔗 Mở Form: forms.gle/A2rCL66HG4RgdCj48 ↗
+                </a>
+              </div>
               <p>Họ tên • MSSV • Lớp • Email sinh viên (để nhận <strong>ASU Digital Badge</strong>) • Chủ đề • Tên video Master Class đã chọn • Link video (Google Drive hoặc YouTube).</p>
               <p class="text-[11px] text-slate-500 italic pt-1">
                 * Quyền sử dụng video: Khi nộp bài, thí sinh đồng ý để Khoa CNTT sử dụng video dự thi cho mục đích truyền thông của Khoa.
@@ -1523,12 +1531,16 @@
             <div id="checklistBanner" class="text-xs font-bold text-slate-600">
               👉 Hãy tích đủ 6 mục trên trước khi gửi Google Form!
             </div>
-            <button
+            <a
+              href="https://forms.gle/A2rCL66HG4RgdCj48"
+              target="_blank"
+              rel="noopener noreferrer"
               onclick="triggerReadyCelebration()"
-              class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-asu-maroon hover:bg-asu-maroonDark text-asu-gold font-black text-xs sm:text-sm pill-btn"
+              class="w-full sm:w-auto text-center px-5 py-3 rounded-2xl bg-asu-maroon hover:bg-asu-maroonDark text-asu-gold font-black text-xs sm:text-sm pill-btn inline-flex items-center justify-center gap-1.5"
             >
-              🚀 Sẵn sàng Nộp Bài qua Google Form
-            </button>
+              <span>🚀 Nộp Bài Ngay qua Google Form</span>
+              <span>↗</span>
+            </a>
           </div>
         </div>
       </div>
@@ -1639,6 +1651,9 @@
         </div>
       </div>
       <div class="flex flex-wrap items-center gap-3 text-xs font-bold">
+        <a href="https://forms.gle/A2rCL66HG4RgdCj48" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-asu-gold text-slate-950 hover:bg-amber-300 font-black transition">
+          🎬 Nộp Bài Thi (Google Form) ↗
+        </a>
         <a href="#chang-bay" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-asu-gold transition">
           📅 Xem Lịch Trình 4 Chủ Đề
         </a>
@@ -1800,7 +1815,6 @@
       if (typeof confetti === 'function') {
         confetti({ particleCount: 90, spread: 70, origin: { y: 0.6 } });
       }
-      alert('🎬 Hãy kiểm tra lại tên file chuẩn MSSV_HoTen_ChuDe và điền link Google Drive/YouTube (đã mở quyền "Bất kỳ ai có đường liên kết đều xem được") vào Google Form của CLB Tiếng Anh Khoa CNTT nhé!');
     }
   </script>
 </body>
